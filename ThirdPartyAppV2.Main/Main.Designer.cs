@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             toolStrip1 = new System.Windows.Forms.ToolStrip();
             toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             connectionSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,6 +60,8 @@
             statusStrip1 = new System.Windows.Forms.StatusStrip();
             toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             DateandTimeLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            toolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
             toolStrip1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             panel1.SuspendLayout();
@@ -280,7 +281,7 @@
             // 
             // statusStrip1
             // 
-            statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusLabel1, DateandTimeLabel });
+            statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusLabel2, toolStripStatusLabel3, toolStripStatusLabel1, DateandTimeLabel });
             statusStrip1.Location = new System.Drawing.Point(0, 609);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new System.Drawing.Size(1209, 22);
@@ -290,7 +291,7 @@
             // toolStripStatusLabel1
             // 
             toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new System.Drawing.Size(1059, 17);
+            toolStripStatusLabel1.Size = new System.Drawing.Size(821, 17);
             toolStripStatusLabel1.Spring = true;
             // 
             // DateandTimeLabel
@@ -299,6 +300,18 @@
             DateandTimeLabel.Name = "DateandTimeLabel";
             DateandTimeLabel.Size = new System.Drawing.Size(135, 17);
             DateandTimeLabel.Text = "toolStripStatusLabel2";
+            // 
+            // toolStripStatusLabel2
+            // 
+            toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            toolStripStatusLabel2.Size = new System.Drawing.Size(119, 17);
+            toolStripStatusLabel2.Text = "toolStripStatusLabel2";
+            // 
+            // toolStripStatusLabel3
+            // 
+            toolStripStatusLabel3.Name = "toolStripStatusLabel3";
+            toolStripStatusLabel3.Size = new System.Drawing.Size(119, 17);
+            toolStripStatusLabel3.Text = "toolStripStatusLabel3";
             // 
             // Main
             // 
@@ -309,7 +322,6 @@
             Controls.Add(panel1);
             Controls.Add(statusStrip1);
             Controls.Add(toolStrip1);
-            Icon = (System.Drawing.Icon)resources.GetObject("$this.Icon");
             Name = "Main";
             Text = "Form1";
             toolStrip1.ResumeLayout(false);
@@ -355,6 +367,8 @@
         private System.Windows.Forms.ToolStripMenuItem dischargeInstructionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton Search_Btn;
         private System.Windows.Forms.Button ERToAD_Btn;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel3;
     }
 }
 

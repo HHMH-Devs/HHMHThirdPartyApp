@@ -1,12 +1,6 @@
-﻿using MySql.Data.MySqlClient;
-using PostSharp.Patterns.Diagnostics;
-using System;
-using System.Collections.Generic;
+﻿using PostSharp.Patterns.Diagnostics;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ThirdPartyAppV2.Common.DBConnections.Helper.Security;
 
 namespace ThirdPartyAppV2.Common.DBConnections.Helper
@@ -41,7 +35,7 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper
             {
                 logSource.Error.Write(FormattedMessageBuilder.Formatted("An error occured. {Message}", ex.Message));
                 return false;
-            }           
+            }
         }
 
         public void Db_ConnOpen()
@@ -74,9 +68,9 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper
 
             using (var da = new SqlDataAdapter(query, Con))
             {
-               da.Fill(ds, srcTbl);
+                da.Fill(ds, srcTbl);
             }
-            
+
             return ds;
         }
     }

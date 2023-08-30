@@ -120,6 +120,9 @@
     <Compile Include="DBConnections\Helper\Security\EncryptConnString.cs" />
     <Compile Include="Logging\NlogConfiguration.cs" />
     <Compile Include="Modules\Main\LoadData.cs" />
+    <Compile Include="Modules\Main\Patch\SystemPatch.cs" />
+    <Compile Include="Modules\Main\Patch\Versions\PatchFunctions.cs" />
+    <Compile Include="Modules\Main\Patch\Versions\Version1.cs" />
     <Compile Include="Modules\NPSPerformance\NPSCounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

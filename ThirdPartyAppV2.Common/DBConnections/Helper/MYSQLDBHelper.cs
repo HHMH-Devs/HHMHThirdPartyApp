@@ -56,6 +56,23 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper
             }
         }
 
+        public int SqlCommand(string command)
+        {
+            try
+            {
+                var cmd = new MySqlCommand(command, Con)
+                {
+                    CommandType = CommandType.Text
+                };
+               return cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                logSource.Error.Write(FormattedMessageBuilder.Formatted("An error occured. {Message}", ex.Message));
+                return 0;
+            }
+        }
+
         public MySqlDataReader DataReader(string sqlquery)
         {
             var cmd = new MySqlCommand(sqlquery, Con);
@@ -102,7 +119,7 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper
                     {
                         mySql += " LIMIT 1;";
                         logSource.Info.Write(FormattedMessageBuilder.Formatted("ModifySQL: {mySql}", mySql));
-                    }                  
+                    }
                     using (var da = new MySqlDataAdapter(mySql, Con))
                     {
                         var cb = new MySqlCommandBuilder(da)
