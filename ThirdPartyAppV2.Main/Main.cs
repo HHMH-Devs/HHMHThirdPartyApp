@@ -1,16 +1,20 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 using ThirdPartyAppV2.Common.Modules.Main;
 using ThirdPartyAppV2.Main.Forms.DBConnectionConfig;
 using ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary;
+using ThirdPartyAppV2.Main.Reports;
 
 namespace ThirdPartyAppV2.Main
 {
     public partial class Main : Form
     {
+        private int elapsedTime = 100;
         private readonly LoadData data = new LoadData();
         public Main()
         {
@@ -63,9 +67,61 @@ namespace ThirdPartyAppV2.Main
             AdmittedPatienstListView.EndUpdate();
         }
 
+        private void LoadAverageTurnArroundTime()
+        {
+            var dischargeProcDateList = new List<TimeSpan>();
+
+            var startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            var endDate = startDate.AddMonths(1).AddSeconds(-1);
+            var startDateString = $"{startDate:yyyy-MM-dd} 00:00:00";
+            var endDateString = $"{endDate:yyyy-MM-dd} 23:59:59";
+            var DPDS = data.LoadNPSAverageDischarge(startDateString, endDateString);
+
+            if (DPDS != null)
+            {
+                foreach (DataRow d in DPDS.Tables[0].Rows)
+                {
+                    dischargeProcDateList.Add(Convert.ToDateTime(d["MDStartDateTime"]).Subtract(Convert.ToDateTime(d["MDEndDateTime"])));
+                    dischargeProcDateList.Add(Convert.ToDateTime(d["BSStartDateTime"]).Subtract(Convert.ToDateTime(d["BSEndDateTime"])));
+                    dischargeProcDateList.Add(Convert.ToDateTime(d["BGStartDateTime"]).Subtract(Convert.ToDateTime(d["BGEndDateTime"])));
+                    dischargeProcDateList.Add(Convert.ToDateTime(d["BPStartDateTime"]).Subtract(Convert.ToDateTime(d["BPEndDateTime"])));
+                    dischargeProcDateList.Add(Convert.ToDateTime(d["DIDStartDateTime"]).Subtract(Convert.ToDateTime(d["DIDEndDateTime"])));
+                    dischargeProcDateList.Add(Convert.ToDateTime(d["PatExitStartDateTime"]).Subtract(Convert.ToDateTime(d["PatExitEndDateTime"])));
+                }
+
+                var dischProcAverage = dischargeProcDateList.Average(timeSpan => timeSpan.TotalSeconds);
+                DPATAT_Label.Text = TimeSpan.FromSeconds(dischProcAverage).ToString("hh':'mm':'ss");
+            }
+
+            var ErToAdmissionDateList = new List<TimeSpan>();
+
+            var ATA = data.LoadNPSAverageErToAdmission(startDateString, endDateString);
+
+            if (ATA != null)
+            {
+                foreach (DataRow d in ATA.Tables[0].Rows)
+                {
+                    ErToAdmissionDateList.Add(Convert.ToDateTime(d["DToTStartDateTime"]).Subtract(Convert.ToDateTime(d["DToTEndDateTime"])));
+                    ErToAdmissionDateList.Add(Convert.ToDateTime(d["TriToRegStartDateTime"]).Subtract(Convert.ToDateTime(d["TriToRegEndDateTime"])));
+                    ErToAdmissionDateList.Add(Convert.ToDateTime(d["RegToDocStartDateTime"]).Subtract(Convert.ToDateTime(d["RegToDocEndDateTime"])));
+                    ErToAdmissionDateList.Add(Convert.ToDateTime(d["DocOrderStartDateTime"]).Subtract(Convert.ToDateTime(d["DocOrderEndDateTime"])));
+                    ErToAdmissionDateList.Add(Convert.ToDateTime(d["ReadyToTransStartDateTime"]).Subtract(Convert.ToDateTime(d["ReadyToTransEndDateTime"])));
+                    ErToAdmissionDateList.Add(Convert.ToDateTime(d["TransToRoomStartDateTime"]).Subtract(Convert.ToDateTime(d["TransToRoomEndDateTime"])));
+                }
+
+                var ERAdmissionAverage = ErToAdmissionDateList.Average(timeSpan => timeSpan.TotalSeconds);
+                ETAATAT_Label.Text = TimeSpan.FromSeconds(ERAdmissionAverage).ToString("hh':'mm':'ss");
+            }
+        }
+
         private void Timer_Tick(object sender, EventArgs e)
         {
             DateandTimeLabel.Text = DateTime.Now.ToString("F");
+            elapsedTime += 1;
+            if (elapsedTime <= 100)
+            {
+                LoadAverageTurnArroundTime();
+            }
         }
 
         private void ConnectionSettingsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -114,6 +170,17 @@ namespace ThirdPartyAppV2.Main
             }
 
             Counter.ShowDialog();
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            LoadAverageTurnArroundTime();
+        }
+
+        private void NPSReport_Btn_Click(object sender, EventArgs e)
+        {
+            var rpt = new RptViewerCommon();
+            rpt.ShowDialog();
         }
     }
 }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             groupBox2 = new System.Windows.Forms.GroupBox();
+            AverageTime_Label = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             ERToAdmissionTotalET_Label = new System.Windows.Forms.Label();
             label40 = new System.Windows.Forms.Label();
             TransToRoomLabel_Lbl = new System.Windows.Forms.Label();
@@ -77,13 +79,26 @@
             label41 = new System.Windows.Forms.Label();
             Done_Btn = new System.Windows.Forms.Button();
             Cancel_Btn = new System.Windows.Forms.Button();
-            label1 = new System.Windows.Forms.Label();
-            AverageTime_Label = new System.Windows.Forms.Label();
+            pictureBox5 = new System.Windows.Forms.PictureBox();
+            pictureBox4 = new System.Windows.Forms.PictureBox();
+            pictureBox3 = new System.Windows.Forms.PictureBox();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
             groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(pictureBox5);
+            groupBox2.Controls.Add(pictureBox4);
+            groupBox2.Controls.Add(pictureBox3);
+            groupBox2.Controls.Add(pictureBox2);
+            groupBox2.Controls.Add(pictureBox1);
             groupBox2.Controls.Add(AverageTime_Label);
             groupBox2.Controls.Add(label1);
             groupBox2.Controls.Add(ERToAdmissionTotalET_Label);
@@ -132,10 +147,30 @@
             groupBox2.Controls.Add(DToTLabel_Lbl);
             groupBox2.Location = new System.Drawing.Point(9, 12);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new System.Drawing.Size(636, 485);
+            groupBox2.Size = new System.Drawing.Size(680, 485);
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "ER to Admission";
+            // 
+            // AverageTime_Label
+            // 
+            AverageTime_Label.AutoSize = true;
+            AverageTime_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 0);
+            AverageTime_Label.Location = new System.Drawing.Point(321, 462);
+            AverageTime_Label.Name = "AverageTime_Label";
+            AverageTime_Label.Size = new System.Drawing.Size(190, 13);
+            AverageTime_Label.TabIndex = 67;
+            AverageTime_Label.Text = "0 hr(s), 0 min(s) and 0 second(s)";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 0);
+            label1.Location = new System.Drawing.Point(321, 440);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(89, 13);
+            label1.TabIndex = 66;
+            label1.Text = "Average Time:";
             // 
             // ERToAdmissionTotalET_Label
             // 
@@ -204,6 +239,7 @@
             RegToDctrsOderEndDate_Text.Name = "RegToDctrsOderEndDate_Text";
             RegToDctrsOderEndDate_Text.Size = new System.Drawing.Size(277, 20);
             RegToDctrsOderEndDate_Text.TabIndex = 59;
+            RegToDctrsOderEndDate_Text.TextChanged += RegToDctrsOderEndDate_Text_TextChanged;
             // 
             // label22
             // 
@@ -231,6 +267,7 @@
             RegToDctrsOderStartDate_Text.Name = "RegToDctrsOderStartDate_Text";
             RegToDctrsOderStartDate_Text.Size = new System.Drawing.Size(277, 20);
             RegToDctrsOderStartDate_Text.TabIndex = 56;
+            RegToDctrsOderStartDate_Text.TextChanged += RegToDctrsOderStartDate_Text_TextChanged;
             // 
             // label23
             // 
@@ -268,6 +305,7 @@
             TriageToRegEndDate_Text.Name = "TriageToRegEndDate_Text";
             TriageToRegEndDate_Text.Size = new System.Drawing.Size(277, 20);
             TriageToRegEndDate_Text.TabIndex = 52;
+            TriageToRegEndDate_Text.TextChanged += TriageToRegEndDate_Text_TextChanged;
             // 
             // label25
             // 
@@ -295,6 +333,7 @@
             TriageToRegStartDate_Text.Name = "TriageToRegStartDate_Text";
             TriageToRegStartDate_Text.Size = new System.Drawing.Size(277, 20);
             TriageToRegStartDate_Text.TabIndex = 49;
+            TriageToRegStartDate_Text.TextChanged += TriageToRegStartDate_Text_TextChanged;
             // 
             // TransferToRoomEndDate_Btn
             // 
@@ -343,6 +382,7 @@
             TransferToRoomEndDate_Text.Name = "TransferToRoomEndDate_Text";
             TransferToRoomEndDate_Text.Size = new System.Drawing.Size(277, 20);
             TransferToRoomEndDate_Text.TabIndex = 39;
+            TransferToRoomEndDate_Text.TextChanged += TransferToRoomEndDate_Text_TextChanged;
             // 
             // DctrsOrderCarryOutEndDate_Btn
             // 
@@ -361,6 +401,7 @@
             ReadyToTransferEndDate_Text.Name = "ReadyToTransferEndDate_Text";
             ReadyToTransferEndDate_Text.Size = new System.Drawing.Size(277, 20);
             ReadyToTransferEndDate_Text.TabIndex = 40;
+            ReadyToTransferEndDate_Text.TextChanged += ReadyToTransferEndDate_Text_TextChanged;
             // 
             // DoorToTriageEndDate_Btn
             // 
@@ -388,6 +429,7 @@
             DctrsOrderCarryOutEndDate_Text.Name = "DctrsOrderCarryOutEndDate_Text";
             DctrsOrderCarryOutEndDate_Text.Size = new System.Drawing.Size(277, 20);
             DctrsOrderCarryOutEndDate_Text.TabIndex = 41;
+            DctrsOrderCarryOutEndDate_Text.TextChanged += DctrsOrderCarryOutEndDate_Text_TextChanged;
             // 
             // label29
             // 
@@ -404,6 +446,7 @@
             DoorToTriageEndDate_Text.Name = "DoorToTriageEndDate_Text";
             DoorToTriageEndDate_Text.Size = new System.Drawing.Size(277, 20);
             DoorToTriageEndDate_Text.TabIndex = 42;
+            DoorToTriageEndDate_Text.TextChanged += DoorToTriageEndDate_Text_TextChanged;
             // 
             // TransferToRoomStartDate_Btn
             // 
@@ -451,6 +494,7 @@
             TransferToRoomStartDate_Text.Name = "TransferToRoomStartDate_Text";
             TransferToRoomStartDate_Text.Size = new System.Drawing.Size(277, 20);
             TransferToRoomStartDate_Text.TabIndex = 27;
+            TransferToRoomStartDate_Text.TextChanged += TransferToRoomStartDate_Text_TextChanged;
             // 
             // DctrsOrderCarryOutStartDate_Btn
             // 
@@ -469,6 +513,7 @@
             ReadyToTransferStartDate_Text.Name = "ReadyToTransferStartDate_Text";
             ReadyToTransferStartDate_Text.Size = new System.Drawing.Size(277, 20);
             ReadyToTransferStartDate_Text.TabIndex = 28;
+            ReadyToTransferStartDate_Text.TextChanged += ReadyToTransferStartDate_Text_TextChanged;
             // 
             // DoorToTriageStartDate_Btn
             // 
@@ -496,6 +541,7 @@
             DctrsOrderCarryOutStartDate_Text.Name = "DctrsOrderCarryOutStartDate_Text";
             DctrsOrderCarryOutStartDate_Text.Size = new System.Drawing.Size(277, 20);
             DctrsOrderCarryOutStartDate_Text.TabIndex = 30;
+            DctrsOrderCarryOutStartDate_Text.TextChanged += DctrsOrderCarryOutStartDate_Text_TextChanged;
             // 
             // label33
             // 
@@ -512,6 +558,7 @@
             DoorToTriageStartDate_Text.Name = "DoorToTriageStartDate_Text";
             DoorToTriageStartDate_Text.Size = new System.Drawing.Size(277, 20);
             DoorToTriageStartDate_Text.TabIndex = 29;
+            DoorToTriageStartDate_Text.TextChanged += DoorToTriageStartDate_Text_TextChanged;
             // 
             // label34
             // 
@@ -562,9 +609,9 @@
             // 
             // Done_Btn
             // 
-            Done_Btn.Location = new System.Drawing.Point(489, 503);
+            Done_Btn.Location = new System.Drawing.Point(533, 503);
             Done_Btn.Name = "Done_Btn";
-            Done_Btn.Size = new System.Drawing.Size(75, 22);
+            Done_Btn.Size = new System.Drawing.Size(75, 31);
             Done_Btn.TabIndex = 7;
             Done_Btn.Text = "&Done";
             Done_Btn.UseVisualStyleBackColor = true;
@@ -572,33 +619,63 @@
             // 
             // Cancel_Btn
             // 
-            Cancel_Btn.Location = new System.Drawing.Point(570, 503);
+            Cancel_Btn.Location = new System.Drawing.Point(614, 503);
             Cancel_Btn.Name = "Cancel_Btn";
-            Cancel_Btn.Size = new System.Drawing.Size(75, 22);
+            Cancel_Btn.Size = new System.Drawing.Size(75, 31);
             Cancel_Btn.TabIndex = 6;
             Cancel_Btn.Text = "&Cancel";
             Cancel_Btn.UseVisualStyleBackColor = true;
             Cancel_Btn.Click += Cancel_Btn_Click;
             // 
-            // label1
+            // pictureBox5
             // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 0);
-            label1.Location = new System.Drawing.Point(321, 440);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(89, 13);
-            label1.TabIndex = 66;
-            label1.Text = "Average Time:";
+            pictureBox5.Image = Properties.Resources.Down;
+            pictureBox5.Location = new System.Drawing.Point(635, 359);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new System.Drawing.Size(38, 49);
+            pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 74;
+            pictureBox5.TabStop = false;
             // 
-            // AverageTime_Label
+            // pictureBox4
             // 
-            AverageTime_Label.AutoSize = true;
-            AverageTime_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 0);
-            AverageTime_Label.Location = new System.Drawing.Point(321, 462);
-            AverageTime_Label.Name = "AverageTime_Label";
-            AverageTime_Label.Size = new System.Drawing.Size(190, 13);
-            AverageTime_Label.TabIndex = 67;
-            AverageTime_Label.Text = "0 hr(s), 0 min(s) and 0 second(s)";
+            pictureBox4.Image = Properties.Resources.Down;
+            pictureBox4.Location = new System.Drawing.Point(635, 288);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new System.Drawing.Size(38, 49);
+            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 75;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.Down;
+            pictureBox3.Location = new System.Drawing.Point(635, 217);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(38, 49);
+            pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 73;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.Down;
+            pictureBox2.Location = new System.Drawing.Point(635, 146);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(38, 49);
+            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 71;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.Down;
+            pictureBox1.Location = new System.Drawing.Point(635, 75);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(38, 49);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 72;
+            pictureBox1.TabStop = false;
             // 
             // ERToAdmissionCounter
             // 
@@ -606,7 +683,7 @@
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             CancelButton = Cancel_Btn;
-            ClientSize = new System.Drawing.Size(654, 532);
+            ClientSize = new System.Drawing.Size(698, 541);
             Controls.Add(PatientName_Lbl);
             Controls.Add(label41);
             Controls.Add(Done_Btn);
@@ -619,6 +696,11 @@
             Load += ERToAdmissionCounter_Load;
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -676,5 +758,10 @@
         private System.Windows.Forms.Button Cancel_Btn;
         private System.Windows.Forms.Label AverageTime_Label;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

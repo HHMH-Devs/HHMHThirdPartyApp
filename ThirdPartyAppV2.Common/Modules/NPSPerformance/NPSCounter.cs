@@ -3,7 +3,6 @@ using System;
 using System.Data;
 using ThirdPartyAppV2.Common.DBConnections.DB;
 using ThirdPartyAppV2.Common.DBConnections.Helper;
-using ThirdPartyAppV2.Common.DBConnections.Helper.Security;
 
 namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
 {
@@ -17,10 +16,9 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
             logSource = LogSource.Get();
         }
 
-        public string InPatientMGH(string id)
+        public DataSet InPatientMGH(string id)
         {
             var sql = string.Empty;
-            var mghDate = string.Empty;
             try
             {
                 sql = $"select * from psPatRegisters where PK_psPatRegisters = {id};";
@@ -30,11 +28,7 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
                 helper.Db_ConnOpen();
                 var data = helper.LoadSQL(sql);
                 helper.Db_ConnClose();
-                foreach (DataRow item in data.Tables[0].Rows)
-                {
-                    mghDate = item["mghdatetime"].ToString();
-                }
-                return mghDate;
+                return data;
             }
             catch (Exception ex)
             {

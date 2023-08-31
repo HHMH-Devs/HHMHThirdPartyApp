@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             groupBox1 = new System.Windows.Forms.GroupBox();
+            AverageTime_Label = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
             DischargeProcOverAllET_Lbl = new System.Windows.Forms.Label();
             label37 = new System.Windows.Forms.Label();
             PELabel_Lbl = new System.Windows.Forms.Label();
@@ -77,13 +79,26 @@
             Done_Btn = new System.Windows.Forms.Button();
             label41 = new System.Windows.Forms.Label();
             PatientName_Lbl = new System.Windows.Forms.Label();
-            AverageTime_Label = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            pictureBox3 = new System.Windows.Forms.PictureBox();
+            pictureBox4 = new System.Windows.Forms.PictureBox();
+            pictureBox5 = new System.Windows.Forms.PictureBox();
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(pictureBox5);
+            groupBox1.Controls.Add(pictureBox4);
+            groupBox1.Controls.Add(pictureBox3);
+            groupBox1.Controls.Add(pictureBox2);
+            groupBox1.Controls.Add(pictureBox1);
             groupBox1.Controls.Add(AverageTime_Label);
             groupBox1.Controls.Add(label1);
             groupBox1.Controls.Add(DischargeProcOverAllET_Lbl);
@@ -132,10 +147,30 @@
             groupBox1.Controls.Add(MDLabel_Label);
             groupBox1.Location = new System.Drawing.Point(9, 12);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new System.Drawing.Size(637, 498);
+            groupBox1.Size = new System.Drawing.Size(690, 498);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Discharge Process";
+            // 
+            // AverageTime_Label
+            // 
+            AverageTime_Label.AutoSize = true;
+            AverageTime_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 0);
+            AverageTime_Label.Location = new System.Drawing.Point(321, 477);
+            AverageTime_Label.Name = "AverageTime_Label";
+            AverageTime_Label.Size = new System.Drawing.Size(190, 13);
+            AverageTime_Label.TabIndex = 69;
+            AverageTime_Label.Text = "0 hr(s), 0 min(s) and 0 second(s)";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 0);
+            label1.Location = new System.Drawing.Point(321, 455);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(89, 13);
+            label1.TabIndex = 68;
+            label1.Text = "Average Time:";
             // 
             // DischargeProcOverAllET_Lbl
             // 
@@ -194,6 +229,7 @@
             BGEndDate_Btn.Name = "BGEndDate_Btn";
             BGEndDate_Btn.Size = new System.Drawing.Size(25, 25);
             BGEndDate_Btn.TabIndex = 20;
+            BGEndDate_Btn.Tag = "BGEndDate_Text";
             BGEndDate_Btn.UseVisualStyleBackColor = true;
             BGEndDate_Btn.Click += BGEndDate_Btn_Click;
             // 
@@ -203,6 +239,7 @@
             BGEndDate_Text.Name = "BGEndDate_Text";
             BGEndDate_Text.Size = new System.Drawing.Size(277, 20);
             BGEndDate_Text.TabIndex = 19;
+            BGEndDate_Text.TextChanged += BGEndDate_Text_TextChanged;
             // 
             // label8
             // 
@@ -220,6 +257,7 @@
             BGStartDate_Btn.Name = "BGStartDate_Btn";
             BGStartDate_Btn.Size = new System.Drawing.Size(25, 25);
             BGStartDate_Btn.TabIndex = 17;
+            BGStartDate_Btn.Tag = "BGStartDate_Text";
             BGStartDate_Btn.UseVisualStyleBackColor = true;
             BGStartDate_Btn.Click += BGStartDate_Btn_Click;
             // 
@@ -229,6 +267,7 @@
             BGStartDate_Text.Name = "BGStartDate_Text";
             BGStartDate_Text.Size = new System.Drawing.Size(277, 20);
             BGStartDate_Text.TabIndex = 16;
+            BGStartDate_Text.TextChanged += BGStartDate_Text_TextChanged;
             // 
             // label9
             // 
@@ -256,6 +295,7 @@
             SetBillSendingEndTime_Btn.Name = "SetBillSendingEndTime_Btn";
             SetBillSendingEndTime_Btn.Size = new System.Drawing.Size(25, 25);
             SetBillSendingEndTime_Btn.TabIndex = 13;
+            SetBillSendingEndTime_Btn.Tag = "BillSendingEndDateTime_Text";
             SetBillSendingEndTime_Btn.UseVisualStyleBackColor = true;
             SetBillSendingEndTime_Btn.Click += SetBillSendingEndTime_Btn_Click;
             // 
@@ -265,6 +305,7 @@
             BillSendingEndDateTime_Text.Name = "BillSendingEndDateTime_Text";
             BillSendingEndDateTime_Text.Size = new System.Drawing.Size(277, 20);
             BillSendingEndDateTime_Text.TabIndex = 12;
+            BillSendingEndDateTime_Text.TextChanged += BillSendingEndDateTime_Text_TextChanged;
             // 
             // label5
             // 
@@ -282,6 +323,7 @@
             SetBillSendingStartTime_Btn.Name = "SetBillSendingStartTime_Btn";
             SetBillSendingStartTime_Btn.Size = new System.Drawing.Size(25, 25);
             SetBillSendingStartTime_Btn.TabIndex = 10;
+            SetBillSendingStartTime_Btn.Tag = "BillSendingStartDateTime_Text";
             SetBillSendingStartTime_Btn.UseVisualStyleBackColor = true;
             SetBillSendingStartTime_Btn.Click += SetBillSendingStartTime_Btn_Click;
             // 
@@ -291,6 +333,7 @@
             BillSendingStartDateTime_Text.Name = "BillSendingStartDateTime_Text";
             BillSendingStartDateTime_Text.Size = new System.Drawing.Size(277, 20);
             BillSendingStartDateTime_Text.TabIndex = 9;
+            BillSendingStartDateTime_Text.TextChanged += BillSendingStartDateTime_Text_TextChanged;
             // 
             // PEEndDate_Btn
             // 
@@ -299,6 +342,7 @@
             PEEndDate_Btn.Name = "PEEndDate_Btn";
             PEEndDate_Btn.Size = new System.Drawing.Size(25, 25);
             PEEndDate_Btn.TabIndex = 6;
+            PEEndDate_Btn.Tag = "PEEndDate_Text";
             PEEndDate_Btn.UseVisualStyleBackColor = true;
             PEEndDate_Btn.Click += PEEndDate_Btn_Click;
             // 
@@ -318,6 +362,7 @@
             DIDEndDate_Btn.Name = "DIDEndDate_Btn";
             DIDEndDate_Btn.Size = new System.Drawing.Size(25, 25);
             DIDEndDate_Btn.TabIndex = 6;
+            DIDEndDate_Btn.Tag = "DIDEndDate_Text";
             DIDEndDate_Btn.UseVisualStyleBackColor = true;
             DIDEndDate_Btn.Click += DIDEndDate_Btn_Click;
             // 
@@ -337,6 +382,7 @@
             PEEndDate_Text.Name = "PEEndDate_Text";
             PEEndDate_Text.Size = new System.Drawing.Size(277, 20);
             PEEndDate_Text.TabIndex = 5;
+            PEEndDate_Text.TextChanged += PEEndDate_Text_TextChanged;
             // 
             // BPEndDate_Btn
             // 
@@ -345,6 +391,7 @@
             BPEndDate_Btn.Name = "BPEndDate_Btn";
             BPEndDate_Btn.Size = new System.Drawing.Size(25, 25);
             BPEndDate_Btn.TabIndex = 6;
+            BPEndDate_Btn.Tag = "BPEndDate_Text";
             BPEndDate_Btn.UseVisualStyleBackColor = true;
             BPEndDate_Btn.Click += BPEndDate_Btn_Click;
             // 
@@ -354,6 +401,7 @@
             DIDEndDate_Text.Name = "DIDEndDate_Text";
             DIDEndDate_Text.Size = new System.Drawing.Size(277, 20);
             DIDEndDate_Text.TabIndex = 5;
+            DIDEndDate_Text.TextChanged += DIDEndDate_Text_TextChanged;
             // 
             // MDSetEndDate_Btn
             // 
@@ -362,6 +410,7 @@
             MDSetEndDate_Btn.Name = "MDSetEndDate_Btn";
             MDSetEndDate_Btn.Size = new System.Drawing.Size(25, 25);
             MDSetEndDate_Btn.TabIndex = 6;
+            MDSetEndDate_Btn.Tag = "MDEndDate_Text";
             MDSetEndDate_Btn.UseVisualStyleBackColor = true;
             MDSetEndDate_Btn.Click += MDSetEndDate_Btn_Click;
             // 
@@ -380,6 +429,7 @@
             BPEndDate_Text.Name = "BPEndDate_Text";
             BPEndDate_Text.Size = new System.Drawing.Size(277, 20);
             BPEndDate_Text.TabIndex = 5;
+            BPEndDate_Text.TextChanged += BPEndDate_Text_TextChanged;
             // 
             // label14
             // 
@@ -396,6 +446,7 @@
             MDEndDate_Text.Name = "MDEndDate_Text";
             MDEndDate_Text.Size = new System.Drawing.Size(277, 20);
             MDEndDate_Text.TabIndex = 5;
+            MDEndDate_Text.TextChanged += MDEndDate_Text_TextChanged;
             // 
             // PEStartDate_Btn
             // 
@@ -404,6 +455,7 @@
             PEStartDate_Btn.Name = "PEStartDate_Btn";
             PEStartDate_Btn.Size = new System.Drawing.Size(25, 25);
             PEStartDate_Btn.TabIndex = 3;
+            PEStartDate_Btn.Tag = "PEStartDate_Text";
             PEStartDate_Btn.UseVisualStyleBackColor = true;
             PEStartDate_Btn.Click += PEStartDate_Btn_Click;
             // 
@@ -423,6 +475,7 @@
             DIDStartDate_Btn.Name = "DIDStartDate_Btn";
             DIDStartDate_Btn.Size = new System.Drawing.Size(25, 25);
             DIDStartDate_Btn.TabIndex = 3;
+            DIDStartDate_Btn.Tag = "DIDStartDate_Text";
             DIDStartDate_Btn.UseVisualStyleBackColor = true;
             DIDStartDate_Btn.Click += DIDStartDate_Btn_Click;
             // 
@@ -441,6 +494,7 @@
             PEStartDate_Text.Name = "PEStartDate_Text";
             PEStartDate_Text.Size = new System.Drawing.Size(277, 20);
             PEStartDate_Text.TabIndex = 2;
+            PEStartDate_Text.TextChanged += PEStartDate_Text_TextChanged;
             // 
             // BPStartDate_Btn
             // 
@@ -449,6 +503,7 @@
             BPStartDate_Btn.Name = "BPStartDate_Btn";
             BPStartDate_Btn.Size = new System.Drawing.Size(25, 25);
             BPStartDate_Btn.TabIndex = 3;
+            BPStartDate_Btn.Tag = "BPStartDate_Text";
             BPStartDate_Btn.UseVisualStyleBackColor = true;
             BPStartDate_Btn.Click += BPStartDate_Btn_Click;
             // 
@@ -458,6 +513,7 @@
             DIDStartDate_Text.Name = "DIDStartDate_Text";
             DIDStartDate_Text.Size = new System.Drawing.Size(277, 20);
             DIDStartDate_Text.TabIndex = 2;
+            DIDStartDate_Text.TextChanged += DIDStartDate_Text_TextChanged;
             // 
             // MDSetStartDate_Btn
             // 
@@ -466,6 +522,7 @@
             MDSetStartDate_Btn.Name = "MDSetStartDate_Btn";
             MDSetStartDate_Btn.Size = new System.Drawing.Size(25, 25);
             MDSetStartDate_Btn.TabIndex = 3;
+            MDSetStartDate_Btn.Tag = "MDStartDate_Text";
             MDSetStartDate_Btn.UseVisualStyleBackColor = true;
             MDSetStartDate_Btn.Click += MDSetStartDate_Btn_Click;
             // 
@@ -484,6 +541,7 @@
             BPStartDate_Text.Name = "BPStartDate_Text";
             BPStartDate_Text.Size = new System.Drawing.Size(277, 20);
             BPStartDate_Text.TabIndex = 2;
+            BPStartDate_Text.TextChanged += BPStartDate_Text_TextChanged;
             // 
             // label13
             // 
@@ -500,6 +558,7 @@
             MDStartDate_Text.Name = "MDStartDate_Text";
             MDStartDate_Text.Size = new System.Drawing.Size(277, 20);
             MDStartDate_Text.TabIndex = 2;
+            MDStartDate_Text.TextChanged += MDStartDate_Text_TextChanged;
             // 
             // label10
             // 
@@ -531,7 +590,7 @@
             // 
             // Cancel_Btn
             // 
-            Cancel_Btn.Location = new System.Drawing.Point(571, 516);
+            Cancel_Btn.Location = new System.Drawing.Point(624, 516);
             Cancel_Btn.Name = "Cancel_Btn";
             Cancel_Btn.Size = new System.Drawing.Size(75, 31);
             Cancel_Btn.TabIndex = 2;
@@ -540,7 +599,7 @@
             // 
             // Done_Btn
             // 
-            Done_Btn.Location = new System.Drawing.Point(490, 516);
+            Done_Btn.Location = new System.Drawing.Point(543, 516);
             Done_Btn.Name = "Done_Btn";
             Done_Btn.Size = new System.Drawing.Size(75, 31);
             Done_Btn.TabIndex = 3;
@@ -567,25 +626,55 @@
             PatientName_Lbl.TabIndex = 5;
             PatientName_Lbl.Text = "Dela Cruz, Juan Morales Jr.";
             // 
-            // AverageTime_Label
+            // pictureBox1
             // 
-            AverageTime_Label.AutoSize = true;
-            AverageTime_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 0);
-            AverageTime_Label.Location = new System.Drawing.Point(321, 477);
-            AverageTime_Label.Name = "AverageTime_Label";
-            AverageTime_Label.Size = new System.Drawing.Size(190, 13);
-            AverageTime_Label.TabIndex = 69;
-            AverageTime_Label.Text = "0 hr(s), 0 min(s) and 0 second(s)";
+            pictureBox1.Image = Properties.Resources.Down;
+            pictureBox1.Location = new System.Drawing.Point(635, 75);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(38, 49);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 70;
+            pictureBox1.TabStop = false;
             // 
-            // label1
+            // pictureBox2
             // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 0);
-            label1.Location = new System.Drawing.Point(321, 455);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(89, 13);
-            label1.TabIndex = 68;
-            label1.Text = "Average Time:";
+            pictureBox2.Image = Properties.Resources.Down;
+            pictureBox2.Location = new System.Drawing.Point(635, 149);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(38, 49);
+            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 70;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.Down;
+            pictureBox3.Location = new System.Drawing.Point(635, 220);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(38, 49);
+            pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 70;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.Down;
+            pictureBox4.Location = new System.Drawing.Point(635, 295);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new System.Drawing.Size(38, 49);
+            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 70;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = Properties.Resources.Down;
+            pictureBox5.Location = new System.Drawing.Point(635, 370);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new System.Drawing.Size(38, 49);
+            pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 70;
+            pictureBox5.TabStop = false;
             // 
             // DischargeCounter
             // 
@@ -593,7 +682,7 @@
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             CancelButton = Cancel_Btn;
-            ClientSize = new System.Drawing.Size(655, 552);
+            ClientSize = new System.Drawing.Size(708, 552);
             Controls.Add(PatientName_Lbl);
             Controls.Add(label41);
             Controls.Add(Done_Btn);
@@ -607,6 +696,11 @@
             Load += PerformanceCounter_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -664,5 +758,10 @@
         private System.Windows.Forms.Label PatientName_Lbl;
         private System.Windows.Forms.Label AverageTime_Label;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

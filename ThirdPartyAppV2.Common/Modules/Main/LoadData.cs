@@ -52,12 +52,12 @@ namespace ThirdPartyAppV2.Common.Modules.Main
             }
         }
 
-        public DataSet LoadNPSAverageDischarge()
+        public DataSet LoadNPSAverageDischarge(string startDate, string endDate)
         {
             var sql = string.Empty;
             try
             {
-                sql = $"select * from dischargeprocess where DateEncoded between '{DateTime.Now.AddDays(-7)} 00:00:00' and '{DateTime.Now} 23:59:59'";
+                sql = $"select * from dischargeprocess where DateEncoded between '{startDate}' and '{endDate}'";
                 var settings = new MYSQLDBSettings();
                 var helper = new MYSQLDBHelper(settings.GetConfigurationString("MySQLDB"));
                 helper.Db_ConnOpen();
@@ -72,12 +72,12 @@ namespace ThirdPartyAppV2.Common.Modules.Main
             }
         }
 
-        public DataSet LoadNPSAverageErToAdmission()
+        public DataSet LoadNPSAverageErToAdmission(string startDate, string endDate)
         {
             var sql = string.Empty;
             try
             {
-                sql = $"select * from ertoadmission where DateEncoded between '{DateTime.Now.AddDays(-7)} 00:00:00' and '{DateTime.Now} 23:59:59'";
+                sql = $"select * from ertoadmission where DateEncoded between '{startDate}' and '{endDate}'";
                 var settings = new MYSQLDBSettings();
                 var helper = new MYSQLDBHelper(settings.GetConfigurationString("MySQLDB"));
                 helper.Db_ConnOpen();
