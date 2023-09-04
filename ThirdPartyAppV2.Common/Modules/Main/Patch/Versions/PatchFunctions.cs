@@ -7,11 +7,11 @@ using ThirdPartyAppV2.Common.DBConnections.Helper;
 namespace ThirdPartyAppV2.Common.Modules.Main.Patch.Versions
 {
     [Log]
-    public class PatchFunctions
+    public static class PatchFunctions
     {
-        private readonly LogSource log = LogSource.Get();
+        private static readonly LogSource log = LogSource.Get();
 
-        protected internal bool IsPatchable(string allowedVersion)
+        static internal bool IsPatchable(string allowedVersion)
         {
             try
             {
@@ -37,7 +37,7 @@ namespace ThirdPartyAppV2.Common.Modules.Main.Patch.Versions
             return false;
         }
 
-        protected internal int RunCommand(string sql)
+        static internal int RunCommand(string sql)
         {
             var i = 0;
             try
@@ -56,7 +56,7 @@ namespace ThirdPartyAppV2.Common.Modules.Main.Patch.Versions
             }
         }
 
-        protected internal void UpdateDbVesion(string latestVersion)
+        static internal void UpdateDbVesion(string latestVersion)
         {
             try
             {

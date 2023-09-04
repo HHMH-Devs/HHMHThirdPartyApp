@@ -2,18 +2,12 @@
 
 namespace ThirdPartyAppV2.Common.Modules.Main.Patch
 {
-    public class SystemPatch
+    public static class SystemPatch
     {
-        private readonly Version1 _version1;
-
-        public SystemPatch()
+        public static void PatchSystem()
         {
-            _version1 = new Version1();
-        }
-
-        public void PatchSystem()
-        {
-            _version1.PatchUp();
+            Version1.PatchUp();
+            Version2.PatchUp();
         }
     }
 }

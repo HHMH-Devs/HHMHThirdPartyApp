@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             groupBox2 = new System.Windows.Forms.GroupBox();
+            pictureBox5 = new System.Windows.Forms.PictureBox();
+            pictureBox4 = new System.Windows.Forms.PictureBox();
+            pictureBox3 = new System.Windows.Forms.PictureBox();
+            pictureBox2 = new System.Windows.Forms.PictureBox();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
             AverageTime_Label = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             ERToAdmissionTotalET_Label = new System.Windows.Forms.Label();
@@ -79,21 +84,34 @@
             label41 = new System.Windows.Forms.Label();
             Done_Btn = new System.Windows.Forms.Button();
             Cancel_Btn = new System.Windows.Forms.Button();
-            pictureBox5 = new System.Windows.Forms.PictureBox();
-            pictureBox4 = new System.Windows.Forms.PictureBox();
-            pictureBox3 = new System.Windows.Forms.PictureBox();
-            pictureBox2 = new System.Windows.Forms.PictureBox();
-            pictureBox1 = new System.Windows.Forms.PictureBox();
+            pictureBox6 = new System.Windows.Forms.PictureBox();
+            pictureBox7 = new System.Windows.Forms.PictureBox();
+            pictureBox8 = new System.Windows.Forms.PictureBox();
+            pictureBox9 = new System.Windows.Forms.PictureBox();
+            pictureBox10 = new System.Windows.Forms.PictureBox();
+            pictureBox11 = new System.Windows.Forms.PictureBox();
             groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
             SuspendLayout();
             // 
             // groupBox2
             // 
+            groupBox2.Controls.Add(pictureBox11);
+            groupBox2.Controls.Add(pictureBox10);
+            groupBox2.Controls.Add(pictureBox9);
+            groupBox2.Controls.Add(pictureBox8);
+            groupBox2.Controls.Add(pictureBox7);
+            groupBox2.Controls.Add(pictureBox6);
             groupBox2.Controls.Add(pictureBox5);
             groupBox2.Controls.Add(pictureBox4);
             groupBox2.Controls.Add(pictureBox3);
@@ -151,6 +169,56 @@
             groupBox2.TabIndex = 2;
             groupBox2.TabStop = false;
             groupBox2.Text = "ER to Admission";
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = Properties.Resources.Down;
+            pictureBox5.Location = new System.Drawing.Point(635, 359);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new System.Drawing.Size(38, 49);
+            pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 74;
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.Down;
+            pictureBox4.Location = new System.Drawing.Point(635, 288);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new System.Drawing.Size(38, 49);
+            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 75;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.Down;
+            pictureBox3.Location = new System.Drawing.Point(635, 217);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new System.Drawing.Size(38, 49);
+            pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 73;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = Properties.Resources.Down;
+            pictureBox2.Location = new System.Drawing.Point(635, 146);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new System.Drawing.Size(38, 49);
+            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 71;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.Down;
+            pictureBox1.Location = new System.Drawing.Point(635, 75);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(38, 49);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 72;
+            pictureBox1.TabStop = false;
             // 
             // AverageTime_Label
             // 
@@ -627,55 +695,65 @@
             Cancel_Btn.UseVisualStyleBackColor = true;
             Cancel_Btn.Click += Cancel_Btn_Click;
             // 
-            // pictureBox5
+            // pictureBox6
             // 
-            pictureBox5.Image = Properties.Resources.Down;
-            pictureBox5.Location = new System.Drawing.Point(635, 359);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new System.Drawing.Size(38, 49);
-            pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox5.TabIndex = 74;
-            pictureBox5.TabStop = false;
+            pictureBox6.Image = Properties.Resources.Arrow;
+            pictureBox6.Location = new System.Drawing.Point(115, 40);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new System.Drawing.Size(200, 13);
+            pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox6.TabIndex = 76;
+            pictureBox6.TabStop = false;
             // 
-            // pictureBox4
+            // pictureBox7
             // 
-            pictureBox4.Image = Properties.Resources.Down;
-            pictureBox4.Location = new System.Drawing.Point(635, 288);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new System.Drawing.Size(38, 49);
-            pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox4.TabIndex = 75;
-            pictureBox4.TabStop = false;
+            pictureBox7.Image = Properties.Resources.Arrow;
+            pictureBox7.Location = new System.Drawing.Point(115, 111);
+            pictureBox7.Name = "pictureBox7";
+            pictureBox7.Size = new System.Drawing.Size(200, 13);
+            pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox7.TabIndex = 76;
+            pictureBox7.TabStop = false;
             // 
-            // pictureBox3
+            // pictureBox8
             // 
-            pictureBox3.Image = Properties.Resources.Down;
-            pictureBox3.Location = new System.Drawing.Point(635, 217);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new System.Drawing.Size(38, 49);
-            pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox3.TabIndex = 73;
-            pictureBox3.TabStop = false;
+            pictureBox8.Image = Properties.Resources.Arrow;
+            pictureBox8.Location = new System.Drawing.Point(115, 182);
+            pictureBox8.Name = "pictureBox8";
+            pictureBox8.Size = new System.Drawing.Size(200, 13);
+            pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox8.TabIndex = 76;
+            pictureBox8.TabStop = false;
             // 
-            // pictureBox2
+            // pictureBox9
             // 
-            pictureBox2.Image = Properties.Resources.Down;
-            pictureBox2.Location = new System.Drawing.Point(635, 146);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new System.Drawing.Size(38, 49);
-            pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 71;
-            pictureBox2.TabStop = false;
+            pictureBox9.Image = Properties.Resources.Arrow;
+            pictureBox9.Location = new System.Drawing.Point(115, 253);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new System.Drawing.Size(200, 13);
+            pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox9.TabIndex = 76;
+            pictureBox9.TabStop = false;
             // 
-            // pictureBox1
+            // pictureBox10
             // 
-            pictureBox1.Image = Properties.Resources.Down;
-            pictureBox1.Location = new System.Drawing.Point(635, 75);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new System.Drawing.Size(38, 49);
-            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 72;
-            pictureBox1.TabStop = false;
+            pictureBox10.Image = Properties.Resources.Arrow;
+            pictureBox10.Location = new System.Drawing.Point(115, 324);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new System.Drawing.Size(200, 13);
+            pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox10.TabIndex = 76;
+            pictureBox10.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            pictureBox11.Image = Properties.Resources.Arrow;
+            pictureBox11.Location = new System.Drawing.Point(115, 395);
+            pictureBox11.Name = "pictureBox11";
+            pictureBox11.Size = new System.Drawing.Size(200, 13);
+            pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox11.TabIndex = 76;
+            pictureBox11.TabStop = false;
             // 
             // ERToAdmissionCounter
             // 
@@ -701,6 +779,12 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -763,5 +847,11 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }

@@ -13,8 +13,8 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
     {
         public string PatientName;
         public string PatRegistryNo;
-        private readonly NPSCounter nPSCounter = new NPSCounter();
-        private readonly Dictionary<string, TimeSpan> timerList = new Dictionary<string, TimeSpan>();
+        private readonly NPSCounter nPSCounter = new();
+        private readonly Dictionary<string, TimeSpan> timerList = new();
         public DischargeCounter()
         {
             InitializeComponent();
@@ -120,20 +120,23 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
                     {
                         MDStartDate_Text.Text = rw["MDStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["MDStartDateTime"].ToString();
                         MDEndDate_Text.Text = rw["MDEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["MDEndDateTime"].ToString();
-                        BillSendingStartDateTime_Text.Text = rw["BSStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["BSStartDateTime"].ToString();
-                        BillSendingEndDateTime_Text.Text = rw["BSEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["BSEndDateTime"].ToString();
+                        IEStartDateTime_Text.Text = rw["IEStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["IEStartDateTime"].ToString();
+                        IEEndDateTime_Text.Text = rw["IEEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["IEEndDateTime"].ToString();
                         BGStartDate_Text.Text = rw["BGStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["BGStartDateTime"].ToString();
                         BGEndDate_Text.Text = rw["BGEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["BGEndDateTime"].ToString();
-                        BPStartDate_Text.Text = rw["BPStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["BPStartDateTime"].ToString();
-                        BPEndDate_Text.Text = rw["BPEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["BPEndDateTime"].ToString();
+                        BP1StartDateTime_Text.Text = rw["BP1StartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["BP1StartDateTime"].ToString();
+                        BP1EndDateTime_Text.Text = rw["BP1EndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["BP1EndDateTime"].ToString();
+                        BP2StartDate_Text.Text = rw["BP2StartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["BP1StartDateTime"].ToString();
+                        BP2EndDate_Text.Text = rw["BP2EndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["BP2EndDateTime"].ToString();
                         DIDStartDate_Text.Text = rw["DIDStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["DIDStartDateTime"].ToString();
                         DIDEndDate_Text.Text = rw["DIDEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["DIDEndDateTime"].ToString();
                         PEStartDate_Text.Text = rw["PatExitStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["PatExitStartDateTime"].ToString();
                         PEEndDate_Text.Text = rw["PatExitEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["PatExitEndDateTime"].ToString();
                         MDLabel_Label.Text = $"Medical Discharge - {GetMDTimeDiff("Medical Discharge", MDStartDate_Text.Text, MDEndDate_Text.Text)}";
-                        BSLalbel_Lbl.Text = $"Bill Sending - {GetMDTimeDiff("Bill Sending", BillSendingStartDateTime_Text.Text, BillSendingEndDateTime_Text.Text)}";
+                        IELabel_Lbl.Text = $"Integrity Check - {GetMDTimeDiff("Integrity Check", IEStartDateTime_Text.Text, IEEndDateTime_Text.Text)}";
                         BGLabel_Lbl.Text = $"Bill Generation - {GetMDTimeDiff("Bill Generation", BGStartDate_Text.Text, BGEndDate_Text.Text)}";
-                        BPLabel_Lbl.Text = $"Bill Payment - {GetMDTimeDiff("Bill Payment", BPStartDate_Text.Text, BPEndDate_Text.Text)}";
+                        BP1Label_Lbl.Text = $"Bill Printing - {GetMDTimeDiff("Bill Printing", BP1StartDateTime_Text.Text, BP1EndDateTime_Text.Text)}";
+                        BP2Label_Lbl.Text = $"Bill Payment - {GetMDTimeDiff("Bill Payment", BP2StartDate_Text.Text, BP2EndDate_Text.Text)}";
                         DIDLabel_Lbl.Text = $"Discharge Instruction and Documentation - {GetMDTimeDiff("Discharge Instruction and Documentation", DIDStartDate_Text.Text, DIDEndDate_Text.Text)}";
                         PELabel_Lbl.Text = $"Patient Exit - {GetMDTimeDiff("Patient Exit", PEStartDate_Text.Text, PEEndDate_Text.Text)}";
                     }
@@ -150,17 +153,92 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
                 {
                     if (!DBNull.Value.Equals(item["mghdatetime"]) || !string.IsNullOrEmpty(item["mghdatetime"].ToString()))
                     {
-                        BillSendingStartDateTime_Text.Text = item["mghdatetime"].ToString();
-                        BillSendingStartDateTime_Text.ReadOnly = true;
-                        SetBillSendingStartTime_Btn.Enabled = false;
+                        IEEndDateTime_Text.Text = item["mghdatetime"].ToString();
+                        IEEndDateTime_Text.ReadOnly = true;
+                        IEEndDateTime_Btn.Enabled = false;
+                        BGStartDate_Text.Text = item["mghdatetime"].ToString();
+                        BGStartDate_Text.ReadOnly = true;
+                        BGStartDate_Btn.Enabled = false;
+
                     }
                     if (!DBNull.Value.Equals(item["dischdate"]) || !string.IsNullOrEmpty(item["dischdate"].ToString()))
                     {
                         PEStartDate_Text.Text = item["dischdate"].ToString();
                         PEStartDate_Text.ReadOnly = true;
                         PEStartDate_Btn.Enabled = false;
-                    }                    
+                    }
                 }
+            }
+
+            if (string.IsNullOrEmpty(MDStartDate_Text.Text))
+            {
+                MDEndDate_Text.ReadOnly = true;
+                MDSetEndDate_Btn.Enabled = false;
+            }
+            else
+            {
+                MDEndDate_Text.ReadOnly = false;
+                MDSetEndDate_Btn.Enabled = true;
+            }
+            if (string.IsNullOrEmpty(BGStartDate_Text.Text))
+            {
+                BGEndDate_Text.ReadOnly = true;
+                BGEndDate_Btn.Enabled = false;
+            }
+            else
+            {
+                BGEndDate_Text.ReadOnly = false;
+                BGEndDate_Btn.Enabled = true;
+            }
+            if (string.IsNullOrEmpty(IEStartDateTime_Text.Text))
+            {
+                IEEndDateTime_Text.ReadOnly = true;
+                IEEndDateTime_Btn.Enabled = false;
+            }
+            else
+            {
+                IEEndDateTime_Text.ReadOnly = false;
+                IEEndDateTime_Btn.Enabled = true;
+            }
+            if (string.IsNullOrEmpty(BP1StartDateTime_Text.Text))
+            {
+                BP1EndDateTime_Text.ReadOnly = true;
+                BP1EndDateTime_Btn.Enabled = false;
+            }
+            else
+            {
+                BP1EndDateTime_Text.ReadOnly = false;
+                BP1EndDateTime_Btn.Enabled = true;
+            }
+            if (string.IsNullOrEmpty(BP2StartDate_Text.Text))
+            {
+                BP2EndDate_Text.ReadOnly = true;
+                BP2EndDate_Btn.Enabled = false;
+            }
+            else
+            {
+                BP2EndDate_Text.ReadOnly = false;
+                BP2EndDate_Btn.Enabled = true;
+            }
+            if (string.IsNullOrEmpty(DIDStartDate_Text.Text))
+            {
+                DIDEndDate_Text.ReadOnly = true;
+                DIDEndDate_Btn.Enabled = false;
+            }
+            else
+            {
+                DIDEndDate_Text.ReadOnly = false;
+                DIDEndDate_Btn.Enabled = true;
+            }
+            if (string.IsNullOrEmpty(PEStartDate_Text.Text))
+            {
+                PEEndDate_Text.ReadOnly = true;
+                PEEndDate_Btn.Enabled = false;
+            }
+            else
+            {
+                PEEndDate_Text.ReadOnly = false;
+                PEEndDate_Btn.Enabled = true;
             }
         }
 
@@ -189,12 +267,14 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
                         PatientName_Lbl.Text,
                         Convert.ToDateTime(string.IsNullOrEmpty(MDStartDate_Text.Text) ? DateTime.MinValue.ToString() : MDStartDate_Text.Text),
                         Convert.ToDateTime(string.IsNullOrEmpty(MDEndDate_Text.Text) ? DateTime.MinValue.ToString() : MDEndDate_Text.Text),
-                        Convert.ToDateTime(string.IsNullOrEmpty(BillSendingStartDateTime_Text.Text) ? DateTime.MinValue.ToString() : BillSendingStartDateTime_Text.Text),
-                        Convert.ToDateTime(string.IsNullOrEmpty(BillSendingEndDateTime_Text.Text) ? DateTime.MinValue.ToString() : BillSendingEndDateTime_Text.Text),
+                        Convert.ToDateTime(string.IsNullOrEmpty(IEStartDateTime_Text.Text) ? DateTime.MinValue.ToString() : IEStartDateTime_Text.Text),
+                        Convert.ToDateTime(string.IsNullOrEmpty(IEEndDateTime_Text.Text) ? DateTime.MinValue.ToString() : IEEndDateTime_Text.Text),
                         Convert.ToDateTime(string.IsNullOrEmpty(BGStartDate_Text.Text) ? DateTime.MinValue.ToString() : BGStartDate_Text.Text),
                         Convert.ToDateTime(string.IsNullOrEmpty(BGEndDate_Text.Text) ? DateTime.MinValue.ToString() : BGEndDate_Text.Text),
-                        Convert.ToDateTime(string.IsNullOrEmpty(BPStartDate_Text.Text) ? DateTime.MinValue.ToString() : BPStartDate_Text.Text),
-                        Convert.ToDateTime(string.IsNullOrEmpty(BPEndDate_Text.Text) ? DateTime.MinValue.ToString() : BPEndDate_Text.Text),
+                        Convert.ToDateTime(string.IsNullOrEmpty(BP1StartDateTime_Text.Text) ? DateTime.MinValue.ToString() : BP1StartDateTime_Text.Text),
+                        Convert.ToDateTime(string.IsNullOrEmpty(BP1EndDateTime_Text.Text) ? DateTime.MinValue.ToString() : BP1EndDateTime_Text.Text),
+                        Convert.ToDateTime(string.IsNullOrEmpty(BP2StartDate_Text.Text) ? DateTime.MinValue.ToString() : BP2StartDate_Text.Text),
+                        Convert.ToDateTime(string.IsNullOrEmpty(BP2EndDate_Text.Text) ? DateTime.MinValue.ToString() : BP2EndDate_Text.Text),
                         Convert.ToDateTime(string.IsNullOrEmpty(DIDStartDate_Text.Text) ? DateTime.MinValue.ToString() : DIDStartDate_Text.Text),
                         Convert.ToDateTime(string.IsNullOrEmpty(DIDEndDate_Text.Text) ? DateTime.MinValue.ToString() : DIDEndDate_Text.Text),
                         Convert.ToDateTime(string.IsNullOrEmpty(PEStartDate_Text.Text) ? DateTime.MinValue.ToString() : PEStartDate_Text.Text),
@@ -210,7 +290,7 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
 
         private void MDSetStartDate_Btn_Click(object sender, EventArgs e)
         {
-            MDStartDate_Text.Text = DateTime.Now.ToString();
+            MDStartDate_Text.Text = DateTime.Now.ToString();          
         }
 
         private void MDSetEndDate_Btn_Click(object sender, EventArgs e)
@@ -218,39 +298,39 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             MDEndDate_Text.Text = DateTime.Now.ToString();
         }
 
-        private void SetBillSendingStartTime_Btn_Click(object sender, EventArgs e)
-        {
-            BillSendingStartDateTime_Text.Text = DateTime.Now.ToString();
-        }
-
-        private void SetBillSendingEndTime_Btn_Click(object sender, EventArgs e)
-        {
-            BillSendingEndDateTime_Text.Text = DateTime.Now.ToString();
-        }
-
         private void BGStartDate_Btn_Click(object sender, EventArgs e)
         {
             BGStartDate_Text.Text = DateTime.Now.ToString();
+            BGEndDate_Text.ReadOnly = false;
+            BGEndDate_Btn.Enabled = true;
         }
 
         private void BGEndDate_Btn_Click(object sender, EventArgs e)
         {
             BGEndDate_Text.Text = DateTime.Now.ToString();
+            if (string.IsNullOrEmpty(BP1StartDateTime_Text.Text))
+            {
+                BP1StartDateTime_Text.Text = DateTime.Now.ToString();
+            }
         }
 
         private void BPStartDate_Btn_Click(object sender, EventArgs e)
         {
-            BPStartDate_Text.Text = DateTime.Now.ToString();
+            BP2StartDate_Text.Text = DateTime.Now.ToString();
+            BP2EndDate_Text.ReadOnly = false;
+            BP2EndDate_Btn.Enabled = true;
         }
 
         private void BPEndDate_Btn_Click(object sender, EventArgs e)
         {
-            BPEndDate_Text.Text = DateTime.Now.ToString();
+            BP2EndDate_Text.Text = DateTime.Now.ToString();
         }
 
         private void DIDStartDate_Btn_Click(object sender, EventArgs e)
         {
             DIDStartDate_Text.Text = DateTime.Now.ToString();
+            DIDEndDate_Text.ReadOnly = false;
+            DIDEndDate_Btn.Enabled = true;
         }
 
         private void DIDEndDate_Btn_Click(object sender, EventArgs e)
@@ -261,6 +341,8 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
         private void PEStartDate_Btn_Click(object sender, EventArgs e)
         {
             PEStartDate_Text.Text = DateTime.Now.ToString();
+            PEEndDate_Text.ReadOnly = false;
+            PEEndDate_Btn.Enabled = true;
         }
 
         private void PEEndDate_Btn_Click(object sender, EventArgs e)
@@ -274,6 +356,8 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             {
                 MDLabel_Label.Text = $"Medical Discharge - {GetMDTimeDiff("Medical Discharge", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
             }
+            MDEndDate_Text.ReadOnly = false;
+            MDSetEndDate_Btn.Enabled = true;
         }
 
         private void MDEndDate_Text_TextChanged(object sender, EventArgs e)
@@ -284,28 +368,14 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             }
         }
 
-        private void BillSendingStartDateTime_Text_TextChanged(object sender, EventArgs e)
-        {
-            if (DateTime.TryParse(BillSendingStartDateTime_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(BillSendingEndDateTime_Text.Text, out DateTime parsedDateTime2))
-            {
-                BSLalbel_Lbl.Text = $"Bill Sending - {GetMDTimeDiff("Bill Sending", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
-            }
-        }
-
-        private void BillSendingEndDateTime_Text_TextChanged(object sender, EventArgs e)
-        {
-            if (DateTime.TryParse(BillSendingStartDateTime_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(BillSendingEndDateTime_Text.Text, out DateTime parsedDateTime2))
-            {
-                BSLalbel_Lbl.Text = $"Bill Sending - {GetMDTimeDiff("Bill Sending", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
-            }
-        }
-
         private void BGStartDate_Text_TextChanged(object sender, EventArgs e)
         {
             if (DateTime.TryParse(BGStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(BGEndDate_Text.Text, out DateTime parsedDateTime2))
             {
                 BGLabel_Lbl.Text = $"Bill Generation - {GetMDTimeDiff("Bill Generation", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
             }
+            BGEndDate_Text.ReadOnly = false;
+            BGEndDate_Btn.Enabled = true;
         }
 
         private void BGEndDate_Text_TextChanged(object sender, EventArgs e)
@@ -318,17 +388,19 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
 
         private void BPStartDate_Text_TextChanged(object sender, EventArgs e)
         {
-            if (DateTime.TryParse(BPStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(BPStartDate_Text.Text, out DateTime parsedDateTime2))
+            if (DateTime.TryParse(BP2StartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(BP2EndDate_Text.Text, out DateTime parsedDateTime2))
             {
-                BPLabel_Lbl.Text = $"Bill Payment - {GetMDTimeDiff("Bill Payment", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
+                BP2Label_Lbl.Text = $"Bill Payment - {GetMDTimeDiff("Bill Payment", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
             }
+            BP2EndDate_Text.ReadOnly = false;
+            BP2EndDate_Btn.Enabled = true;
         }
 
         private void BPEndDate_Text_TextChanged(object sender, EventArgs e)
         {
-            if (DateTime.TryParse(BPStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(BPStartDate_Text.Text, out DateTime parsedDateTime2))
+            if (DateTime.TryParse(BP2StartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(BP2EndDate_Text.Text, out DateTime parsedDateTime2))
             {
-                BPLabel_Lbl.Text = $"Bill Payment - {GetMDTimeDiff("Bill Payment", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
+                BP2Label_Lbl.Text = $"Bill Payment - {GetMDTimeDiff("Bill Payment", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
             }
         }
 
@@ -338,6 +410,8 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             {
                 DIDLabel_Lbl.Text = $"Discharge Instruction and Documentation - {GetMDTimeDiff("Discharge Instruction and Documentation", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
             }
+            DIDEndDate_Text.ReadOnly = false;
+            DIDEndDate_Btn.Enabled = true;
         }
 
         private void DIDEndDate_Text_TextChanged(object sender, EventArgs e)
@@ -354,6 +428,8 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             {
                 PELabel_Lbl.Text = $"Patient Exit - {GetMDTimeDiff("Patient Exit", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
             }
+            PEEndDate_Text.ReadOnly = false;
+            PEEndDate_Btn.Enabled = true;
         }
 
         private void PEEndDate_Text_TextChanged(object sender, EventArgs e)
@@ -362,6 +438,75 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             {
                 PELabel_Lbl.Text = $"Patient Exit - {GetMDTimeDiff("Patient Exit", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
             }
+        }
+
+        private void IEStartDateTime_Text_TextChanged(object sender, EventArgs e)
+        {
+            if (DateTime.TryParse(IEStartDateTime_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(IEEndDateTime_Text.Text, out DateTime parsedDateTime2))
+            {
+                IELabel_Lbl.Text = $"Integrity Check - {GetMDTimeDiff("Integrity Check", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
+            }
+            IEEndDateTime_Text.ReadOnly = false;
+            IEEndDateTime_Btn.Enabled = true;
+        }
+
+        private void IEEndDateTime_Text_TextChanged(object sender, EventArgs e)
+        {
+            if (DateTime.TryParse(IEStartDateTime_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(IEEndDateTime_Text.Text, out DateTime parsedDateTime2))
+            {
+                IELabel_Lbl.Text = $"Integrity Check - {GetMDTimeDiff("Integrity Check", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
+            }
+
+            if (string.IsNullOrEmpty(BGStartDate_Text.Text))
+            {
+                BGStartDate_Text.Text = DateTime.Now.ToString();
+            }
+        }
+
+        private void BP1StartDateTime_Text_TextChanged(object sender, EventArgs e)
+        {
+            if (DateTime.TryParse(BP1StartDateTime_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(BP1EndDateTime_Text.Text, out DateTime parsedDateTime2))
+            {
+                BP1Label_Lbl.Text = $"Bill Payment - {GetMDTimeDiff("Bill Payment", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
+            }
+            BP1EndDateTime_Text.ReadOnly = false;
+            BP1EndDateTime_Btn.Enabled = true;
+        }
+
+        private void BP1EndDateTime_Text_TextChanged(object sender, EventArgs e)
+        {
+            if (DateTime.TryParse(BP1StartDateTime_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(BP1EndDateTime_Text.Text, out DateTime parsedDateTime2))
+            {
+                BP1Label_Lbl.Text = $"Bill Payment - {GetMDTimeDiff("Bill Payment", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
+            }
+        }
+
+        private void IEStartDateTime_Btn_Click(object sender, EventArgs e)
+        {
+            IEStartDateTime_Text.Text = DateTime.Now.ToString();
+            IEEndDateTime_Text.ReadOnly = false;
+            IEEndDateTime_Btn.Enabled = true;
+        }
+
+        private void IEEndDateTime_Btn_Click(object sender, EventArgs e)
+        {
+            IEEndDateTime_Text.Text = DateTime.Now.ToString();
+            if (string.IsNullOrEmpty(BGStartDate_Text.Text))
+            {
+                BGStartDate_Text.Text = DateTime.Now.ToString();
+            }
+        }
+
+        private void BP1StartDateTime_Btn_Click(object sender, EventArgs e)
+        {
+            BP1StartDateTime_Text.Text = DateTime.Now.ToString();
+            BP1EndDateTime_Text.ReadOnly = false;
+            BP1EndDateTime_Btn.Enabled = true;
+        }
+
+        private void BP1EndDateTime_Btn_Click(object sender, EventArgs e)
+        {
+            BP1EndDateTime_Text.Text = DateTime.Now.ToString();
         }
     }
 }

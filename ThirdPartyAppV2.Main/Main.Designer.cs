@@ -53,19 +53,19 @@
             panel1 = new System.Windows.Forms.Panel();
             label6 = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
-            button1 = new System.Windows.Forms.Button();
+            DischIns_Btn = new System.Windows.Forms.Button();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
-            button5 = new System.Windows.Forms.Button();
-            button4 = new System.Windows.Forms.Button();
-            button3 = new System.Windows.Forms.Button();
-            button9 = new System.Windows.Forms.Button();
-            button8 = new System.Windows.Forms.Button();
-            button7 = new System.Windows.Forms.Button();
-            NPSReport_Btn = new System.Windows.Forms.Button();
-            button2 = new System.Windows.Forms.Button();
+            MedAbstract_Btn = new System.Windows.Forms.Button();
+            DischSum_Btn = new System.Windows.Forms.Button();
+            HistorySheet_Btn = new System.Windows.Forms.Button();
+            CustomRpts_Btn = new System.Windows.Forms.Button();
+            ERTToAdmissionSum_Btn = new System.Windows.Forms.Button();
+            DischProcSum_Btn = new System.Windows.Forms.Button();
+            NPSSum_Btn = new System.Windows.Forms.Button();
+            Prescription_btn = new System.Windows.Forms.Button();
             ERToAD_Btn = new System.Windows.Forms.Button();
             PerformanceCounter_Btn = new System.Windows.Forms.Button();
             statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -73,8 +73,10 @@
             DPATAT_Label = new System.Windows.Forms.ToolStripStatusLabel();
             toolStripStatusLabel4 = new System.Windows.Forms.ToolStripStatusLabel();
             ETAATAT_Label = new System.Windows.Forms.ToolStripStatusLabel();
+            AsForTheMonth_Label = new System.Windows.Forms.ToolStripStatusLabel();
             toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             DateandTimeLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            panel2 = new System.Windows.Forms.Panel();
             toolStrip1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
             panel1.SuspendLayout();
@@ -124,6 +126,7 @@
             SearchAdmitted_Text.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             SearchAdmitted_Text.Name = "SearchAdmitted_Text";
             SearchAdmitted_Text.Size = new System.Drawing.Size(400, 25);
+            SearchAdmitted_Text.KeyPress += SearchAdmitted_Text_KeyPress;
             // 
             // Search_Btn
             // 
@@ -137,17 +140,19 @@
             // 
             // AdmittedPatienstListView
             // 
+            AdmittedPatienstListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             AdmittedPatienstListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] { columnHeader1, columnHeader2, columnHeader3, columnHeader4, columnHeader5, columnHeader6 });
             AdmittedPatienstListView.ContextMenuStrip = contextMenuStrip1;
-            AdmittedPatienstListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            AdmittedPatienstListView.Dock = System.Windows.Forms.DockStyle.Top;
             AdmittedPatienstListView.FullRowSelect = true;
             AdmittedPatienstListView.GridLines = true;
             AdmittedPatienstListView.Location = new System.Drawing.Point(0, 25);
             AdmittedPatienstListView.Name = "AdmittedPatienstListView";
-            AdmittedPatienstListView.Size = new System.Drawing.Size(1217, 584);
+            AdmittedPatienstListView.Size = new System.Drawing.Size(1217, 243);
             AdmittedPatienstListView.TabIndex = 1;
             AdmittedPatienstListView.UseCompatibleStateImageBehavior = false;
             AdmittedPatienstListView.View = System.Windows.Forms.View.Details;
+            AdmittedPatienstListView.SelectedIndexChanged += AdmittedPatienstListView_SelectedIndexChanged;
             // 
             // columnHeader1
             // 
@@ -224,21 +229,22 @@
             // 
             // panel1
             // 
+            panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             panel1.Controls.Add(label6);
             panel1.Controls.Add(label5);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(DischIns_Btn);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(label2);
             panel1.Controls.Add(label1);
-            panel1.Controls.Add(button5);
-            panel1.Controls.Add(button4);
-            panel1.Controls.Add(button3);
-            panel1.Controls.Add(button9);
-            panel1.Controls.Add(button8);
-            panel1.Controls.Add(button7);
-            panel1.Controls.Add(NPSReport_Btn);
-            panel1.Controls.Add(button2);
+            panel1.Controls.Add(MedAbstract_Btn);
+            panel1.Controls.Add(DischSum_Btn);
+            panel1.Controls.Add(HistorySheet_Btn);
+            panel1.Controls.Add(CustomRpts_Btn);
+            panel1.Controls.Add(ERTToAdmissionSum_Btn);
+            panel1.Controls.Add(DischProcSum_Btn);
+            panel1.Controls.Add(NPSSum_Btn);
+            panel1.Controls.Add(Prescription_btn);
             panel1.Controls.Add(ERToAD_Btn);
             panel1.Controls.Add(PerformanceCounter_Btn);
             panel1.Dock = System.Windows.Forms.DockStyle.Right;
@@ -265,14 +271,14 @@
             label5.TabIndex = 7;
             label5.Text = "Reports";
             // 
-            // button1
+            // DischIns_Btn
             // 
-            button1.Location = new System.Drawing.Point(3, 208);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(175, 23);
-            button1.TabIndex = 6;
-            button1.Text = "Discharge Instruction";
-            button1.UseVisualStyleBackColor = true;
+            DischIns_Btn.Location = new System.Drawing.Point(3, 208);
+            DischIns_Btn.Name = "DischIns_Btn";
+            DischIns_Btn.Size = new System.Drawing.Size(175, 23);
+            DischIns_Btn.TabIndex = 6;
+            DischIns_Btn.Text = "Discharge Instruction";
+            DischIns_Btn.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
@@ -310,78 +316,78 @@
             label1.TabIndex = 2;
             label1.Text = "NPS Performance";
             // 
-            // button5
+            // MedAbstract_Btn
             // 
-            button5.Location = new System.Drawing.Point(3, 124);
-            button5.Name = "button5";
-            button5.Size = new System.Drawing.Size(175, 23);
-            button5.TabIndex = 1;
-            button5.Text = "Medical Abstract";
-            button5.UseVisualStyleBackColor = true;
+            MedAbstract_Btn.Location = new System.Drawing.Point(3, 124);
+            MedAbstract_Btn.Name = "MedAbstract_Btn";
+            MedAbstract_Btn.Size = new System.Drawing.Size(175, 23);
+            MedAbstract_Btn.TabIndex = 1;
+            MedAbstract_Btn.Text = "Medical Abstract";
+            MedAbstract_Btn.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // DischSum_Btn
             // 
-            button4.Location = new System.Drawing.Point(3, 95);
-            button4.Name = "button4";
-            button4.Size = new System.Drawing.Size(175, 23);
-            button4.TabIndex = 1;
-            button4.Text = "Discharge Summary";
-            button4.UseVisualStyleBackColor = true;
+            DischSum_Btn.Location = new System.Drawing.Point(3, 95);
+            DischSum_Btn.Name = "DischSum_Btn";
+            DischSum_Btn.Size = new System.Drawing.Size(175, 23);
+            DischSum_Btn.TabIndex = 1;
+            DischSum_Btn.Text = "Discharge Summary";
+            DischSum_Btn.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // HistorySheet_Btn
             // 
-            button3.Location = new System.Drawing.Point(3, 166);
-            button3.Name = "button3";
-            button3.Size = new System.Drawing.Size(175, 23);
-            button3.TabIndex = 1;
-            button3.Text = "History Sheet";
-            button3.UseVisualStyleBackColor = true;
+            HistorySheet_Btn.Location = new System.Drawing.Point(3, 166);
+            HistorySheet_Btn.Name = "HistorySheet_Btn";
+            HistorySheet_Btn.Size = new System.Drawing.Size(175, 23);
+            HistorySheet_Btn.TabIndex = 1;
+            HistorySheet_Btn.Text = "History Sheet";
+            HistorySheet_Btn.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // CustomRpts_Btn
             // 
-            button9.Location = new System.Drawing.Point(3, 379);
-            button9.Name = "button9";
-            button9.Size = new System.Drawing.Size(175, 23);
-            button9.TabIndex = 1;
-            button9.Text = "Custom Reports";
-            button9.UseVisualStyleBackColor = true;
+            CustomRpts_Btn.Location = new System.Drawing.Point(3, 379);
+            CustomRpts_Btn.Name = "CustomRpts_Btn";
+            CustomRpts_Btn.Size = new System.Drawing.Size(175, 23);
+            CustomRpts_Btn.TabIndex = 1;
+            CustomRpts_Btn.Text = "Custom Reports";
+            CustomRpts_Btn.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // ERTToAdmissionSum_Btn
             // 
-            button8.Location = new System.Drawing.Point(3, 337);
-            button8.Name = "button8";
-            button8.Size = new System.Drawing.Size(175, 23);
-            button8.TabIndex = 1;
-            button8.Text = "ER to Admission Summary";
-            button8.UseVisualStyleBackColor = true;
+            ERTToAdmissionSum_Btn.Location = new System.Drawing.Point(3, 337);
+            ERTToAdmissionSum_Btn.Name = "ERTToAdmissionSum_Btn";
+            ERTToAdmissionSum_Btn.Size = new System.Drawing.Size(175, 23);
+            ERTToAdmissionSum_Btn.TabIndex = 1;
+            ERTToAdmissionSum_Btn.Text = "ER to Admission Summary";
+            ERTToAdmissionSum_Btn.UseVisualStyleBackColor = true;
             // 
-            // button7
+            // DischProcSum_Btn
             // 
-            button7.Location = new System.Drawing.Point(3, 308);
-            button7.Name = "button7";
-            button7.Size = new System.Drawing.Size(175, 23);
-            button7.TabIndex = 1;
-            button7.Text = "Discharge Process Summary";
-            button7.UseVisualStyleBackColor = true;
+            DischProcSum_Btn.Location = new System.Drawing.Point(3, 308);
+            DischProcSum_Btn.Name = "DischProcSum_Btn";
+            DischProcSum_Btn.Size = new System.Drawing.Size(175, 23);
+            DischProcSum_Btn.TabIndex = 1;
+            DischProcSum_Btn.Text = "Discharge Process Summary";
+            DischProcSum_Btn.UseVisualStyleBackColor = true;
             // 
-            // NPSReport_Btn
+            // NPSSum_Btn
             // 
-            NPSReport_Btn.Location = new System.Drawing.Point(3, 279);
-            NPSReport_Btn.Name = "NPSReport_Btn";
-            NPSReport_Btn.Size = new System.Drawing.Size(175, 23);
-            NPSReport_Btn.TabIndex = 1;
-            NPSReport_Btn.Text = "NPS Performace Summary";
-            NPSReport_Btn.UseVisualStyleBackColor = true;
-            NPSReport_Btn.Click += NPSReport_Btn_Click;
+            NPSSum_Btn.Location = new System.Drawing.Point(3, 279);
+            NPSSum_Btn.Name = "NPSSum_Btn";
+            NPSSum_Btn.Size = new System.Drawing.Size(175, 23);
+            NPSSum_Btn.TabIndex = 1;
+            NPSSum_Btn.Text = "NPS Performace Summary";
+            NPSSum_Btn.UseVisualStyleBackColor = true;
+            NPSSum_Btn.Click += NPSReport_Btn_Click;
             // 
-            // button2
+            // Prescription_btn
             // 
-            button2.Location = new System.Drawing.Point(3, 237);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(175, 23);
-            button2.TabIndex = 1;
-            button2.Text = "Prescriptions";
-            button2.UseVisualStyleBackColor = true;
+            Prescription_btn.Location = new System.Drawing.Point(3, 237);
+            Prescription_btn.Name = "Prescription_btn";
+            Prescription_btn.Size = new System.Drawing.Size(175, 23);
+            Prescription_btn.TabIndex = 1;
+            Prescription_btn.Text = "Prescriptions";
+            Prescription_btn.UseVisualStyleBackColor = true;
             // 
             // ERToAD_Btn
             // 
@@ -405,43 +411,52 @@
             // 
             // statusStrip1
             // 
-            statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusLabel2, DPATAT_Label, toolStripStatusLabel4, ETAATAT_Label, toolStripStatusLabel1, DateandTimeLabel });
+            statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripStatusLabel2, DPATAT_Label, toolStripStatusLabel4, ETAATAT_Label, AsForTheMonth_Label, toolStripStatusLabel1, DateandTimeLabel });
             statusStrip1.Location = new System.Drawing.Point(0, 609);
             statusStrip1.Name = "statusStrip1";
             statusStrip1.Size = new System.Drawing.Size(1398, 22);
+            statusStrip1.SizingGrip = false;
             statusStrip1.TabIndex = 3;
             statusStrip1.Text = "statusStrip1";
             // 
             // toolStripStatusLabel2
             // 
-            toolStripStatusLabel2.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
+            toolStripStatusLabel2.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F);
             toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            toolStripStatusLabel2.Size = new System.Drawing.Size(262, 17);
+            toolStripStatusLabel2.Size = new System.Drawing.Size(251, 17);
             toolStripStatusLabel2.Text = "Discharge Process Average Turn Arround Time";
             // 
             // DPATAT_Label
             // 
+            DPATAT_Label.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             DPATAT_Label.Name = "DPATAT_Label";
-            DPATAT_Label.Size = new System.Drawing.Size(50, 17);
+            DPATAT_Label.Size = new System.Drawing.Size(56, 17);
             DPATAT_Label.Text = "00:00:00";
             // 
             // toolStripStatusLabel4
             // 
-            toolStripStatusLabel4.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
+            toolStripStatusLabel4.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F);
             toolStripStatusLabel4.Name = "toolStripStatusLabel4";
-            toolStripStatusLabel4.Size = new System.Drawing.Size(253, 17);
+            toolStripStatusLabel4.Size = new System.Drawing.Size(242, 17);
             toolStripStatusLabel4.Text = "ER To Admission Average Turn Arround Time";
             // 
             // ETAATAT_Label
             // 
+            ETAATAT_Label.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F, System.Drawing.FontStyle.Bold);
             ETAATAT_Label.Name = "ETAATAT_Label";
-            ETAATAT_Label.Size = new System.Drawing.Size(50, 17);
+            ETAATAT_Label.Size = new System.Drawing.Size(56, 17);
             ETAATAT_Label.Text = "00:00:00";
+            // 
+            // AsForTheMonth_Label
+            // 
+            AsForTheMonth_Label.Font = new System.Drawing.Font("Segoe UI Variable Text", 9F);
+            AsForTheMonth_Label.Name = "AsForTheMonth_Label";
+            AsForTheMonth_Label.Size = new System.Drawing.Size(0, 17);
             // 
             // toolStripStatusLabel1
             // 
             toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new System.Drawing.Size(633, 17);
+            toolStripStatusLabel1.Size = new System.Drawing.Size(643, 17);
             toolStripStatusLabel1.Spring = true;
             // 
             // DateandTimeLabel
@@ -451,15 +466,27 @@
             DateandTimeLabel.Size = new System.Drawing.Size(135, 17);
             DateandTimeLabel.Text = "toolStripStatusLabel2";
             // 
+            // panel2
+            // 
+            panel2.AutoScroll = true;
+            panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            panel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel2.Location = new System.Drawing.Point(0, 268);
+            panel2.Name = "panel2";
+            panel2.Size = new System.Drawing.Size(1217, 341);
+            panel2.TabIndex = 4;
+            // 
             // Main
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(1398, 631);
+            Controls.Add(panel2);
             Controls.Add(AdmittedPatienstListView);
             Controls.Add(panel1);
             Controls.Add(statusStrip1);
             Controls.Add(toolStrip1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Name = "Main";
             Text = "Form1";
             Load += Main_Load;
@@ -487,10 +514,10 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripStatusLabel DateandTimeLabel;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button MedAbstract_Btn;
+        private System.Windows.Forms.Button DischSum_Btn;
+        private System.Windows.Forms.Button HistorySheet_Btn;
+        private System.Windows.Forms.Button Prescription_btn;
         private System.Windows.Forms.Button PerformanceCounter_Btn;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -508,20 +535,22 @@
         private System.Windows.Forms.ToolStripButton Search_Btn;
         private System.Windows.Forms.Button ERToAD_Btn;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button DischIns_Btn;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button NPSReport_Btn;
+        private System.Windows.Forms.Button NPSSum_Btn;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Button CustomRpts_Btn;
+        private System.Windows.Forms.Button ERTToAdmissionSum_Btn;
+        private System.Windows.Forms.Button DischProcSum_Btn;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
         private System.Windows.Forms.ToolStripStatusLabel DPATAT_Label;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel4;
         private System.Windows.Forms.ToolStripStatusLabel ETAATAT_Label;
+        private System.Windows.Forms.ToolStripStatusLabel AsForTheMonth_Label;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

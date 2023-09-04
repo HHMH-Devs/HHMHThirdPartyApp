@@ -10,12 +10,11 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper
     {
         private readonly LogSource logSource = LogSource.Get();
         public SqlConnection Con;
-        private readonly EncryptConnString security = new EncryptConnString();
 
 
         public HHMHBBHelper(string connectionString)
         {
-            Con = new SqlConnection(security.Decrypt(connectionString));
+            Con = new SqlConnection(connectionString);
         }
 
         public bool IsConnected()

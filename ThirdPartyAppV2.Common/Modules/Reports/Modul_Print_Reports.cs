@@ -53,7 +53,7 @@ namespace ThirdPartyAppV2.Common.Modules.Reports
         /// <param name="islandscap"></param>
         /// <param name="printer_name">Ignore this parameter to use default printer</param>
         /// <remarks></remarks>
-        public static void Print_microsoft_report(LocalReport report, string paperkind = "Custom1", bool islandscap = false, string printer_name = null)
+        public static void Print_microsoft_report(LocalReport report, string paperkind = "Custom", bool islandscap = false, string printer_name = null)
 
         {
 

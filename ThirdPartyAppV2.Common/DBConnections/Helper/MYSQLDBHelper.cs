@@ -12,11 +12,10 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper
     {
         private readonly LogSource logSource = LogSource.Get();
         public MySqlConnection Con;
-        private readonly EncryptConnString security = new EncryptConnString();
 
         public MYSQLDBHelper(string connectionString)
         {
-            Con = new MySqlConnection(security.Decrypt(connectionString));
+            Con = new MySqlConnection(connectionString);
         }
 
         public bool IsConnected()

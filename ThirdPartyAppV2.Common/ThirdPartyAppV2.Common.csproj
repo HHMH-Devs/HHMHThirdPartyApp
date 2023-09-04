@@ -11,6 +11,7 @@
     <RootNamespace>ThirdPartyAppV2.Common</RootNamespace>
     <AssemblyName>ThirdPartyAppV2.Common</AssemblyName>
     <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <LangVersion>Latest</LangVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
@@ -142,6 +143,7 @@
     <Compile Include="Modules\Main\Patch\SystemPatch.cs" />
     <Compile Include="Modules\Main\Patch\Versions\PatchFunctions.cs" />
     <Compile Include="Modules\Main\Patch\Versions\Version1.cs" />
+    <Compile Include="Modules\Main\Patch\Versions\Version2.cs" />
     <Compile Include="Modules\NPSPerformance\NPSCounter.cs" />
     <Compile Include="Modules\Reports\Modul_Print_Reports.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

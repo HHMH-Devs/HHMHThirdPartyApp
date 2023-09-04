@@ -36,7 +36,8 @@ namespace ThirdPartyAppV2.Common.DBConnections.DB
 
         public string GetConfigurationString(string key)
         {
-            return _config.ConnectionStrings.ConnectionStrings[key].ConnectionString;
+            var st = _config.ConnectionStrings.ConnectionStrings[key].ConnectionString;
+            return _security.Decrypt(st);
         }
 
         public void SaveConnectionString(string key, string value)

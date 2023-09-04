@@ -9,8 +9,8 @@ namespace ThirdPartyAppV2.Main
 {
     internal static class Program
     {
-        private static readonly NlogConfiguration nlog = new NlogConfiguration();
-        private static readonly SystemPatch patch = new SystemPatch();
+        private static readonly NlogConfiguration nlog = new();
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -27,7 +27,7 @@ namespace ThirdPartyAppV2.Main
             PortableSettingsProvider.SettingsFileName = "ThirdPartyApp.setting";
             PortableSettingsProviderBase.SettingsDirectory = "C:\\Users\\hadmin\\Documents\\Thirdpartyapp\\Settings";          
             PortableSettingsProvider.ApplyProvider(Properties.Settings.Default);
-            patch.PatchSystem();
+            SystemPatch.PatchSystem();
             Application.Run(new Main());
         }
     }

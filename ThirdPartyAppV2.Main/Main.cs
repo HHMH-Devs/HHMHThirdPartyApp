@@ -1,5 +1,4 @@
-﻿using PostSharp.Patterns.Diagnostics;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -14,18 +13,15 @@ namespace ThirdPartyAppV2.Main
 {
     public partial class Main : Form
     {
-        private int elapsedTime = 100;
-        private readonly LoadData data = new LoadData();
+        private int elapsedTime = 0;
+        private readonly LoadData data = new();
         public Main()
         {
             InitializeComponent();
             Text = Application.ProductName;
             Text += " [" + Assembly.GetEntryAssembly().GetName().Version + "]";
             DateandTimeLabel.Text = DateTime.Now.ToString("F");
-            var timer = new Timer
-            {
-                Interval = 1000
-            };
+            var timer = new Timer();
             timer.Tick += Timer_Tick;
             timer.Start();
             LoadAdmitted();
@@ -81,16 +77,42 @@ namespace ThirdPartyAppV2.Main
             {
                 foreach (DataRow d in DPDS.Tables[0].Rows)
                 {
-                    dischargeProcDateList.Add(Convert.ToDateTime(d["MDStartDateTime"]).Subtract(Convert.ToDateTime(d["MDEndDateTime"])));
-                    dischargeProcDateList.Add(Convert.ToDateTime(d["BSStartDateTime"]).Subtract(Convert.ToDateTime(d["BSEndDateTime"])));
-                    dischargeProcDateList.Add(Convert.ToDateTime(d["BGStartDateTime"]).Subtract(Convert.ToDateTime(d["BGEndDateTime"])));
-                    dischargeProcDateList.Add(Convert.ToDateTime(d["BPStartDateTime"]).Subtract(Convert.ToDateTime(d["BPEndDateTime"])));
-                    dischargeProcDateList.Add(Convert.ToDateTime(d["DIDStartDateTime"]).Subtract(Convert.ToDateTime(d["DIDEndDateTime"])));
-                    dischargeProcDateList.Add(Convert.ToDateTime(d["PatExitStartDateTime"]).Subtract(Convert.ToDateTime(d["PatExitEndDateTime"])));
+                    if (!DBNull.Value.Equals(d["MDStartDateTime"]) && !DBNull.Value.Equals(d["MDEndDateTime"]))
+                    {
+                        dischargeProcDateList.Add(Convert.ToDateTime(d["MDStartDateTime"]).Subtract(Convert.ToDateTime(d["MDEndDateTime"])));
+                    }
+                    if (!DBNull.Value.Equals(d["IEStartDateTime"]) && !DBNull.Value.Equals(d["MDEndDateTime"]))
+                    {
+                        dischargeProcDateList.Add(Convert.ToDateTime(d["IEStartDateTime"]).Subtract(Convert.ToDateTime(d["IEEndDateTime"])));
+                    }
+                    if (!DBNull.Value.Equals(d["BGStartDateTime"]) && !DBNull.Value.Equals(d["BGEndDateTime"]))
+                    {
+                        dischargeProcDateList.Add(Convert.ToDateTime(d["BGStartDateTime"]).Subtract(Convert.ToDateTime(d["BGEndDateTime"])));
+                    }
+                    if (!DBNull.Value.Equals(d["BP1StartDateTime"]) && !DBNull.Value.Equals(d["BP1EndDateTime"]))
+                    {
+                        dischargeProcDateList.Add(Convert.ToDateTime(d["BP1StartDateTime"]).Subtract(Convert.ToDateTime(d["BP1EndDateTime"])));
+                    }
+                    if (!DBNull.Value.Equals(d["BP2StartDateTime"]) && !DBNull.Value.Equals(d["BP2EndDateTime"]))
+                    {
+                        dischargeProcDateList.Add(Convert.ToDateTime(d["BP2StartDateTime"]).Subtract(Convert.ToDateTime(d["BP2EndDateTime"])));
+                    }
+                    if (!DBNull.Value.Equals(d["DIDStartDateTime"]) && !DBNull.Value.Equals(d["DIDEndDateTime"]))
+                    {
+                        dischargeProcDateList.Add(Convert.ToDateTime(d["DIDStartDateTime"]).Subtract(Convert.ToDateTime(d["DIDEndDateTime"])));
+                    }
+                    if (!DBNull.Value.Equals(d["PatExitStartDateTime"]) && !DBNull.Value.Equals(d["PatExitEndDateTime"]))
+                    {
+                        dischargeProcDateList.Add(Convert.ToDateTime(d["PatExitStartDateTime"]).Subtract(Convert.ToDateTime(d["PatExitEndDateTime"])));
+                    }                
                 }
 
-                var dischProcAverage = dischargeProcDateList.Average(timeSpan => timeSpan.TotalSeconds);
-                DPATAT_Label.Text = TimeSpan.FromSeconds(dischProcAverage).ToString("hh':'mm':'ss");
+                if (dischargeProcDateList.Count > 0)
+                {
+                    var dischProcAverage = dischargeProcDateList.Average(timeSpan => timeSpan.TotalSeconds);
+                    DPATAT_Label.Text = TimeSpan.FromSeconds(dischProcAverage).ToString("hh':'mm':'ss");
+                }
+
             }
 
             var ErToAdmissionDateList = new List<TimeSpan>();
@@ -109,18 +131,24 @@ namespace ThirdPartyAppV2.Main
                     ErToAdmissionDateList.Add(Convert.ToDateTime(d["TransToRoomStartDateTime"]).Subtract(Convert.ToDateTime(d["TransToRoomEndDateTime"])));
                 }
 
-                var ERAdmissionAverage = ErToAdmissionDateList.Average(timeSpan => timeSpan.TotalSeconds);
-                ETAATAT_Label.Text = TimeSpan.FromSeconds(ERAdmissionAverage).ToString("hh':'mm':'ss");
+                if (ErToAdmissionDateList.Count > 0)
+                {
+                    var ERAdmissionAverage = ErToAdmissionDateList.Average(timeSpan => timeSpan.TotalSeconds);
+                    ETAATAT_Label.Text = TimeSpan.FromSeconds(ERAdmissionAverage).ToString("hh':'mm':'ss");
+                }
             }
+
+            AsForTheMonth_Label.Text = DateTime.Now.ToString("'As for the month of 'MMMM");
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
             DateandTimeLabel.Text = DateTime.Now.ToString("F");
             elapsedTime += 1;
-            if (elapsedTime <= 100)
+            if (elapsedTime >= 600)
             {
                 LoadAverageTurnArroundTime();
+                elapsedTime = 0;
             }
         }
 
@@ -159,6 +187,15 @@ namespace ThirdPartyAppV2.Main
             LoadAdmitted();
         }
 
+        private void SearchAdmitted_Text_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                LoadAdmitted();
+            }
+        }
+
+
         private void ERToAD_Btn_Click(object sender, EventArgs e)
         {
             var Counter = new ERToAdmissionCounter();
@@ -181,6 +218,94 @@ namespace ThirdPartyAppV2.Main
         {
             var rpt = new RptViewerCommon();
             rpt.ShowDialog();
+        }
+
+        private void AdmittedPatienstListView_Click(object sender, EventArgs e)
+        {
+            if (AdmittedPatienstListView.FocusedItem.SubItems[2].Text == "Inpatient")
+            {
+                ERToAD_Btn.Enabled = false;
+                PerformanceCounter_Btn.Enabled = true;
+            }
+            else if (AdmittedPatienstListView.FocusedItem.SubItems[2].Text == "Emergency")
+            {
+                ERToAD_Btn.Enabled = true;
+                PerformanceCounter_Btn.Enabled = false;
+            }
+        }
+
+        private void AdmittedPatienstListView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (((ListView)sender).SelectedItems.Count <= 0)
+            {
+                foreach (var item in panel1.Controls)
+                {
+                    if (item is Button btn)
+                    {
+                        if (btn.Name == "PerformanceCounter_Btn" ||
+                            btn.Name == "ERToAD_Btn" ||
+                            btn.Name == "DischSum_Btn" ||
+                            btn.Name == "MedAbstract_Btn" ||
+                            btn.Name == "HistorySheet_Btn" ||
+                            btn.Name == "DischIns_Btn" ||
+                            btn.Name == "Prescription_btn")
+                        {
+                            btn.Enabled = false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                foreach (var item in panel1.Controls)
+                {
+                    if (item is Button btn)
+                    {
+                        if (AdmittedPatienstListView.FocusedItem.SubItems[2].Text == "Inpatient")
+                        {
+                            if (btn.Name == "PerformanceCounter_Btn" ||
+                                btn.Name == "DischSum_Btn" ||
+                                btn.Name == "MedAbstract_Btn" ||
+                                btn.Name == "HistorySheet_Btn" ||
+                                btn.Name == "DischIns_Btn" ||
+                                btn.Name == "Prescription_btn" ||
+                                btn.Name == "NPSSum_Btn" ||
+                                btn.Name == "DischProcSum_Btn" ||
+                                btn.Name == "ERTToAdmissionSum_Btn" ||
+                                btn.Name == "CustomRpts_Btn")
+                            {
+                                btn.Enabled = true;
+                            }
+                            else if (btn.Name != "NPSSum_Btn" ||
+                                btn.Name != "DischProcSum_Btn" ||
+                                btn.Name != "ERTToAdmissionSum_Btn" ||
+                                btn.Name != "CustomRpts_Btn")
+                            {
+                                btn.Enabled = false;
+                            }
+                        }
+                        else if (AdmittedPatienstListView.FocusedItem.SubItems[2].Text == "Emergency")
+                        {
+                            if (btn.Name == "ERToAD_Btn" ||
+                                btn.Name == "NPSSum_Btn" ||
+                                btn.Name == "DischProcSum_Btn" ||
+                                btn.Name == "ERTToAdmissionSum_Btn" ||
+                                btn.Name == "CustomRpts_Btn")
+                            {
+                                btn.Enabled = true;
+                            }
+                            else if (btn.Name != "NPSSum_Btn" ||
+                                btn.Name != "DischProcSum_Btn" ||
+                                btn.Name != "ERTToAdmissionSum_Btn" ||
+                                btn.Name != "CustomRpts_Btn")
+                            {
+                                btn.Enabled = false;
+                            }
+                        }
+                    }
+                }
+
+            }
         }
     }
 }

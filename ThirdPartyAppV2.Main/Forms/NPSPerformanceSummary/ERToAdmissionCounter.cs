@@ -14,8 +14,8 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
     {
         public string PatientName;
         public string PatRegistryNo;
-        private readonly NPSCounter nPSCounter = new NPSCounter();
-        private readonly Dictionary<string, TimeSpan> timerList = new Dictionary<string, TimeSpan>();
+        private readonly NPSCounter nPSCounter = new();
+        private readonly Dictionary<string, TimeSpan> timerList = new();
 
         public ERToAdmissionCounter()
         {
@@ -325,8 +325,15 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
 
         private void DoorToTriageStartDate_Text_TextChanged(object sender, EventArgs e)
         {
+            if (((TextBox)sender).Text.Length <= 0)
+            {
+                DoorToTriageEndDate_Text.ReadOnly = true;
+                DoorToTriageEndDate_Btn.Enabled = false;
+            }
             if (DateTime.TryParse(DoorToTriageStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(DoorToTriageEndDate_Text.Text, out DateTime parsedDateTime2))
             {
+                DoorToTriageEndDate_Text.ReadOnly = false;
+                DoorToTriageEndDate_Btn.Enabled = true;
                 DToTLabel_Lbl.Text = $"Door to TRIAGE - {GetMDTimeDiff("Door to TRIAGE", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
             }
         }
