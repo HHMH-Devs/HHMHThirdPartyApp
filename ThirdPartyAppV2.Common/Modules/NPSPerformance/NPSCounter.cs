@@ -181,8 +181,8 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
                         rw["PatientName"] = patName;
                         rw["MDStartDateTime"] = MDStart == DateTime.MinValue ? DBNull.Value : MDStart;
                         rw["MDEndDateTime"] = MDEnd == DateTime.MinValue ? DBNull.Value : MDEnd;
-                        rw["BSStartDateTime"] = IEStart == DateTime.MinValue ? DBNull.Value : IEStart;
-                        rw["BSEndDateTime"] = IEEnd == DateTime.MinValue ? DBNull.Value : IEEnd;
+                        rw["IEStartDateTime"] = IEStart == DateTime.MinValue ? DBNull.Value : IEStart;
+                        rw["IEEndDateTime"] = IEEnd == DateTime.MinValue ? DBNull.Value : IEEnd;
                         rw["BGStartDateTime"] = BGStart == DateTime.MinValue ? DBNull.Value : BGStart;
                         rw["BGEndDateTime"] = BGEnd == DateTime.MinValue ? DBNull.Value : BGEnd;
                         rw["BP1StartDateTime"] = BP1Start == DateTime.MinValue ? DBNull.Value : BP1Start;
