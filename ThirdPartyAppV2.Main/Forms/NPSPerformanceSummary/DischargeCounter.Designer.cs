@@ -408,7 +408,7 @@
             IEEndDateTime_Btn.Name = "IEEndDateTime_Btn";
             IEEndDateTime_Btn.Size = new System.Drawing.Size(25, 25);
             IEEndDateTime_Btn.TabIndex = 13;
-            IEEndDateTime_Btn.Tag = "BillSendingEndDateTime_Text";
+            IEEndDateTime_Btn.Tag = "IEEndDateTime_Text";
             IEEndDateTime_Btn.UseVisualStyleBackColor = true;
             IEEndDateTime_Btn.Click += IEEndDateTime_Btn_Click;
             // 
@@ -436,7 +436,7 @@
             IEStartDateTime_Btn.Name = "IEStartDateTime_Btn";
             IEStartDateTime_Btn.Size = new System.Drawing.Size(25, 25);
             IEStartDateTime_Btn.TabIndex = 10;
-            IEStartDateTime_Btn.Tag = "BillSendingStartDateTime_Text";
+            IEStartDateTime_Btn.Tag = "IEStartDateTime_Text";
             IEStartDateTime_Btn.UseVisualStyleBackColor = true;
             IEStartDateTime_Btn.Click += IEStartDateTime_Btn_Click;
             // 
@@ -496,7 +496,7 @@
             BP1EndDateTime_Btn.Name = "BP1EndDateTime_Btn";
             BP1EndDateTime_Btn.Size = new System.Drawing.Size(25, 25);
             BP1EndDateTime_Btn.TabIndex = 6;
-            BP1EndDateTime_Btn.Tag = "BPEndDate_Text";
+            BP1EndDateTime_Btn.Tag = "BP1EndDateTime_Text";
             BP1EndDateTime_Btn.UseVisualStyleBackColor = true;
             BP1EndDateTime_Btn.Click += BP1EndDateTime_Btn_Click;
             // 
@@ -515,7 +515,7 @@
             BP2EndDate_Btn.Name = "BP2EndDate_Btn";
             BP2EndDate_Btn.Size = new System.Drawing.Size(25, 25);
             BP2EndDate_Btn.TabIndex = 6;
-            BP2EndDate_Btn.Tag = "BPEndDate_Text";
+            BP2EndDate_Btn.Tag = "BP2EndDate_Text";
             BP2EndDate_Btn.UseVisualStyleBackColor = true;
             BP2EndDate_Btn.Click += BPEndDate_Btn_Click;
             // 
@@ -636,7 +636,7 @@
             BP1StartDateTime_Btn.Name = "BP1StartDateTime_Btn";
             BP1StartDateTime_Btn.Size = new System.Drawing.Size(25, 25);
             BP1StartDateTime_Btn.TabIndex = 3;
-            BP1StartDateTime_Btn.Tag = "BPStartDate_Text";
+            BP1StartDateTime_Btn.Tag = "BP1StartDateTime_Text";
             BP1StartDateTime_Btn.UseVisualStyleBackColor = true;
             BP1StartDateTime_Btn.Click += BP1StartDateTime_Btn_Click;
             // 
@@ -655,7 +655,7 @@
             BP2StartDate_Btn.Name = "BP2StartDate_Btn";
             BP2StartDate_Btn.Size = new System.Drawing.Size(25, 25);
             BP2StartDate_Btn.TabIndex = 3;
-            BP2StartDate_Btn.Tag = "BPStartDate_Text";
+            BP2StartDate_Btn.Tag = "BP2StartDate_Text";
             BP2StartDate_Btn.UseVisualStyleBackColor = true;
             BP2StartDate_Btn.Click += BPStartDate_Btn_Click;
             // 

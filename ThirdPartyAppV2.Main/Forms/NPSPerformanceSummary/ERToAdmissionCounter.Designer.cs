@@ -455,7 +455,7 @@
             NCOEndDate_Btn.Name = "NCOEndDate_Btn";
             NCOEndDate_Btn.Size = new System.Drawing.Size(25, 25);
             NCOEndDate_Btn.TabIndex = 46;
-            NCOEndDate_Btn.Tag = "DctrsOrderCarryOutEndDate_Text";
+            NCOEndDate_Btn.Tag = "NCOEndDate_Text";
             NCOEndDate_Btn.UseVisualStyleBackColor = true;
             NCOEndDate_Btn.Click += NCOEndDate_Btn_Click;
             // 
@@ -476,7 +476,7 @@
             RPEndDate_Btn.Name = "RPEndDate_Btn";
             RPEndDate_Btn.Size = new System.Drawing.Size(25, 25);
             RPEndDate_Btn.TabIndex = 46;
-            RPEndDate_Btn.Tag = "DctrsOrderCarryOutEndDate_Text";
+            RPEndDate_Btn.Tag = "RPEndDate_Text";
             RPEndDate_Btn.UseVisualStyleBackColor = true;
             RPEndDate_Btn.Click += RPEndDate_Btn_Click;
             // 
@@ -498,7 +498,7 @@
             PhicSubEndDate_Btn.Name = "PhicSubEndDate_Btn";
             PhicSubEndDate_Btn.Size = new System.Drawing.Size(25, 25);
             PhicSubEndDate_Btn.TabIndex = 46;
-            PhicSubEndDate_Btn.Tag = "DctrsOrderCarryOutEndDate_Text";
+            PhicSubEndDate_Btn.Tag = "PhicSubEndDate_Text";
             PhicSubEndDate_Btn.UseVisualStyleBackColor = true;
             PhicSubEndDate_Btn.Click += PhicSubEndDate_Btn_Click;
             // 
@@ -520,7 +520,7 @@
             APPEndDate_Btn.Name = "APPEndDate_Btn";
             APPEndDate_Btn.Size = new System.Drawing.Size(25, 25);
             APPEndDate_Btn.TabIndex = 46;
-            APPEndDate_Btn.Tag = "DctrsOrderCarryOutEndDate_Text";
+            APPEndDate_Btn.Tag = "APPEndDate_Text";
             APPEndDate_Btn.UseVisualStyleBackColor = true;
             APPEndDate_Btn.Click += APPEndDate_Btn_Click;
             // 
@@ -652,7 +652,7 @@
             NCOStartDate_Btn.Name = "NCOStartDate_Btn";
             NCOStartDate_Btn.Size = new System.Drawing.Size(25, 25);
             NCOStartDate_Btn.TabIndex = 34;
-            NCOStartDate_Btn.Tag = "DctrsOrderCarryOutStartDate_Text";
+            NCOStartDate_Btn.Tag = "NCOStartDate_Text";
             NCOStartDate_Btn.UseVisualStyleBackColor = true;
             NCOStartDate_Btn.Click += NCOStartDate_Btn_Click;
             // 
@@ -674,7 +674,7 @@
             RPStartDate_Btn.Name = "RPStartDate_Btn";
             RPStartDate_Btn.Size = new System.Drawing.Size(25, 25);
             RPStartDate_Btn.TabIndex = 34;
-            RPStartDate_Btn.Tag = "DctrsOrderCarryOutStartDate_Text";
+            RPStartDate_Btn.Tag = "RPStartDate_Text";
             RPStartDate_Btn.UseVisualStyleBackColor = true;
             RPStartDate_Btn.Click += RPStartDate_Btn_Click;
             // 
@@ -694,7 +694,7 @@
             PhicSubStartDate_Btn.Name = "PhicSubStartDate_Btn";
             PhicSubStartDate_Btn.Size = new System.Drawing.Size(25, 25);
             PhicSubStartDate_Btn.TabIndex = 34;
-            PhicSubStartDate_Btn.Tag = "DctrsOrderCarryOutStartDate_Text";
+            PhicSubStartDate_Btn.Tag = "PhicSubStartDate_Text";
             PhicSubStartDate_Btn.UseVisualStyleBackColor = true;
             PhicSubStartDate_Btn.Click += PhicSubStartDate_Btn_Click;
             // 
@@ -716,7 +716,7 @@
             APPStartDate_Btn.Name = "APPStartDate_Btn";
             APPStartDate_Btn.Size = new System.Drawing.Size(25, 25);
             APPStartDate_Btn.TabIndex = 34;
-            APPStartDate_Btn.Tag = "DctrsOrderCarryOutStartDate_Text";
+            APPStartDate_Btn.Tag = "APPStartDate_Text";
             APPStartDate_Btn.UseVisualStyleBackColor = true;
             APPStartDate_Btn.Click += APPStartDate_Btn_Click;
             // 

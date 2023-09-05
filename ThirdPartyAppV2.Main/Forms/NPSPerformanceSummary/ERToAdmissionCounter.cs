@@ -351,6 +351,8 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             if (string.IsNullOrEmpty(DctrsOrderCarryOutStartDate_Text.Text))
             {
                 DctrsOrderCarryOutStartDate_Text.Text = DateTime.Now.ToString();
+                DctrsOrderCarryOutEndDate_Text.ReadOnly = false;
+                DctrsOrderCarryOutEndDate_Btn.Enabled = true;
             }
 
         }
@@ -372,6 +374,8 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             if (string.IsNullOrEmpty(APPStartDate_Text.Text))
             {
                 APPStartDate_Text.Text = DateTime.Now.ToString();
+                APPEndDate_Text.ReadOnly = false;
+                APPEndDate_Btn.Enabled = true;
             }
         }
 
@@ -392,6 +396,8 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             if (string.IsNullOrEmpty(TransferToRoomStartDate_Text.Text))
             {
                 TransferToRoomStartDate_Text.Text = DateTime.Now.ToString();
+                TransferToRoomEndDate_Text.ReadOnly = false;
+                TransferToRoomEndDate_Btn.Enabled = true;
             }
         }
 
@@ -421,6 +427,8 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             if (string.IsNullOrEmpty(PhicSubStartDate_Text.Text))
             {
                 PhicSubStartDate_Text.Text = DateTime.Now.ToString();
+                PhicSubEndDate_Text.ReadOnly = false;
+                PhicSubEndDate_Btn.Enabled = true;
             }
         }
 
@@ -449,6 +457,8 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             if (string.IsNullOrEmpty(RPStartDate_Text.Text))
             {
                 RPStartDate_Text.Text = DateTime.Now.ToString();
+                RPEndDate_Text.ReadOnly = false;
+                RPEndDate_Btn.Enabled = true;
             }
         }
 
@@ -469,6 +479,8 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             if (string.IsNullOrEmpty(NCOStartDate_Text.Text))
             {
                 NCOStartDate_Text.Text = DateTime.Now.ToString();
+                NCOEndDate_Text.ReadOnly = false;
+                NCOEndDate_Btn.Enabled = true;
             }
         }
 
@@ -489,6 +501,8 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             if (string.IsNullOrEmpty(ReadyToTransferStartDate_Text.Text))
             {
                 ReadyToTransferStartDate_Text.Text = DateTime.Now.ToString();
+                ReadyToTransferEndDate_Text.ReadOnly = false;
+                ReadyToTransferEndDate_Btn.Enabled = true;
             }
         }
 
