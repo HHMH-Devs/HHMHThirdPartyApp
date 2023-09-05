@@ -1,5 +1,4 @@
-﻿using Org.BouncyCastle.Asn1.X509.Qualified;
-using PostSharp.Patterns.Diagnostics;
+﻿using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -66,22 +65,28 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             {
                 foreach (DataRow rw in stData.Tables[0].Rows)
                 {
-                    DoorToTriageStartDate_Text.Text = rw["DToTStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["DToTStartDateTime"].ToString();
-                    DoorToTriageEndDate_Text.Text = rw["DToTEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["DToTEndDateTime"].ToString();
-                    TriageToRegEndDate_Text.Text = rw["TriToRegStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["TriToRegStartDateTime"].ToString();
-                    TriageToRegStartDate_Text.Text = rw["TriToRegEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["TriToRegEndDateTime"].ToString();
                     RegToDctrsOderStartDate_Text.Text = rw["RegToDocStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["RegToDocStartDateTime"].ToString();
                     RegToDctrsOderEndDate_Text.Text = rw["RegToDocEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["RegToDocEndDateTime"].ToString();
                     DctrsOrderCarryOutStartDate_Text.Text = rw["DocOrderStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["DocOrderStartDateTime"].ToString();
                     DctrsOrderCarryOutEndDate_Text.Text = rw["DocOrderEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["DocOrderEndDateTime"].ToString();
+                    APPStartDate_Text.Text = rw["APPStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["APPStartDateTime"].ToString();
+                    APPEndDate_Text.Text = rw["APPEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["APPEndDateTime"].ToString();
+                    PhicSubStartDate_Text.Text = rw["PHICStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["PHICStartDateTime"].ToString();
+                    PhicSubEndDate_Text.Text = rw["PHICEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["PHICEndDateTime"].ToString();
+                    RPStartDate_Text.Text = rw["RPStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["RPStartDateTime"].ToString();
+                    RPEndDate_Text.Text = rw["RPDocEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["RPDocEndDateTime"].ToString();
+                    NCOStartDate_Text.Text = rw["NCODocStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["NCODocStartDateTime"].ToString();
+                    NCOEndDate_Text.Text = rw["NCOEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["NCOEndDateTime"].ToString();
                     ReadyToTransferStartDate_Text.Text = rw["ReadyToTransStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["ReadyToTransStartDateTime"].ToString();
                     ReadyToTransferEndDate_Text.Text = rw["ReadyToTransEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["ReadyToTransEndDateTime"].ToString();
                     TransferToRoomStartDate_Text.Text = rw["TransToRoomStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["TransToRoomStartDateTime"].ToString();
                     TransferToRoomEndDate_Text.Text = rw["TransToRoomEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["TransToRoomEndDateTime"].ToString();
-                    DToTLabel_Lbl.Text = $"Door to TRIAGE - {GetMDTimeDiff("Door to TRIAGE", DoorToTriageStartDate_Text.Text, DoorToTriageEndDate_Text.Text)}";
-                    TToRLabel_Lbl.Text = $"TRIAGE to Registration - {GetMDTimeDiff("TRIAGE to Registration", TriageToRegStartDate_Text.Text, TriageToRegEndDate_Text.Text)}";
                     RToDOLabel_Lbl.Text = $"Registration to Doctor's Order Done - {GetMDTimeDiff("Registration to Doctor's Order Done", RegToDctrsOderStartDate_Text.Text, RegToDctrsOderEndDate_Text.Text)}";
                     DOCOLabel_Lbl.Text = $"Doctor's Order Carry Out - {GetMDTimeDiff("Doctor's Order Carry Out", DctrsOrderCarryOutStartDate_Text.Text, DctrsOrderCarryOutEndDate_Text.Text)}";
+                    APPLabel_Lbl.Text = $"Admitting/Patient Profiling - {GetMDTimeDiff("Admitting/Patient Profiling", APPStartDate_Text.Text, APPEndDate_Text.Text)}";
+                    PHICLabel_Lbl.Text = $"PHIC Submission - {GetMDTimeDiff("PHIC Submission", PhicSubStartDate_Text.Text, PhicSubEndDate_Text.Text)}";
+                    RPLabel_Lbl.Text = $"Room Preparation - {GetMDTimeDiff("Room Preparation", RPStartDate_Text.Text, RPEndDate_Text.Text)}";
+                    NCOLabel_Lbl.Text = $"Nurses Carry Out - {GetMDTimeDiff("Nurses Carry Out", NCOStartDate_Text.Text, NCOEndDate_Text.Text)}";
                     RToTLabel_Lbl.Text = $"Ready for Transfer - {GetMDTimeDiff("Ready for Transfer", ReadyToTransferStartDate_Text.Text, ReadyToTransferEndDate_Text.Text)}";
                     TransToRoomLabel_Lbl.Text = $"Transfer to Room - {GetMDTimeDiff("Transfer to Room", TransferToRoomStartDate_Text.Text, TransferToRoomEndDate_Text.Text)}";
                 }
@@ -150,6 +155,46 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
 
                 }
             }
+            if (string.IsNullOrEmpty(RegToDctrsOderStartDate_Text.Text))
+            {
+                RegToDctrsOderEndDate_Text.ReadOnly = true;
+                RegToDctrsOderEndDate_Btn.Enabled = false;
+            }
+            if (string.IsNullOrEmpty(DctrsOrderCarryOutStartDate_Text.Text))
+            {
+                DctrsOrderCarryOutEndDate_Text.ReadOnly = true;
+                DctrsOrderCarryOutEndDate_Btn.Enabled = false;
+            }
+            if (string.IsNullOrEmpty(APPStartDate_Text.Text))
+            {
+                APPEndDate_Text.ReadOnly = true;
+                APPEndDate_Btn.Enabled = false;
+            }
+            if (string.IsNullOrEmpty(PhicSubStartDate_Text.Text))
+            {
+                PhicSubEndDate_Text.ReadOnly = true;
+                PhicSubEndDate_Btn.Enabled = false;
+            }
+            if (string.IsNullOrEmpty(RPStartDate_Text.Text))
+            {
+                RPEndDate_Text.ReadOnly = true;
+                RPEndDate_Btn.Enabled = false;
+            }
+            if (string.IsNullOrEmpty(NCOStartDate_Text.Text))
+            {
+                NCOEndDate_Text.ReadOnly = true;
+                NCOEndDate_Btn.Enabled = false;
+            }
+            if (string.IsNullOrEmpty(ReadyToTransferStartDate_Text.Text))
+            {
+                ReadyToTransferEndDate_Text.ReadOnly = true;
+                ReadyToTransferEndDate_Btn.Enabled = false;
+            }
+            if (string.IsNullOrEmpty(TransferToRoomStartDate_Text.Text))
+            {
+                TransferToRoomEndDate_Text.ReadOnly = true;
+                TransferToRoomEndDate_Btn.Enabled = false;
+            }
         }
 
         private string GetMDTimeDiff(string process, string startDate, string EndDate)
@@ -195,33 +240,6 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             return "00:00:00";
         }
 
-        private void DoorToTriageStartDate_Btn_Click(object sender, EventArgs e)
-        {
-            DoorToTriageStartDate_Text.Text = DateTime.Now.ToString();
-        }
-
-        private void DoorToTriageEndDate_Btn_Click(object sender, EventArgs e)
-        {
-            DoorToTriageEndDate_Text.Text = DateTime.Now.ToString();
-            if (string.IsNullOrEmpty(TriageToRegStartDate_Text.Text))
-            {
-                TriageToRegStartDate_Text.Text = DateTime.Now.ToString();
-            }          
-        }
-
-        private void TriageToRegStartDate_Btn_Click(object sender, EventArgs e)
-        {
-            TriageToRegStartDate_Text.Text = DateTime.Now.ToString();
-        }
-
-        private void TriageToRegEndDate_Btn_Click(object sender, EventArgs e)
-        {
-            TriageToRegEndDate_Text.Text = DateTime.Now.ToString();
-            if (string.IsNullOrEmpty(RegToDctrsOderStartDate_Text.Text))
-            {
-                RegToDctrsOderStartDate_Text.Text = DateTime.Now.ToString();
-            }
-        }
 
         private void RegToDctrsOderStartDate_Btn_Click(object sender, EventArgs e)
         {
@@ -231,10 +249,6 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
         private void RegToDctrsOderEndDate_Btn_Click(object sender, EventArgs e)
         {
             RegToDctrsOderEndDate_Text.Text = DateTime.Now.ToString();
-            if (string.IsNullOrEmpty(DctrsOrderCarryOutStartDate_Text.Text))
-            {
-                DctrsOrderCarryOutStartDate_Text.Text = DateTime.Now.ToString();
-            }
         }
 
         private void DctrsOrderCarryOutStartDate_Btn_Click(object sender, EventArgs e)
@@ -245,10 +259,6 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
         private void DctrsOrderCarryOutEndDate_Btn_Click(object sender, EventArgs e)
         {
             DctrsOrderCarryOutEndDate_Text.Text = DateTime.Now.ToString();
-            if (string.IsNullOrEmpty(ReadyToTransferStartDate_Text.Text))
-            {
-                ReadyToTransferStartDate_Text.Text = DateTime.Now.ToString();
-            }
         }
 
         private void ReadyToTransferStartDate_Btn_Click(object sender, EventArgs e)
@@ -259,10 +269,6 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
         private void ReadyToTransferEndDate_Btn_Click(object sender, EventArgs e)
         {
             ReadyToTransferEndDate_Text.Text = DateTime.Now.ToString();
-            if (string.IsNullOrEmpty(TransferToRoomStartDate_Text.Text))
-            {
-                TransferToRoomStartDate_Text.Text = DateTime.Now.ToString();
-            }
         }
 
         private void TransferToRoomStartDate_Btn_Click(object sender, EventArgs e)
@@ -297,14 +303,18 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
                 {
                     var isSaved = nPSCounter.SaveDataErToAdmission(Convert.ToInt32(Tag),
                         PatientName_Lbl.Text,
-                        Convert.ToDateTime(string.IsNullOrEmpty(DoorToTriageStartDate_Text.Text) ? DateTime.MinValue.ToString() : DoorToTriageStartDate_Text.Text),
-                        Convert.ToDateTime(string.IsNullOrEmpty(DoorToTriageEndDate_Text.Text) ? DateTime.MinValue.ToString() : DoorToTriageEndDate_Text.Text),
-                        Convert.ToDateTime(string.IsNullOrEmpty(TriageToRegStartDate_Text.Text) ? DateTime.MinValue.ToString() : TriageToRegStartDate_Text.Text),
-                        Convert.ToDateTime(string.IsNullOrEmpty(TriageToRegEndDate_Text.Text) ? DateTime.MinValue.ToString() : TriageToRegEndDate_Text.Text),
                         Convert.ToDateTime(string.IsNullOrEmpty(RegToDctrsOderStartDate_Text.Text) ? DateTime.MinValue.ToString() : RegToDctrsOderStartDate_Text.Text),
                         Convert.ToDateTime(string.IsNullOrEmpty(RegToDctrsOderEndDate_Text.Text) ? DateTime.MinValue.ToString() : RegToDctrsOderEndDate_Text.Text),
                         Convert.ToDateTime(string.IsNullOrEmpty(DctrsOrderCarryOutStartDate_Text.Text) ? DateTime.MinValue.ToString() : DctrsOrderCarryOutStartDate_Text.Text),
                         Convert.ToDateTime(string.IsNullOrEmpty(DctrsOrderCarryOutEndDate_Text.Text) ? DateTime.MinValue.ToString() : DctrsOrderCarryOutEndDate_Text.Text),
+                        Convert.ToDateTime(string.IsNullOrEmpty(APPStartDate_Text.Text) ? DateTime.MinValue.ToString() : APPStartDate_Text.Text),
+                        Convert.ToDateTime(string.IsNullOrEmpty(APPEndDate_Text.Text) ? DateTime.MinValue.ToString() : APPEndDate_Text.Text),
+                        Convert.ToDateTime(string.IsNullOrEmpty(PhicSubStartDate_Text.Text) ? DateTime.MinValue.ToString() : PhicSubStartDate_Text.Text),
+                        Convert.ToDateTime(string.IsNullOrEmpty(PhicSubEndDate_Text.Text) ? DateTime.MinValue.ToString() : PhicSubEndDate_Text.Text),
+                        Convert.ToDateTime(string.IsNullOrEmpty(RPStartDate_Text.Text) ? DateTime.MinValue.ToString() : RPStartDate_Text.Text),
+                        Convert.ToDateTime(string.IsNullOrEmpty(RPEndDate_Text.Text) ? DateTime.MinValue.ToString() : RPEndDate_Text.Text),
+                        Convert.ToDateTime(string.IsNullOrEmpty(NCOStartDate_Text.Text) ? DateTime.MinValue.ToString() : NCOStartDate_Text.Text),
+                        Convert.ToDateTime(string.IsNullOrEmpty(NCOEndDate_Text.Text) ? DateTime.MinValue.ToString() : NCOEndDate_Text.Text),
                         Convert.ToDateTime(string.IsNullOrEmpty(ReadyToTransferStartDate_Text.Text) ? DateTime.MinValue.ToString() : ReadyToTransferStartDate_Text.Text),
                         Convert.ToDateTime(string.IsNullOrEmpty(ReadyToTransferEndDate_Text.Text) ? DateTime.MinValue.ToString() : ReadyToTransferEndDate_Text.Text),
                         Convert.ToDateTime(string.IsNullOrEmpty(TransferToRoomStartDate_Text.Text) ? DateTime.MinValue.ToString() : TransferToRoomStartDate_Text.Text),
@@ -323,44 +333,6 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             Close();
         }
 
-        private void DoorToTriageStartDate_Text_TextChanged(object sender, EventArgs e)
-        {
-            if (((TextBox)sender).Text.Length <= 0)
-            {
-                DoorToTriageEndDate_Text.ReadOnly = true;
-                DoorToTriageEndDate_Btn.Enabled = false;
-            }
-            if (DateTime.TryParse(DoorToTriageStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(DoorToTriageEndDate_Text.Text, out DateTime parsedDateTime2))
-            {
-                DoorToTriageEndDate_Text.ReadOnly = false;
-                DoorToTriageEndDate_Btn.Enabled = true;
-                DToTLabel_Lbl.Text = $"Door to TRIAGE - {GetMDTimeDiff("Door to TRIAGE", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
-            }
-        }
-
-        private void DoorToTriageEndDate_Text_TextChanged(object sender, EventArgs e)
-        {
-            if (DateTime.TryParse(DoorToTriageStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(DoorToTriageEndDate_Text.Text, out DateTime parsedDateTime2))
-            {
-                DToTLabel_Lbl.Text = $"Door to TRIAGE - {GetMDTimeDiff("Door to TRIAGE", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
-            }
-        }
-
-        private void TriageToRegStartDate_Text_TextChanged(object sender, EventArgs e)
-        {
-            if (DateTime.TryParse(TriageToRegStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(TriageToRegEndDate_Text.Text, out DateTime parsedDateTime2))
-            {
-                TToRLabel_Lbl.Text = $"TRIAGE to Registration - {GetMDTimeDiff("TRIAGE to Registration", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
-            }
-        }
-
-        private void TriageToRegEndDate_Text_TextChanged(object sender, EventArgs e)
-        {
-            if (DateTime.TryParse(TriageToRegStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(TriageToRegEndDate_Text.Text, out DateTime parsedDateTime2))
-            {
-                TToRLabel_Lbl.Text = $"TRIAGE to Registration - {GetMDTimeDiff("TRIAGE to Registration", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
-            }
-        }
 
         private void RegToDctrsOderStartDate_Text_TextChanged(object sender, EventArgs e)
         {
@@ -376,6 +348,11 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             {
                 RToDOLabel_Lbl.Text = $"Registration to Doctor's Order Done - {GetMDTimeDiff("Registration to Doctor's Order Done", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
             }
+            if (string.IsNullOrEmpty(DctrsOrderCarryOutStartDate_Text.Text))
+            {
+                DctrsOrderCarryOutStartDate_Text.Text = DateTime.Now.ToString();
+            }
+
         }
 
         private void DctrsOrderCarryOutStartDate_Text_TextChanged(object sender, EventArgs e)
@@ -391,6 +368,10 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             if (DateTime.TryParse(DctrsOrderCarryOutStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(DctrsOrderCarryOutEndDate_Text.Text, out DateTime parsedDateTime2))
             {
                 DOCOLabel_Lbl.Text = $"Doctor's Order Carry Out - {GetMDTimeDiff("Doctor's Order Carry Out", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
+            }
+            if (string.IsNullOrEmpty(APPStartDate_Text.Text))
+            {
+                APPStartDate_Text.Text = DateTime.Now.ToString();
             }
         }
 
@@ -408,6 +389,10 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             {
                 RToTLabel_Lbl.Text = $"Ready for Transfer - {GetMDTimeDiff("Ready for Transfer", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
             }
+            if (string.IsNullOrEmpty(TransferToRoomStartDate_Text.Text))
+            {
+                TransferToRoomStartDate_Text.Text = DateTime.Now.ToString();
+            }
         }
 
         private void TransferToRoomStartDate_Text_TextChanged(object sender, EventArgs e)
@@ -424,6 +409,127 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             {
                 TransToRoomLabel_Lbl.Text = $"Transfer to Room - {GetMDTimeDiff("Transfer to Room", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
             }
+        }
+
+        private void APPEndDate_Text_TextChanged(object sender, EventArgs e)
+        {
+            if (DateTime.TryParse(APPStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(APPEndDate_Text.Text, out DateTime parsedDateTime2))
+            {
+                APPLabel_Lbl.Text = $"Admitting/Patient Profiling - {GetMDTimeDiff("Admitting/Patient Profiling", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
+            }
+
+            if (string.IsNullOrEmpty(PhicSubStartDate_Text.Text))
+            {
+                PhicSubStartDate_Text.Text = DateTime.Now.ToString();
+            }
+        }
+
+        private void APPStartDate_Text_TextChanged(object sender, EventArgs e)
+        {
+            if (DateTime.TryParse(APPStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(APPEndDate_Text.Text, out DateTime parsedDateTime2))
+            {
+                APPLabel_Lbl.Text = $"Admitting/Patient Profiling - {GetMDTimeDiff("Admitting/Patient Profiling", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
+            }
+        }
+
+        private void PhicSubStartDate_Text_TextChanged(object sender, EventArgs e)
+        {
+            if (DateTime.TryParse(PhicSubStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(PhicSubEndDate_Text.Text, out DateTime parsedDateTime2))
+            {
+                PHICLabel_Lbl.Text = $"PHIC Submission - {GetMDTimeDiff("PHIC Submission", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
+            }
+        }
+
+        private void PhicSubEndDate_Text_TextChanged(object sender, EventArgs e)
+        {
+            if (DateTime.TryParse(PhicSubStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(PhicSubEndDate_Text.Text, out DateTime parsedDateTime2))
+            {
+                PHICLabel_Lbl.Text = $"PHIC Submission - {GetMDTimeDiff("PHIC Submission", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
+            }
+            if (string.IsNullOrEmpty(RPStartDate_Text.Text))
+            {
+                RPStartDate_Text.Text = DateTime.Now.ToString();
+            }
+        }
+
+        private void RPStartDate_Text_TextChanged(object sender, EventArgs e)
+        {
+            if (DateTime.TryParse(RPStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(RPEndDate_Text.Text, out DateTime parsedDateTime2))
+            {
+                RPLabel_Lbl.Text = $"Room Preparation - {GetMDTimeDiff("Room Preparation", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
+            }
+        }
+
+        private void RPEndDate_Text_TextChanged(object sender, EventArgs e)
+        {
+            if (DateTime.TryParse(RPStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(RPEndDate_Text.Text, out DateTime parsedDateTime2))
+            {
+                RPLabel_Lbl.Text = $"Room Preparation - {GetMDTimeDiff("Room Preparation", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
+            }
+            if (string.IsNullOrEmpty(NCOStartDate_Text.Text))
+            {
+                NCOStartDate_Text.Text = DateTime.Now.ToString();
+            }
+        }
+
+        private void NCOStartDate_Text_TextChanged(object sender, EventArgs e)
+        {
+            if (DateTime.TryParse(NCOStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(NCOEndDate_Text.Text, out DateTime parsedDateTime2))
+            {
+                NCOLabel_Lbl.Text = $"Nurses Carry Out - {GetMDTimeDiff("Nurses Carry Out", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
+            }
+        }
+
+        private void NCOEndDate_Text_TextChanged(object sender, EventArgs e)
+        {
+            if (DateTime.TryParse(NCOStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(NCOEndDate_Text.Text, out DateTime parsedDateTime2))
+            {
+                NCOLabel_Lbl.Text = $"Nurses Carry Out - {GetMDTimeDiff("Nurses Carry Out", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
+            }
+            if (string.IsNullOrEmpty(ReadyToTransferStartDate_Text.Text))
+            {
+                ReadyToTransferStartDate_Text.Text = DateTime.Now.ToString();
+            }
+        }
+
+        private void APPStartDate_Btn_Click(object sender, EventArgs e)
+        {
+            APPStartDate_Text.Text = DateTime.Now.ToString();
+        }
+
+        private void APPEndDate_Btn_Click(object sender, EventArgs e)
+        {
+            APPEndDate_Text.Text = DateTime.Now.ToString();
+        }
+
+        private void PhicSubStartDate_Btn_Click(object sender, EventArgs e)
+        {
+            PhicSubStartDate_Text.Text = DateTime.Now.ToString();
+        }
+
+        private void PhicSubEndDate_Btn_Click(object sender, EventArgs e)
+        {
+            PhicSubEndDate_Text.Text = DateTime.Now.ToString();
+        }
+
+        private void RPStartDate_Btn_Click(object sender, EventArgs e)
+        {
+            RPStartDate_Text.Text = DateTime.Now.ToString();
+        }
+
+        private void RPEndDate_Btn_Click(object sender, EventArgs e)
+        {
+            RPEndDate_Text.Text = DateTime.Now.ToString();
+        }
+
+        private void NCOStartDate_Btn_Click(object sender, EventArgs e)
+        {
+            NCOStartDate_Text.Text = DateTime.Now.ToString();
+        }
+
+        private void NCOEndDate_Btn_Click(object sender, EventArgs e)
+        {
+            NCOEndDate_Text.Text = DateTime.Now.ToString();
         }
     }
 }

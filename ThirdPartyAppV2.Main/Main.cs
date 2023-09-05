@@ -123,12 +123,38 @@ namespace ThirdPartyAppV2.Main
             {
                 foreach (DataRow d in ATA.Tables[0].Rows)
                 {
-                    ErToAdmissionDateList.Add(Convert.ToDateTime(d["DToTStartDateTime"]).Subtract(Convert.ToDateTime(d["DToTEndDateTime"])));
-                    ErToAdmissionDateList.Add(Convert.ToDateTime(d["TriToRegStartDateTime"]).Subtract(Convert.ToDateTime(d["TriToRegEndDateTime"])));
-                    ErToAdmissionDateList.Add(Convert.ToDateTime(d["RegToDocStartDateTime"]).Subtract(Convert.ToDateTime(d["RegToDocEndDateTime"])));
-                    ErToAdmissionDateList.Add(Convert.ToDateTime(d["DocOrderStartDateTime"]).Subtract(Convert.ToDateTime(d["DocOrderEndDateTime"])));
-                    ErToAdmissionDateList.Add(Convert.ToDateTime(d["ReadyToTransStartDateTime"]).Subtract(Convert.ToDateTime(d["ReadyToTransEndDateTime"])));
-                    ErToAdmissionDateList.Add(Convert.ToDateTime(d["TransToRoomStartDateTime"]).Subtract(Convert.ToDateTime(d["TransToRoomEndDateTime"])));
+                    if (!DBNull.Value.Equals(d["RegToDocStartDateTime"]) && !DBNull.Value.Equals(d["RegToDocEndDateTime"]))
+                    {
+                        ErToAdmissionDateList.Add(Convert.ToDateTime(d["RegToDocStartDateTime"]).Subtract(Convert.ToDateTime(d["RegToDocEndDateTime"])));
+                    }
+                    if (!DBNull.Value.Equals(d["DocOrderStartDateTime"]) && !DBNull.Value.Equals(d["DocOrderEndDateTime"]))
+                    {
+                        ErToAdmissionDateList.Add(Convert.ToDateTime(d["DocOrderStartDateTime"]).Subtract(Convert.ToDateTime(d["DocOrderEndDateTime"])));
+                    }
+                    if (!DBNull.Value.Equals(d["APPStartDateTime"]) && !DBNull.Value.Equals(d["APPDateTime"]))
+                    {
+                        ErToAdmissionDateList.Add(Convert.ToDateTime(d["APPStartDateTime"]).Subtract(Convert.ToDateTime(d["APPDateTime"])));
+                    }
+                    if (!DBNull.Value.Equals(d["PHICStartDateTime"]) && !DBNull.Value.Equals(d["PHICEndDateTime"]))
+                    {
+                        ErToAdmissionDateList.Add(Convert.ToDateTime(d["PHICStartDateTime"]).Subtract(Convert.ToDateTime(d["PHICEndDateTime"])));
+                    }
+                    if (!DBNull.Value.Equals(d["RPDateTime"]) && !DBNull.Value.Equals(d["RPDateTime"]))
+                    {
+                        ErToAdmissionDateList.Add(Convert.ToDateTime(d["RPDateTime"]).Subtract(Convert.ToDateTime(d["RPDateTime"])));
+                    }
+                    if (!DBNull.Value.Equals(d["NCOStartDateTime"]) && !DBNull.Value.Equals(d["NCOEndDateTime"]))
+                    {
+                        ErToAdmissionDateList.Add(Convert.ToDateTime(d["NCOStartDateTime"]).Subtract(Convert.ToDateTime(d["NCOEndDateTime"])));
+                    }
+                    if (!DBNull.Value.Equals(d["ReadyToTransStartDateTime"]) && !DBNull.Value.Equals(d["ReadyToTransEndDateTime"]))
+                    {
+                        ErToAdmissionDateList.Add(Convert.ToDateTime(d["ReadyToTransStartDateTime"]).Subtract(Convert.ToDateTime(d["ReadyToTransEndDateTime"])));
+                    }
+                    if (!DBNull.Value.Equals(d["TransToRoomStartDateTime"]) && !DBNull.Value.Equals(d["TransToRoomEndDateTime"]))
+                    {
+                        ErToAdmissionDateList.Add(Convert.ToDateTime(d["TransToRoomStartDateTime"]).Subtract(Convert.ToDateTime(d["TransToRoomEndDateTime"])));
+                    }
                 }
 
                 if (ErToAdmissionDateList.Count > 0)

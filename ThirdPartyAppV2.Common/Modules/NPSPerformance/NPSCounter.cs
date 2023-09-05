@@ -209,14 +209,18 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
 
         public bool SaveDataErToAdmission(int id,
                              string patName,
-                             DateTime dToTStart,
-                             DateTime dToTEnd,
-                             DateTime triToRegStart,
-                             DateTime triToRegEnd,
                              DateTime regToDocStart,
                              DateTime regToDocEnd,
                              DateTime docOrderStart,
                              DateTime docOrderEnd,
+                             DateTime APPStart,
+                             DateTime APPEnd,
+                             DateTime PhicStart,
+                             DateTime PhicEnd,
+                             DateTime RPStart,
+                             DateTime RPEnd,
+                             DateTime NCOStart,
+                             DateTime NCOEnd,
                              DateTime readyToTransStart,
                              DateTime readyToTransEnd,
                              DateTime transToRoomStart,
@@ -236,14 +240,18 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
                     var newRow = data.Tables[0].NewRow();
                     newRow["ID"] = id;
                     newRow["PatientName"] = patName;
-                    newRow["DToTStartDateTime"] = dToTStart == DateTime.MinValue ? DBNull.Value : dToTStart;
-                    newRow["DToTEndDateTime"] = dToTEnd == DateTime.MinValue ? DBNull.Value : dToTEnd;
-                    newRow["TriToRegStartDateTime"] = triToRegStart == DateTime.MinValue ? DBNull.Value : triToRegStart;
-                    newRow["TriToRegEndDateTime"] = triToRegEnd == DateTime.MinValue ? DBNull.Value : triToRegEnd;
                     newRow["RegToDocStartDateTime"] = regToDocStart == DateTime.MinValue ? DBNull.Value : regToDocStart;
                     newRow["RegToDocEndDateTime"] = regToDocEnd == DateTime.MinValue ? DBNull.Value : regToDocEnd;
                     newRow["DocOrderStartDateTime"] = docOrderStart == DateTime.MinValue ? DBNull.Value : docOrderStart;
                     newRow["DocOrderEndDateTime"] = docOrderEnd == DateTime.MinValue ? DBNull.Value : docOrderEnd;
+                    newRow["APPStartDateTime"] = APPStart == DateTime.MinValue ? DBNull.Value : APPStart;
+                    newRow["APPEndDateTime"] = APPEnd == DateTime.MinValue ? DBNull.Value : APPEnd;
+                    newRow["PHICStartDateTime"] = PhicStart == DateTime.MinValue ? DBNull.Value : PhicStart;
+                    newRow["PHICEndDateTime"] = PhicEnd == DateTime.MinValue ? DBNull.Value : PhicEnd;
+                    newRow["RPStartDateTime"] = RPStart == DateTime.MinValue ? DBNull.Value : RPStart;
+                    newRow["RPDocEndDateTime"] = RPEnd == DateTime.MinValue ? DBNull.Value : RPEnd;
+                    newRow["NCODocStartDateTime"] = NCOStart == DateTime.MinValue ? DBNull.Value : NCOStart;
+                    newRow["NCOEndDateTime"] = NCOEnd == DateTime.MinValue ? DBNull.Value : NCOEnd;
                     newRow["ReadyToTransStartDateTime"] = readyToTransStart == DateTime.MinValue ? DBNull.Value : readyToTransStart;
                     newRow["ReadyToTransEndDateTime"] = readyToTransEnd == DateTime.MinValue ? DBNull.Value : readyToTransEnd;
                     newRow["TransToRoomStartDateTime"] = transToRoomStart == DateTime.MinValue ? DBNull.Value : transToRoomStart;
@@ -259,14 +267,18 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
                     foreach (DataRow rw in data.Tables[0].Rows)
                     {
                         rw["PatientName"] = patName;
-                        rw["DToTStartDateTime"] = dToTStart == DateTime.MinValue ? DBNull.Value : dToTStart;
-                        rw["DToTEndDateTime"] = dToTEnd == DateTime.MinValue ? DBNull.Value : dToTEnd;
-                        rw["TriToRegStartDateTime"] = triToRegStart == DateTime.MinValue ? DBNull.Value : triToRegStart;
-                        rw["TriToRegEndDateTime"] = triToRegEnd == DateTime.MinValue ? DBNull.Value : triToRegEnd;
                         rw["RegToDocStartDateTime"] = regToDocStart == DateTime.MinValue ? DBNull.Value : regToDocStart;
                         rw["RegToDocEndDateTime"] = regToDocEnd == DateTime.MinValue ? DBNull.Value : regToDocEnd;
                         rw["DocOrderStartDateTime"] = docOrderStart == DateTime.MinValue ? DBNull.Value : docOrderStart;
                         rw["DocOrderEndDateTime"] = docOrderEnd == DateTime.MinValue ? DBNull.Value : docOrderEnd;
+                        rw["APPStartDateTime"] = APPStart == DateTime.MinValue ? DBNull.Value : APPStart;
+                        rw["APPEndDateTime"] = APPEnd == DateTime.MinValue ? DBNull.Value : APPEnd;
+                        rw["PHICStartDateTime"] = PhicStart == DateTime.MinValue ? DBNull.Value : PhicStart;
+                        rw["PHICEndDateTime"] = PhicEnd == DateTime.MinValue ? DBNull.Value : PhicEnd;
+                        rw["RPStartDateTime"] = RPStart == DateTime.MinValue ? DBNull.Value : RPStart;
+                        rw["RPDocEndDateTime"] = RPEnd == DateTime.MinValue ? DBNull.Value : RPEnd;
+                        rw["NCODocStartDateTime"] = NCOStart == DateTime.MinValue ? DBNull.Value : NCOStart;
+                        rw["NCOEndDateTime"] = NCOEnd == DateTime.MinValue ? DBNull.Value : NCOEnd;
                         rw["ReadyToTransStartDateTime"] = readyToTransStart == DateTime.MinValue ? DBNull.Value : readyToTransStart;
                         rw["ReadyToTransEndDateTime"] = readyToTransEnd == DateTime.MinValue ? DBNull.Value : readyToTransEnd;
                         rw["TransToRoomStartDateTime"] = transToRoomStart == DateTime.MinValue ? DBNull.Value : transToRoomStart;
