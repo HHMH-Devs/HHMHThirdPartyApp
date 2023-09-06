@@ -62,7 +62,7 @@ namespace ThirdPartyAppV2.Common.Modules.Main
                 var helper = new MYSQLDBHelper(settings.GetConfigurationString("MySQLDB"));
                 helper.Db_ConnOpen();
                 var data = helper.LoadSQL(sql);
-                data = helper.LoadSQL(sql);
+                helper.Db_ConnClose();
                 return data;
             }
             catch (Exception ex)
@@ -82,7 +82,7 @@ namespace ThirdPartyAppV2.Common.Modules.Main
                 var helper = new MYSQLDBHelper(settings.GetConfigurationString("MySQLDB"));
                 helper.Db_ConnOpen();
                 var data = helper.LoadSQL(sql);
-                data = helper.LoadSQL(sql);
+                helper.Db_ConnClose();
                 return data;
             }
             catch (Exception ex)

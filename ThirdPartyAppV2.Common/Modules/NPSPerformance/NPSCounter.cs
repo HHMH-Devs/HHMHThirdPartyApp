@@ -1,9 +1,12 @@
-﻿using Org.BouncyCastle.Security.Certificates;
-using PostSharp.Patterns.Diagnostics;
+﻿using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Text;
 using ThirdPartyAppV2.Common.DBConnections.DB;
 using ThirdPartyAppV2.Common.DBConnections.Helper;
+using static ThirdPartyAppV2.Common.Modules.Main.ReportsDataset.ThirdPartyAppDataSet;
 
 namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
 {
@@ -11,6 +14,7 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
     public class NPSCounter
     {
         private readonly LogSource logSource;
+        private DataSet ds;
 
         public NPSCounter()
         {
@@ -296,5 +300,416 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
                 return st;
             }
         }
+
+        #region reports
+        public DataSet LoadHospinfo()
+        {
+            var sql = "select * from appsysconfiggeneral";
+            var settings = new HHMHBBSettings();
+            var helper = new HHMHBBHelper(settings.GetConfigurationString("HHMHBB"));
+            helper.Db_ConnOpen();
+            var data = helper.LoadSQL(sql);
+            helper.Db_ConnClose();
+            HospitalInfoDataTable hospInfo = null;
+            foreach (DataRow dr in data.Tables[0].Rows)
+            {
+                hospInfo = new HospitalInfoDataTable();
+                var newRow = hospInfo.NewRow();
+                newRow["PK_appsysConfigGeneral"] = dr["PK_appsysConfigGeneral"];
+                newRow["tstamp"] = dr["tstamp"];
+                newRow["HospOwnerID"] = dr["HospOwnerID"]; 
+                newRow["HospDCNO"] = dr["HospDCNO"];
+                newRow["HospName"] = dr["HospName"];
+                newRow["HospLogo"] = dr["HospLogo"];
+                newRow["HospTelephone"] = dr["HospTelephone"];
+                newRow["HospWebsite"] = dr["HospWebsite"];
+                newRow["HospOwner"] = dr["HospOwner"];
+                newRow["HospTIN"] = dr["HospTIN"];
+                newRow["HospStreetBldg1"] = dr["HospStreetBldg1"];
+                newRow["HospStreetBldg2"] = dr["HospStreetBldg2"];
+                newRow["HospStreetBldg3"] = dr["HospStreetBldg3"];
+                newRow["HospBarangay"] = dr["HospBarangay"];
+                newRow["HospTownCity"] = dr["HospTownCity"];
+                newRow["HospProvince"] = dr["HospProvince"];
+                newRow["HospRegion"] = dr["HospRegion"];
+                newRow["HospCountry"] = dr["HospCountry"];
+                newRow["HospArea"] = dr["HospArea"];
+                newRow["HospZipcode"] = dr["HospZipcode"];
+                newRow["HospAddress"] = dr["HospAddress"];
+                newRow["HospAccrBeds"] = dr["HospAccrBeds"];
+                newRow["HospBedCapacity"] = dr["HospBedCapacity"];
+                newRow["HospAccrNo"] = dr["HospAccrNo"];
+                newRow["HospType"] = dr["HospType"];
+                newRow["HospCategory"] = dr["HospCategory"];
+                newRow["HospPHICAccrNo"] = dr["HospPHICAccrNo"];
+                newRow["HospPHICDaysCovered"] = dr["HospPHICDaysCovered"];
+                newRow["CodeFormat"] = dr["CodeFormat"];
+                newRow["CodeType"] = dr["CodeType"];
+                newRow["CodeSeparator"] = dr["CodeSeparator"];
+                newRow["MinPasswordTrial"] = dr["MinPasswordTrial"];
+                newRow["MinPasswordLength"] = dr["MinPasswordLength"];
+                newRow["urlreportpath"] = dr["urlreportpath"];
+                newRow["defaultpicture"] = dr["defaultpicture"];
+                newRow["HospSSS"] = dr["HospSSS"];
+                newRow["phicfacility"] = dr["phicfacility"];
+                newRow["phicfacilityoth"] = dr["phicfacilityoth"];
+                newRow["HospCountryCode"] = dr["HospCountryCode"];
+                newRow["pmcc"] = dr["pmcc"];
+                newRow["pUserName"] = dr["pUserName"];
+                newRow["pUserPwd"] = dr["pUserPwd"];
+                newRow["urlimagepath"] = dr["urlimagepath"];
+                newRow["HospFax"] = dr["HospFax"];
+                newRow["HospEmailAdd"] = dr["HospEmailAdd"];
+                newRow["proxyserverurl"] = dr["proxyserverurl"];
+                newRow["isHHRshortageArea"] = dr["isHHRshortageArea"];
+                newRow["HospHMOServerName"] = dr["HospHMOServerName"];
+                newRow["HospHMOServerSQLAdmin"] = dr["HospHMOServerSQLAdmin"];
+                newRow["HospHMOServerPassword"] = dr["HospHMOServerPassword"];
+                newRow["HospHMOServerDB"] = dr["HospHMOServerDB"];
+                newRow["historicaldatalookupurl"] = dr["historicaldatalookupurl"];
+                newRow["FK_faCustomers"] = dr["FK_faCustomers"];
+                newRow["HospEDPMSCode"] = dr["HospEDPMSCode"];
+                newRow["HospEDPMSUserName"] = dr["HospEDPMSUserName"];
+                newRow["HospEDPMSUserPass"] = dr["HospEDPMSUserPass"];
+                newRow["DCHospID"] = dr["DCHospID"];
+                newRow["DCuser"] = dr["DCuser"];
+                newRow["DCpassword"] = dr["DCpassword"];
+                newRow["DCProxyURL"] = dr["DCProxyURL"];
+                newRow["StatWarningSound"] = dr["StatWarningSound"];
+                newRow["StatWarningSoundDesc"] = dr["StatWarningSoundDesc"];
+                newRow["cirrusID"] = dr["cirrusID"];
+                newRow["cirrusURL"] = dr["cirrusURL"];
+                newRow["useraccountlockoutduration"] = dr["useraccountlockoutduration"];
+                newRow["IsNCR"] = dr["IsNCR"];
+                newRow["HospCode"] = dr["HospCode"];
+                newRow["BranchCode"] = dr["BranchCode"];
+                newRow["cywareURL"] = dr["cywareURL"];
+                newRow["pBIRpermitNo"] = dr["pBIRpermitNo"];
+                newRow["controldept"] = dr["controldept"];
+                newRow["patientImageURL"] = dr["patientImageURL"];
+                newRow["videoURL"] = dr["videoURL"];
+                newRow["videoresolution"] = dr["videoresolution"];
+                newRow["consultantImageURL"] = dr["consultantImageURL"];
+                newRow["videocompressor"] = dr["videocompressor"];
+                newRow["dmsURL"] = dr["dmsURL"];
+                newRow["dmsToken"] = dr["dmsToken"];
+                newRow["EMRReportUrl"] = dr["EMRReportUrl"];
+                newRow["eClaimPublicKey"] = dr["eClaimPublicKey"];
+                newRow["rolClaims"] = dr["rolClaims"];
+                newRow["dmsLocalUrl"] = dr["dmsLocalUrl"];
+                newRow["dmsLocalClaims"] = dr["dmsLocalClaims"];
+                newRow["dmsLocalClientId"] = dr["dmsLocalClientId"];
+                newRow["dmsLocalClientSecret"] = dr["dmsLocalClientSecret"];
+                newRow["dmsAuthProviderEndPoint"] = dr["dmsAuthProviderEndPoint"];
+                newRow["dmsLocalClientRefreshToken"] = dr["dmsLocalClientRefreshToken"];
+                newRow["csvIntegrationURL"] = dr["csvIntegrationURL"];
+                newRow["processtime"] = dr["processtime"];
+                newRow["dateactivatedGLHIS"] = dr["dateactivatedGLHIS"];
+                newRow["isLockDMSOwner"] = dr["isLockDMSOwner"];
+                newRow["smsUrl"] = dr["smsUrl"];
+                newRow["smsHospId"] = dr["smsHospId"];
+                newRow["PfForwardingEmail"] = dr["PfForwardingEmail"];
+                newRow["ExamResultForwardingEmail"] = dr["ExamResultForwardingEmail"];
+                newRow["eClaimsToken"] = dr["eClaimsToken"];
+                newRow["eClaimsClientSecret"] = dr["eClaimsClientSecret"];
+                newRow["beaconID"] = dr["beaconID"];
+                newRow["beaconClientSecret"] = dr["beaconClientSecret"];
+                newRow["beaconUrl"] = dr["beaconUrl"];
+                newRow["beaconTokenUrl"] = dr["beaconTokenUrl"];
+                newRow["beaconToken"] = dr["beaconToken"];
+                newRow["beaconTokenRefresh"] = dr["beaconTokenRefresh"];
+                newRow["qmuUrl"] = dr["qmuUrl"];
+                newRow["hs8Url"] = dr["hs8Url"];
+                newRow["redeemedPointsPath"] = dr["redeemedPointsPath"];
+                newRow["earningPointsPath"] = dr["earningPointsPath"];
+                newRow["loa"] = dr["loa"];
+                newRow["bills"] = dr["bills"];
+                newRow["pcuser"] = dr["pcuser"];
+                newRow["pcpassword"] = dr["pcpassword"];
+                newRow["pctokenid"] = dr["pctokenid"];
+                newRow["pcapi"] = dr["pcapi"];
+                newRow["medExpressUrl"] = dr["medExpressUrl"];
+                newRow["philCareProvCode"] = dr["philCareProvCode"];
+                newRow["philCareUserName"] = dr["philCareUserName"];
+                newRow["philCarePassword"] = dr["philCarePassword"];
+                newRow["philCareTokenID"] = dr["philCareTokenID"];
+                newRow["beaconLocalUrl"] = dr["beaconLocalUrl"];
+                newRow["dohHfhudCode"] = dr["dohHfhudCode"];
+                newRow["dohUrl"] = dr["dohUrl"];
+                newRow["phicStorageUserName"] = dr["phicStorageUserName"];
+                newRow["phicStoragePassword"] = dr["phicStoragePassword"];
+                newRow["ehrIntegrationEndPoint"] = dr["ehrIntegrationEndPoint"];
+                newRow["ehrIntegrationEndPoint"] = dr["ehrIntegrationEndPoint"];
+                newRow["PHICDocImageURL"] = dr["PHICDocImageURL"];
+                newRow["MghClearanceWarningSound"] = dr["MghClearanceWarningSound"];
+                newRow["MghClearanceWarningSoundDesc"] = dr["MghClearanceWarningSoundDesc"];
+                newRow["exmQRCodeURL"] = dr["exmQRCodeURL"];
+                newRow["exmQRDocFolder"] = dr["exmQRDocFolder"];
+                newRow["POWarningSound"] = dr["POWarningSound"];
+                newRow["POWarningSoundDesc"] = dr["POWarningSoundDesc"];
+                newRow["StockIssWarningSound"] = dr["StockIssWarningSound"];
+                newRow["StockIssWarningSoundDesc"] = dr["StockIssWarningSoundDesc"];
+                newRow["ExpIssWarningSound"] = dr["ExpIssWarningSound"];
+                newRow["ExpIssWarningSoundDesc"] = dr["ExpIssWarningSoundDesc"];
+                newRow["eclaimsLogsPath"] = dr["eclaimsLogsPath"];
+                hospInfo.Rows.Add(newRow);
+            }
+            ds = new DataSet();
+            hospInfo.TableName = "HospitalInfo";
+            ds.Tables.Add(hospInfo);
+            return ds;
+        }
+
+        public DataSet LoadDischargeProc()
+        {
+            var dischargeProcDateList = new List<TimeSpan>();
+            var startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            var endDate = startDate.AddMonths(1).AddSeconds(-1);
+            var startDateString = $"{startDate:yyyy-MM-dd} 00:00:00";
+            var endDateString = $"{endDate:yyyy-MM-dd} 23:59:59";
+
+            var sql = $"select * from dischargeprocess where `DateEncoded` Between '{startDateString}' and '{endDateString}'";
+            var settings = new MYSQLDBSettings();
+            var helper = new MYSQLDBHelper(settings.GetConfigurationString("MySQLDB"));
+            helper.Db_ConnOpen();
+            var data = helper.LoadSQL(sql);
+            helper.Db_ConnClose();
+
+            DischargeProcSummaryDataTable dt = new();
+            var newRow = dt.NewRow();
+
+            var medDisch = new TimeSpan();
+            var integCheck = new TimeSpan();
+            var billGen = new TimeSpan();
+            var billPrint = new TimeSpan();
+            var billPay = new TimeSpan();
+            var docu = new TimeSpan();
+            var patExit = new TimeSpan();
+
+            var medDischCount = 0;
+            var integCheckCount = 0;
+            var billGenCount = 0;
+            var billPrintCount = 0;
+            var billPayCount = 0;
+            var docuCount = 0;
+            var patExitCount = 0;
+
+            foreach (DataRow dr in data.Tables[0].Rows)
+            {
+                if (!DBNull.Value.Equals(dr["MDStartDateTime"]) && !DBNull.Value.Equals(dr["MDEndDateTime"]))
+                {
+                    medDischCount++;
+                    medDisch += Convert.ToDateTime(dr["MDEndDateTime"]).Subtract(Convert.ToDateTime(dr["MDStartDateTime"]));
+                    dischargeProcDateList.Add(Convert.ToDateTime(dr["MDEndDateTime"]).Subtract(Convert.ToDateTime(dr["MDStartDateTime"])));
+                }
+                if (!DBNull.Value.Equals(dr["IEStartDateTime"]) && !DBNull.Value.Equals(dr["IEEndDateTime"]))
+                {
+                    integCheckCount++;
+                    integCheck += Convert.ToDateTime(dr["IEEndDateTime"]).Subtract(Convert.ToDateTime(dr["IEStartDateTime"]));
+                    dischargeProcDateList.Add(Convert.ToDateTime(dr["IEEndDateTime"]).Subtract(Convert.ToDateTime(dr["IEStartDateTime"])));
+                }
+                if (!DBNull.Value.Equals(dr["BGStartDateTime"]) && !DBNull.Value.Equals(dr["BGEndDateTime"]))
+                {
+                    billGenCount++;
+                    billGen += Convert.ToDateTime(dr["BGEndDateTime"]).Subtract(Convert.ToDateTime(dr["BGStartDateTime"]));
+                    dischargeProcDateList.Add(Convert.ToDateTime(dr["BGEndDateTime"]).Subtract(Convert.ToDateTime(dr["BGStartDateTime"])));
+                }
+                if (!DBNull.Value.Equals(dr["BP1StartDateTime"]) && !DBNull.Value.Equals(dr["BP1EndDateTime"]))
+                {
+                    billPrintCount++;
+                    billPrint += Convert.ToDateTime(dr["BP1EndDateTime"]).Subtract(Convert.ToDateTime(dr["BP1StartDateTime"]));
+                    dischargeProcDateList.Add(Convert.ToDateTime(dr["BP1EndDateTime"]).Subtract(Convert.ToDateTime(dr["BP1StartDateTime"])));
+                }
+                if (!DBNull.Value.Equals(dr["BP2StartDateTime"]) && !DBNull.Value.Equals(dr["BP2EndDateTime"]))
+                {
+                    billPayCount++;
+                    billPay += Convert.ToDateTime(dr["BP2EndDateTime"]).Subtract(Convert.ToDateTime(dr["BP2StartDateTime"]));
+                    dischargeProcDateList.Add(Convert.ToDateTime(dr["BP2EndDateTime"]).Subtract(Convert.ToDateTime(dr["BP2StartDateTime"])));
+                }
+                if (!DBNull.Value.Equals(dr["DIDStartDateTime"]) && !DBNull.Value.Equals(dr["DIDEndDateTime"]))
+                {
+                    docuCount++;
+                    docu += Convert.ToDateTime(dr["DIDEndDateTime"]).Subtract(Convert.ToDateTime(dr["DIDStartDateTime"]));
+                    dischargeProcDateList.Add(Convert.ToDateTime(dr["DIDEndDateTime"]).Subtract(Convert.ToDateTime(dr["DIDStartDateTime"])));
+                }
+                if (!DBNull.Value.Equals(dr["PatExitStartDateTime"]) && !DBNull.Value.Equals(dr["PatExitEndDateTime"]))
+                {
+                    patExitCount++;
+                    patExit += Convert.ToDateTime(dr["PatExitEndDateTime"]).Subtract(Convert.ToDateTime(dr["PatExitStartDateTime"]));
+                    dischargeProcDateList.Add(Convert.ToDateTime(dr["PatExitEndDateTime"]).Subtract(Convert.ToDateTime(dr["PatExitStartDateTime"])));
+                }
+            }
+
+            if (dischargeProcDateList.Count > 0)
+            {
+                var dischProcAverage = dischargeProcDateList.Average(timeSpan => timeSpan.TotalSeconds);
+                var totalTAT = dischargeProcDateList.Sum(timeSpan => timeSpan.TotalSeconds);
+                newRow["TotalAverageTAT"] = dischProcAverage;
+                newRow["TotalTAT"] = totalTAT;
+            }
+
+            newRow["MedicalDischarge"] = medDisch;
+            newRow["IntegrityCheck"] = integCheck;
+            newRow["BillGeneration"] = billGen;
+            newRow["BillPrnting"] = billPrint;
+            newRow["BillPayment"] = billPay;
+            newRow["Documentation"] = docu;
+            newRow["PatientExit"] = patExit;
+            ds = new DataSet();
+            dt.Rows.Add(newRow);
+            dt.TableName = "DischargeProcess";
+            ds.Tables.Add(dt);
+
+            ds.Tables["DischargeProcess"].Columns.Add("TotalMedDischargeAvg");
+            ds.Tables["DischargeProcess"].Columns.Add("TotalIntegrityCheckAvg");
+            ds.Tables["DischargeProcess"].Columns.Add("TotalBillGenAvg");
+            ds.Tables["DischargeProcess"].Columns.Add("TotalBillPrintAvg");
+            ds.Tables["DischargeProcess"].Columns.Add("TotalBillPayAvg");
+            ds.Tables["DischargeProcess"].Columns.Add("TotalDocumentationAvg");
+            ds.Tables["DischargeProcess"].Columns.Add("TotalPatExitAvg");
+
+            ds.Tables["DischargeProcess"].Rows[0]["TotalMedDischargeAvg"] = ((medDisch.TotalSeconds / medDischCount) / 60);
+            ds.Tables["DischargeProcess"].Rows[0]["TotalIntegrityCheckAvg"] = ((integCheck.TotalSeconds / integCheckCount) / 60);
+            ds.Tables["DischargeProcess"].Rows[0]["TotalBillGenAvg"] = ((billGen.TotalSeconds / billGenCount) / 60);
+            ds.Tables["DischargeProcess"].Rows[0]["TotalBillPrintAvg"] = ((billPrint.TotalSeconds / billPrintCount) / 60);
+            ds.Tables["DischargeProcess"].Rows[0]["TotalBillPayAvg"] = ((billPay.TotalSeconds / billPayCount) / 60);
+            ds.Tables["DischargeProcess"].Rows[0]["TotalDocumentationAvg"] = ((docu.TotalSeconds / docuCount) / 60);
+            ds.Tables["DischargeProcess"].Rows[0]["TotalPatExitAvg"] = ((patExit.TotalSeconds / patExitCount) / 60);
+
+            return ds;
+        }
+
+        public DataSet LoadErToAdmission()
+        {
+            var erToAdmissionDateList = new List<TimeSpan>();
+            var startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+            var endDate = startDate.AddMonths(1).AddSeconds(-1);
+            var startDateString = $"{startDate:yyyy-MM-dd} 00:00:00";
+            var endDateString = $"{endDate:yyyy-MM-dd} 23:59:59";
+
+            var sql = $"select * from ertoadmission where `DateEncoded` Between '{startDateString}' and '{endDateString}'";
+            var settings = new MYSQLDBSettings();
+            var helper = new MYSQLDBHelper(settings.GetConfigurationString("MySQLDB"));
+            helper.Db_ConnOpen();
+            var data = helper.LoadSQL(sql);
+            helper.Db_ConnClose();
+
+            ErToAdmissionSummaryDataTable dt = new();
+            var newRow = dt.NewRow();
+
+            var regToDoc = new TimeSpan();
+            var docOrder = new TimeSpan();
+            var profiling = new TimeSpan();
+            var phicSubmit = new TimeSpan();
+            var roomPrep = new TimeSpan();
+            var nurseCarryOut = new TimeSpan();
+            var readyToTrans = new TimeSpan();
+            var transToRoom = new TimeSpan();
+
+            var regToDocCount = 0;
+            var docOrderCount = 0;
+            var profilingCount = 0;
+            var phicSubmitCount = 0;
+            var roomPrepCount = 0;
+            var nurseCarryOutCount = 0;
+            var readyToTransCount = 0;
+            var transToRoomCount = 0;
+
+            foreach (DataRow dr in data.Tables[0].Rows)
+            {
+                if (!DBNull.Value.Equals(dr["RegToDocStartDateTime"]) && !DBNull.Value.Equals(dr["RegToDocEndDateTime"]))
+                {
+                    regToDocCount++;
+                    regToDoc += Convert.ToDateTime(dr["RegToDocEndDateTime"]).Subtract(Convert.ToDateTime(dr["RegToDocStartDateTime"]));
+                    erToAdmissionDateList.Add(Convert.ToDateTime(dr["RegToDocEndDateTime"]).Subtract(Convert.ToDateTime(dr["RegToDocStartDateTime"])));
+                }
+                if (!DBNull.Value.Equals(dr["DocOrderStartDateTime"]) && !DBNull.Value.Equals(dr["DocOrderEndDateTime"]))
+                {
+                    docOrderCount++;
+                    docOrder += Convert.ToDateTime(dr["DocOrderEndDateTime"]).Subtract(Convert.ToDateTime(dr["DocOrderStartDateTime"]));
+                    erToAdmissionDateList.Add(Convert.ToDateTime(dr["DocOrderEndDateTime"]).Subtract(Convert.ToDateTime(dr["DocOrderStartDateTime"])));
+                }
+                if (!DBNull.Value.Equals(dr["APPStartDateTime"]) && !DBNull.Value.Equals(dr["APPEndDateTime"]))
+                {
+                    profilingCount++;
+                    profiling += Convert.ToDateTime(dr["APPEndDateTime"]).Subtract(Convert.ToDateTime(dr["APPStartDateTime"]));
+                    erToAdmissionDateList.Add(Convert.ToDateTime(dr["APPEndDateTime"]).Subtract(Convert.ToDateTime(dr["APPStartDateTime"])));
+                }
+                if (!DBNull.Value.Equals(dr["PHICStartDateTime"]) && !DBNull.Value.Equals(dr["PHICEndDateTime"]))
+                {
+                    phicSubmitCount++;
+                    phicSubmit += Convert.ToDateTime(dr["PHICEndDateTime"]).Subtract(Convert.ToDateTime(dr["PHICStartDateTime"]));
+                    erToAdmissionDateList.Add(Convert.ToDateTime(dr["PHICEndDateTime"]).Subtract(Convert.ToDateTime(dr["PHICStartDateTime"])));
+                }
+                if (!DBNull.Value.Equals(dr["RPStartDateTime"]) && !DBNull.Value.Equals(dr["RPEndDateTime"]))
+                {
+                    roomPrepCount++;
+                    roomPrep += Convert.ToDateTime(dr["RPEndDateTime"]).Subtract(Convert.ToDateTime(dr["RPStartDateTime"]));
+                    erToAdmissionDateList.Add(Convert.ToDateTime(dr["RPEndDateTime"]).Subtract(Convert.ToDateTime(dr["RPStartDateTime"])));
+                }
+                if (!DBNull.Value.Equals(dr["NCOStartDateTime"]) && !DBNull.Value.Equals(dr["NCOEndDateTime"]))
+                {
+                    nurseCarryOutCount++;
+                    nurseCarryOut += Convert.ToDateTime(dr["NCOEndDateTime"]).Subtract(Convert.ToDateTime(dr["NCOStartDateTime"]));
+                    erToAdmissionDateList.Add(Convert.ToDateTime(dr["NCOEndDateTime"]).Subtract(Convert.ToDateTime(dr["NCOStartDateTime"])));
+                }
+                if (!DBNull.Value.Equals(dr["ReadyToTransStartDateTime"]) && !DBNull.Value.Equals(dr["ReadyToTransEndDateTime"]))
+                {
+                    readyToTransCount++;
+                    readyToTrans += Convert.ToDateTime(dr["ReadyToTransEndDateTime"]).Subtract(Convert.ToDateTime(dr["ReadyToTransStartDateTime"]));
+                    erToAdmissionDateList.Add(Convert.ToDateTime(dr["ReadyToTransEndDateTime"]).Subtract(Convert.ToDateTime(dr["ReadyToTransStartDateTime"])));
+                }
+                if (!DBNull.Value.Equals(dr["TransToRoomStartDateTime"]) && !DBNull.Value.Equals(dr["TransToRoomEndDateTime"]))
+                {
+                    transToRoomCount++;
+                    transToRoom += Convert.ToDateTime(dr["TransToRoomEndDateTime"]).Subtract(Convert.ToDateTime(dr["TransToRoomStartDateTime"]));
+                    erToAdmissionDateList.Add(Convert.ToDateTime(dr["TransToRoomEndDateTime"]).Subtract(Convert.ToDateTime(dr["TransToRoomStartDateTime"])));
+                }
+            }
+
+            if (erToAdmissionDateList.Count > 0)
+            {
+                var dischProcAverage = erToAdmissionDateList.Average(timeSpan => timeSpan.TotalSeconds);
+                var totalTAT = erToAdmissionDateList.Sum(timeSpan => timeSpan.TotalSeconds);
+                newRow["TotalAverageTAT"] = dischProcAverage;
+                newRow["TotalTAT"] = totalTAT;
+            }
+
+            newRow["RegToDocOrder"] = regToDoc;
+            newRow["DocOrderCarryOut"] = docOrder;
+            newRow["PatientProfiling"] = profiling;
+            newRow["PHICSubmission"] = phicSubmit;
+            newRow["RoomPrep"] = roomPrep;
+            newRow["NursesCarryOut"] = nurseCarryOut;
+            newRow["ReadyToTransfer"] = readyToTrans;
+            newRow["TransferToRoom"] = transToRoom;
+
+            ds = new DataSet();
+
+            dt.Rows.Add(newRow);
+            dt.TableName = "ErToAdmission";
+            ds.Tables.Add(dt);
+
+            ds.Tables["ErToAdmission"].Columns.Add("TotalRegToDocOrderAvg");
+            ds.Tables["ErToAdmission"].Columns.Add("TotalDocOrderCarryOutAvg");
+            ds.Tables["ErToAdmission"].Columns.Add("TotalPatientProfilingAvg");
+            ds.Tables["ErToAdmission"].Columns.Add("TotalPHICSubmissionAvg");
+            ds.Tables["ErToAdmission"].Columns.Add("TotalRoomPrepAvg");
+            ds.Tables["ErToAdmission"].Columns.Add("TotalNursesCarryOutAvg");
+            ds.Tables["ErToAdmission"].Columns.Add("TotalReadyToTransferAvg");
+            ds.Tables["ErToAdmission"].Columns.Add("TotalTransferToRoomAvg");
+
+            ds.Tables["ErToAdmission"].Rows[0]["TotalRegToDocOrderAvg"] = ((regToDoc.TotalSeconds / regToDocCount) / 60);
+            ds.Tables["ErToAdmission"].Rows[0]["TotalDocOrderCarryOutAvg"] = ((docOrder.TotalSeconds / docOrderCount) / 60);
+            ds.Tables["ErToAdmission"].Rows[0]["TotalPatientProfilingAvg"] = ((profiling.TotalSeconds / profilingCount) / 60);
+            ds.Tables["ErToAdmission"].Rows[0]["TotalPHICSubmissionAvg"] = ((phicSubmit.TotalSeconds / phicSubmitCount) / 60);
+            ds.Tables["ErToAdmission"].Rows[0]["TotalRoomPrepAvg"] = ((roomPrep.TotalSeconds / roomPrepCount) / 60);
+            ds.Tables["ErToAdmission"].Rows[0]["TotalNursesCarryOutAvg"] = ((nurseCarryOut.TotalSeconds / nurseCarryOutCount) / 60);
+            ds.Tables["ErToAdmission"].Rows[0]["TotalReadyToTransferAvg"] = ((readyToTrans.TotalSeconds / readyToTransCount) / 60);
+            ds.Tables["ErToAdmission"].Rows[0]["TotalTransferToRoomAvg"] = ((transToRoom.TotalSeconds / transToRoomCount) / 60);
+
+            return ds;
+        }
+        #endregion
     }
 }

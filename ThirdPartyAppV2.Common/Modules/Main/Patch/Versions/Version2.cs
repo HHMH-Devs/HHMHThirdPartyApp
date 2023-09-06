@@ -72,8 +72,8 @@ namespace ThirdPartyAppV2.Common.Modules.Main.Patch.Versions
                 "ADD COLUMN `PHICStartDateTime` datetime NULL AFTER `APPEndDateTime`, " +
                 "ADD COLUMN `PHICEndDateTime` datetime NULL AFTER `PHICStartDateTime`, " +
                 "ADD COLUMN `RPStartDateTime` datetime NULL AFTER `PHICEndDateTime`, " +
-                "ADD COLUMN `RPDocEndDateTime` datetime NULL AFTER `RPStartDateTime`, " +
-                "ADD COLUMN `NCODocStartDateTime` datetime NULL AFTER `RPDocEndDateTime`, " +
+                "ADD COLUMN `RPEndDateTime` datetime NULL AFTER `RPStartDateTime`, " +
+                "ADD COLUMN `NCOStartDateTime` datetime NULL AFTER `RPDocEndDateTime`, " +
                 "ADD COLUMN `NCOEndDateTime` datetime NULL AFTER `NCODocStartDateTime`;";
 
             PatchFunctions.RunCommand(sql);

@@ -39,15 +39,15 @@
             panel1.Controls.Add(Cancel_Btn);
             panel1.Controls.Add(PrintDoc_Btn);
             panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            panel1.Location = new System.Drawing.Point(0, 420);
+            panel1.Location = new System.Drawing.Point(0, 681);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(800, 30);
+            panel1.Size = new System.Drawing.Size(919, 30);
             panel1.TabIndex = 0;
             // 
             // Cancel_Btn
             // 
             Cancel_Btn.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            Cancel_Btn.Location = new System.Drawing.Point(722, 3);
+            Cancel_Btn.Location = new System.Drawing.Point(841, 3);
             Cancel_Btn.Name = "Cancel_Btn";
             Cancel_Btn.Size = new System.Drawing.Size(75, 23);
             Cancel_Btn.TabIndex = 0;
@@ -57,7 +57,7 @@
             // PrintDoc_Btn
             // 
             PrintDoc_Btn.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
-            PrintDoc_Btn.Location = new System.Drawing.Point(641, 3);
+            PrintDoc_Btn.Location = new System.Drawing.Point(760, 3);
             PrintDoc_Btn.Name = "PrintDoc_Btn";
             PrintDoc_Btn.Size = new System.Drawing.Size(75, 23);
             PrintDoc_Btn.TabIndex = 0;
@@ -71,7 +71,7 @@
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             CancelButton = Cancel_Btn;
-            ClientSize = new System.Drawing.Size(800, 450);
+            ClientSize = new System.Drawing.Size(919, 711);
             Controls.Add(panel1);
             Name = "RptViewerCommon";
             Text = "RptViewer";

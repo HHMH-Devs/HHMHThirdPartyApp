@@ -144,6 +144,14 @@
     <Compile Include="Modules\Main\Patch\Versions\PatchFunctions.cs" />
     <Compile Include="Modules\Main\Patch\Versions\Version1.cs" />
     <Compile Include="Modules\Main\Patch\Versions\Version2.cs" />
+    <Compile Include="Modules\Main\ReportsDataset\ThirdPartyAppDataSet.cs">
+      <DependentUpon>ThirdPartyAppDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Main\ReportsDataset\ThirdPartyAppDataSet.Designer.cs">
+      <DependentUpon>ThirdPartyAppDataSet.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Modules\NPSPerformance\NPSCounter.cs" />
     <Compile Include="Modules\Reports\Modul_Print_Reports.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -151,6 +159,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Modules\Main\ReportsDataset\ThirdPartyAppDataSet.xsc">
+      <DependentUpon>ThirdPartyAppDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Modules\Main\ReportsDataset\ThirdPartyAppDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ThirdPartyAppDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Modules\Main\ReportsDataset\ThirdPartyAppDataSet.xss">
+      <DependentUpon>ThirdPartyAppDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
