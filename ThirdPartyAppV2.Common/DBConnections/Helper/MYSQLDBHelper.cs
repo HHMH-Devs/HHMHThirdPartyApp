@@ -3,17 +3,15 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Data;
 using System.Data.Common;
-using ThirdPartyAppV2.Common.DBConnections.Helper.Security;
 
 namespace ThirdPartyAppV2.Common.DBConnections.Helper
 {
-    [Log]
     public class MYSQLDBHelper
     {
         private readonly LogSource logSource = LogSource.Get();
         public MySqlConnection Con;
 
-        public MYSQLDBHelper(string connectionString)
+        public MYSQLDBHelper([NotLogged] string connectionString)
         {
             Con = new MySqlConnection(connectionString);
         }
@@ -63,7 +61,7 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper
                 {
                     CommandType = CommandType.Text
                 };
-               return cmd.ExecuteNonQuery();
+                return cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
             {

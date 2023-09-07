@@ -1,19 +1,11 @@
-﻿using crypto;
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using PostSharp.Patterns.Diagnostics;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ThirdPartyAppV2.Common.DBConnections.DB.DBAttributes;
 using ThirdPartyAppV2.Common.DBConnections.Helper.Security;
 
 namespace ThirdPartyAppV2.Common.DBConnections.DB
 {
-    [Log]
     public class MYSQLDBSettings
     {
         private readonly Configuration _config;
@@ -27,7 +19,7 @@ namespace ThirdPartyAppV2.Common.DBConnections.DB
 
         public MYSQL_DBAttribs MySQLLoadConstrings(string key)
         {
-            var mySql = new MySqlConnectionStringBuilder(_security.Decrypt(GetConfigurationString(key)));
+            var mySql = new MySqlConnectionStringBuilder(GetConfigurationString(key));
             var MYSQL_DBAttribs = new MYSQL_DBAttribs
             {
                 Server = mySql.Server,
@@ -40,7 +32,7 @@ namespace ThirdPartyAppV2.Common.DBConnections.DB
             return MYSQL_DBAttribs;
         }
 
-
+        [return: NotLogged]
         public string GetConfigurationString(string key)
         {
             var st = _config.ConnectionStrings.ConnectionStrings[key].ConnectionString;
@@ -49,7 +41,7 @@ namespace ThirdPartyAppV2.Common.DBConnections.DB
 
         public void SaveConnectionString(string key, string value)
         {
-            
+
             _config.ConnectionStrings.ConnectionStrings[key].ConnectionString = _security.Encrypt(value);
             _config.ConnectionStrings.ConnectionStrings[key].ProviderName = "MySql.Data.MySqlClient";
             _config.Save(ConfigurationSaveMode.Modified);

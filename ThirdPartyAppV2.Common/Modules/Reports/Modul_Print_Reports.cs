@@ -10,7 +10,6 @@ using System.Text;
 
 namespace ThirdPartyAppV2.Common.Modules.Reports
 {
-    [Log]
     public static partial class Modul_Print_Reports
     {
         private static int m_currentPageIndex;

@@ -1,5 +1,4 @@
-﻿using PostSharp.Patterns.Diagnostics;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -8,7 +7,6 @@ using ThirdPartyAppV2.Common.Modules.NPSPerformance;
 
 namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
 {
-    [Log]
     public partial class ERToAdmissionCounter : Form
     {
         public string PatientName;
@@ -74,8 +72,8 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
                     PhicSubStartDate_Text.Text = rw["PHICStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["PHICStartDateTime"].ToString();
                     PhicSubEndDate_Text.Text = rw["PHICEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["PHICEndDateTime"].ToString();
                     RPStartDate_Text.Text = rw["RPStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["RPStartDateTime"].ToString();
-                    RPEndDate_Text.Text = rw["RPDocEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["RPDocEndDateTime"].ToString();
-                    NCOStartDate_Text.Text = rw["NCODocStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["NCODocStartDateTime"].ToString();
+                    RPEndDate_Text.Text = rw["RPEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["RPEndDateTime"].ToString();
+                    NCOStartDate_Text.Text = rw["NCOStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["NCOStartDateTime"].ToString();
                     NCOEndDate_Text.Text = rw["NCOEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["NCOEndDateTime"].ToString();
                     ReadyToTransferStartDate_Text.Text = rw["ReadyToTransStartDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["ReadyToTransStartDateTime"].ToString();
                     ReadyToTransferEndDate_Text.Text = rw["ReadyToTransEndDateTime"].ToString() == DateTime.MinValue.ToString() ? "" : rw["ReadyToTransEndDateTime"].ToString();

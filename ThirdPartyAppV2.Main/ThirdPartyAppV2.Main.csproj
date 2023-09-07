@@ -245,9 +245,13 @@
       <DependentUpon>RptViewerCommon.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="postsharp.config" />
     <None Include="Properties\DataSources\ThirdPartyAppV2.Common.Modules.Main.ReportsDataset.ThirdPartyAppDataSet+DischargeProcSummaryDataTable.datasource" />
+    <None Include="Properties\DataSources\ThirdPartyAppV2.Common.Modules.Main.ReportsDataset.ThirdPartyAppDataSet+DischargeProcSummaryDataTable1.datasource" />
     <None Include="Properties\DataSources\ThirdPartyAppV2.Common.Modules.Main.ReportsDataset.ThirdPartyAppDataSet+ErToAdmissionSummaryDataTable.datasource" />
+    <None Include="Properties\DataSources\ThirdPartyAppV2.Common.Modules.Main.ReportsDataset.ThirdPartyAppDataSet+ErToAdmissionSummaryDataTable1.datasource" />
     <None Include="Properties\DataSources\ThirdPartyAppV2.Common.Modules.Main.ReportsDataset.ThirdPartyAppDataSet+HospitalInfoDataTable.datasource" />
+    <None Include="Properties\DataSources\ThirdPartyAppV2.Common.Modules.Main.ReportsDataset.ThirdPartyAppDataSet+HospitalInfoDataTable1.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

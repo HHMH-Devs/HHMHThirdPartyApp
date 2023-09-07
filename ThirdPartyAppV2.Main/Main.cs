@@ -21,7 +21,10 @@ namespace ThirdPartyAppV2.Main
             Text = Application.ProductName;
             Text += " [" + Assembly.GetEntryAssembly().GetName().Version + "]";
             DateandTimeLabel.Text = DateTime.Now.ToString("F");
-            var timer = new Timer();
+            var timer = new Timer()
+            {
+                Interval = 1000,
+            };
             timer.Tick += Timer_Tick;
             timer.Start();
             LoadAdmitted();
@@ -104,7 +107,7 @@ namespace ThirdPartyAppV2.Main
                     if (!DBNull.Value.Equals(d["PatExitStartDateTime"]) && !DBNull.Value.Equals(d["PatExitEndDateTime"]))
                     {
                         dischargeProcDateList.Add(Convert.ToDateTime(d["PatExitEndDateTime"]).Subtract(Convert.ToDateTime(d["PatExitStartDateTime"])));
-                    }                
+                    }
                 }
 
                 if (dischargeProcDateList.Count > 0)
@@ -171,7 +174,7 @@ namespace ThirdPartyAppV2.Main
         {
             DateandTimeLabel.Text = DateTime.Now.ToString("F");
             elapsedTime += 1;
-            if (elapsedTime >= 600)
+            if (elapsedTime >= 60)
             {
                 LoadAverageTurnArroundTime();
                 elapsedTime = 0;
@@ -332,6 +335,11 @@ namespace ThirdPartyAppV2.Main
                 }
 
             }
+        } 
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }

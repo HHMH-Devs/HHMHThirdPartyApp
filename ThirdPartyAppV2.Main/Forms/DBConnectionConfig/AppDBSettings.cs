@@ -10,7 +10,6 @@ using ThirdPartyAppV2.Common.DBConnections.Helper.Security;
 
 namespace ThirdPartyAppV2.Main.Forms.DBConnectionConfig
 {
-    [Log]
     public partial class AppDBSettings : Form
     {
         private readonly MYSQLDBSettings mYSQLDBSettings = new MYSQLDBSettings();

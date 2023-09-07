@@ -3,7 +3,6 @@ using System;
 
 namespace ThirdPartyAppV2.Common.Modules.Main.Patch.Versions
 {
-    [Log]
     public static class Version2
     {
         readonly static string Db_AllowedVersion = "1.0.0.2";
@@ -29,7 +28,7 @@ namespace ThirdPartyAppV2.Common.Modules.Main.Patch.Versions
             }
             catch (Exception ex)
             {
-                logSource.Error.Write(FormattedMessageBuilder.Formatted("An error occured. {Message}", ex.Message));
+                logSource.Error.Write(FormattedMessageBuilder.Formatted("An error occurred. {Message}", ex.Message));
             }
         }
 
@@ -55,7 +54,7 @@ namespace ThirdPartyAppV2.Common.Modules.Main.Patch.Versions
 
         private static void DropColTblERToAdmission()
         {
-            var sql = "ALTER TABLE `thirdpartyappdb`.`ertoadmission` " + 
+            var sql = "ALTER TABLE `thirdpartyappdb`.`ertoadmission` " +
                 "DROP COLUMN `DToTStartDateTime`, " +
                 "DROP COLUMN `DToTEndDateTime`, " +
                 "DROP COLUMN `TriToRegStartDateTime`, " +

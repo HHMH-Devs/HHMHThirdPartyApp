@@ -6,7 +6,6 @@ using ThirdPartyAppV2.Common.DBConnections.Helper;
 
 namespace ThirdPartyAppV2.Common.Modules.Main
 {
-    [Log]
     public class LoadData
     {
         private readonly LogSource logSource;

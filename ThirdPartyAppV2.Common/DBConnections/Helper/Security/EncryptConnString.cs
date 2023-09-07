@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using PostSharp.Patterns.Diagnostics;
+using System;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ThirdPartyAppV2.Common.DBConnections.Helper.Security
 {
@@ -12,6 +10,7 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper.Security
         private readonly string pwd1 = "SG93YXJkIEh1YmJhcmQgTWVtb3JpYWwgSG9zcGl0YWwgMjAyMw";
         private readonly string pwd2 = "SEhNSC4yMDIz";
 
+        [return: NotLogged]
         private byte[] GenerateSaltedHash(byte[] salt1, byte[] salt2)
         {
             HashAlgorithm algorithm;
@@ -40,9 +39,10 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper.Security
         /// decrpt key
         /// </param>
         /// <returns>Encrypted Data</returns>
+        [return: NotLogged]
         private string EncryptString(string InputText, string Key)
         {
-            using (RijndaelManaged RijndaelCipher = new RijndaelManaged())
+            using (RijndaelManaged RijndaelCipher = new())
             {
                 RijndaelCipher.Padding = PaddingMode.ISO10126;
                 RijndaelCipher.Mode = CipherMode.CBC;
@@ -56,13 +56,13 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper.Security
                 //standard to derive bytes suitable for use as key material from a password.
                 //The standard is documented in IETF RRC 2898.
 
-                using (Rfc2898DeriveBytes SecretKey = new Rfc2898DeriveBytes(Key, Salt, 100, HashAlgorithmName.SHA512))
+                using (Rfc2898DeriveBytes SecretKey = new(Key, Salt, 100, HashAlgorithmName.SHA512))
                 {
                     //Creates a symmetric encryptor object.
                     ICryptoTransform Encryptor = RijndaelCipher.CreateEncryptor(SecretKey.GetBytes(32), SecretKey.GetBytes(32));
-                    System.IO.MemoryStream memoryStream = new System.IO.MemoryStream();
+                    System.IO.MemoryStream memoryStream = new();
                     //Defines a stream that links data streams to cryptographic transformations
-                    CryptoStream cryptoStream = new CryptoStream(memoryStream, Encryptor, CryptoStreamMode.Write);
+                    CryptoStream cryptoStream = new(memoryStream, Encryptor, CryptoStreamMode.Write);
                     cryptoStream.Write(PlainText, 0, PlainText.Length);
                     //Writes the final state and clears the buffer
                     cryptoStream.FlushFinalBlock();
@@ -75,11 +75,12 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper.Security
             }
         } //eof private static string EncryptString ( string InputText, string Password )
 
+        [return: NotLogged]
         private string DecryptString(string InputText, string Key)
         {
             try
             {
-                using (RijndaelManaged RijndaelCipher = new RijndaelManaged())
+                using (RijndaelManaged RijndaelCipher = new())
                 {
                     RijndaelCipher.Padding = PaddingMode.ISO10126;
                     RijndaelCipher.Mode = CipherMode.CBC;
@@ -90,13 +91,13 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper.Security
                     byte[] Salt = Encoding.Unicode.GetBytes(Key);
 
                     //Making of the key for decryption
-                    using (Rfc2898DeriveBytes SecretKey = new Rfc2898DeriveBytes(Key, Salt, 100, HashAlgorithmName.SHA512))
+                    using (Rfc2898DeriveBytes SecretKey = new(Key, Salt, 100, HashAlgorithmName.SHA512))
                     {
                         //Creates a symmetric Rijndael decryptor object.
                         ICryptoTransform Decryptor = RijndaelCipher.CreateDecryptor(SecretKey.GetBytes(32), SecretKey.GetBytes(32));
-                        System.IO.MemoryStream memoryStream = new System.IO.MemoryStream(EncryptedData);
+                        System.IO.MemoryStream memoryStream = new(EncryptedData);
                         //Defines the cryptographics stream for decryption.THe stream contains decrpted data
-                        CryptoStream cryptoStream = new CryptoStream(memoryStream, Decryptor, CryptoStreamMode.Read);
+                        CryptoStream cryptoStream = new(memoryStream, Decryptor, CryptoStreamMode.Read);
                         byte[] PlainText = new byte[EncryptedData.Length];
                         int DecryptedCount = cryptoStream.Read(PlainText, 0, PlainText.Length);
                         memoryStream.Close();
@@ -113,6 +114,7 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper.Security
             }
         } //eof private static string DecryptString (string InputText , string Password )
 
+        [return: NotLogged]
         public string Encrypt(string stringToEncrypt)
         {
             var key = Convert.ToBase64String(GenerateSaltedHash(Encoding.Default.GetBytes(pwd1), Encoding.Default.GetBytes(pwd2)));
@@ -120,18 +122,13 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper.Security
             return result;
         }
 
+        [return: NotLogged]
         public string Decrypt(string stringToDecrypt)
         {
             var key = Convert.ToBase64String(GenerateSaltedHash(Encoding.Default.GetBytes(pwd1), Encoding.Default.GetBytes(pwd2)));
             var result = DecryptString(stringToDecrypt, key);
             return result;
         }
-
-        //internal string HashString(string str)
-        //{
-        //    string outPut = DeathCodez.Security.Encrypt(str);
-        //    return outPut;
-        //}
     }
 }
 

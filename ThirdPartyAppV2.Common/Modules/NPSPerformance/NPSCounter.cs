@@ -3,14 +3,12 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 using ThirdPartyAppV2.Common.DBConnections.DB;
 using ThirdPartyAppV2.Common.DBConnections.Helper;
 using static ThirdPartyAppV2.Common.Modules.Main.ReportsDataset.ThirdPartyAppDataSet;
 
 namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
 {
-    [Log]
     public class NPSCounter
     {
         private readonly LogSource logSource;
@@ -253,8 +251,8 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
                     newRow["PHICStartDateTime"] = PhicStart == DateTime.MinValue ? DBNull.Value : PhicStart;
                     newRow["PHICEndDateTime"] = PhicEnd == DateTime.MinValue ? DBNull.Value : PhicEnd;
                     newRow["RPStartDateTime"] = RPStart == DateTime.MinValue ? DBNull.Value : RPStart;
-                    newRow["RPDocEndDateTime"] = RPEnd == DateTime.MinValue ? DBNull.Value : RPEnd;
-                    newRow["NCODocStartDateTime"] = NCOStart == DateTime.MinValue ? DBNull.Value : NCOStart;
+                    newRow["RPEndDateTime"] = RPEnd == DateTime.MinValue ? DBNull.Value : RPEnd;
+                    newRow["NCOStartDateTime"] = NCOStart == DateTime.MinValue ? DBNull.Value : NCOStart;
                     newRow["NCOEndDateTime"] = NCOEnd == DateTime.MinValue ? DBNull.Value : NCOEnd;
                     newRow["ReadyToTransStartDateTime"] = readyToTransStart == DateTime.MinValue ? DBNull.Value : readyToTransStart;
                     newRow["ReadyToTransEndDateTime"] = readyToTransEnd == DateTime.MinValue ? DBNull.Value : readyToTransEnd;
@@ -280,8 +278,8 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
                         rw["PHICStartDateTime"] = PhicStart == DateTime.MinValue ? DBNull.Value : PhicStart;
                         rw["PHICEndDateTime"] = PhicEnd == DateTime.MinValue ? DBNull.Value : PhicEnd;
                         rw["RPStartDateTime"] = RPStart == DateTime.MinValue ? DBNull.Value : RPStart;
-                        rw["RPDocEndDateTime"] = RPEnd == DateTime.MinValue ? DBNull.Value : RPEnd;
-                        rw["NCODocStartDateTime"] = NCOStart == DateTime.MinValue ? DBNull.Value : NCOStart;
+                        rw["RPEndDateTime"] = RPEnd == DateTime.MinValue ? DBNull.Value : RPEnd;
+                        rw["NCOStartDateTime"] = NCOStart == DateTime.MinValue ? DBNull.Value : NCOStart;
                         rw["NCOEndDateTime"] = NCOEnd == DateTime.MinValue ? DBNull.Value : NCOEnd;
                         rw["ReadyToTransStartDateTime"] = readyToTransStart == DateTime.MinValue ? DBNull.Value : readyToTransStart;
                         rw["ReadyToTransEndDateTime"] = readyToTransEnd == DateTime.MinValue ? DBNull.Value : readyToTransEnd;
@@ -317,7 +315,7 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
                 var newRow = hospInfo.NewRow();
                 newRow["PK_appsysConfigGeneral"] = dr["PK_appsysConfigGeneral"];
                 newRow["tstamp"] = dr["tstamp"];
-                newRow["HospOwnerID"] = dr["HospOwnerID"]; 
+                newRow["HospOwnerID"] = dr["HospOwnerID"];
                 newRow["HospDCNO"] = dr["HospDCNO"];
                 newRow["HospName"] = dr["HospName"];
                 newRow["HospLogo"] = dr["HospLogo"];
@@ -460,15 +458,49 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
             return ds;
         }
 
-        public DataSet LoadDischargeProc()
+        public DateTime StartOfWeek(DateTime dt, DayOfWeek startOfWeek)
         {
+            int diff = (7 + (dt.DayOfWeek - startOfWeek)) % 7;
+            return dt.AddDays(-1 * diff).Date;
+        }
+
+        public DataSet LoadDischargeProc(string rptType = "Monthly", string dateNow = "")
+        {
+            if (string.IsNullOrEmpty(dateNow))
+            {
+                dateNow = DateTime.Now.ToString();
+            }
+            var startDate = DateTime.Today;
+            var endDate = DateTime.Today;
+            var startDateString = string.Empty;
+            var endDateString = string.Empty;
+
+            switch (rptType)
+            {
+                case "Weekly":
+                    startDate = StartOfWeek(DateTime.Parse(dateNow), DayOfWeek.Sunday);
+                    endDate = startDate.AddDays(6);
+                    startDateString = $"{startDate:yyyy-MM-dd} 00:00:00";
+                    endDateString = $"{endDate:yyyy-MM-dd} 23:59:59";
+                    break;
+                case "Daily":
+                    startDate = DateTime.Parse(dateNow);
+                    endDate = DateTime.Parse(dateNow);
+                    startDateString = $"{startDate:yyyy-MM-dd} 00:00:00";
+                    endDateString = $"{endDate:yyyy-MM-dd} 23:59:59";
+                    break;
+                default:
+                    startDate = new DateTime(DateTime.Parse(dateNow).Year, DateTime.Parse(dateNow).Month, 1);
+                    endDate = startDate.AddMonths(1).AddSeconds(-1);
+                    startDateString = $"{startDate:yyyy-MM-dd} 00:00:00";
+                    endDateString = $"{endDate:yyyy-MM-dd} 23:59:59";
+                    break;
+            }
+
             var dischargeProcDateList = new List<TimeSpan>();
-            var startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-            var endDate = startDate.AddMonths(1).AddSeconds(-1);
-            var startDateString = $"{startDate:yyyy-MM-dd} 00:00:00";
-            var endDateString = $"{endDate:yyyy-MM-dd} 23:59:59";
 
             var sql = $"select * from dischargeprocess where `DateEncoded` Between '{startDateString}' and '{endDateString}'";
+
             var settings = new MYSQLDBSettings();
             var helper = new MYSQLDBHelper(settings.GetConfigurationString("MySQLDB"));
             helper.Db_ConnOpen();
@@ -579,13 +611,41 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
             return ds;
         }
 
-        public DataSet LoadErToAdmission()
+        public DataSet LoadErToAdmission(string rptType = "Monthly", string dateNow = "")
         {
+
+            if (string.IsNullOrEmpty(dateNow))
+            {
+                dateNow = DateTime.Now.ToString();
+            }
+            var startDate = DateTime.Today;
+            var endDate = DateTime.Today;
+            var startDateString = string.Empty;
+            var endDateString = string.Empty;
+
+            switch (rptType)
+            {
+                case "Weekly":
+                    startDate = StartOfWeek(DateTime.Parse(dateNow), DayOfWeek.Sunday);
+                    endDate = startDate.AddDays(6);
+                    startDateString = $"{startDate:yyyy-MM-dd} 00:00:00";
+                    endDateString = $"{endDate:yyyy-MM-dd} 23:59:59";
+                    break;
+                case "Daily":
+                    startDate = DateTime.Parse(dateNow);
+                    endDate = DateTime.Parse(dateNow);
+                    startDateString = $"{startDate:yyyy-MM-dd} 00:00:00";
+                    endDateString = $"{endDate:yyyy-MM-dd} 23:59:59";
+                    break;
+                default:
+                    startDate = new DateTime(DateTime.Parse(dateNow).Year, DateTime.Parse(dateNow).Month, 1);
+                    endDate = startDate.AddMonths(1).AddSeconds(-1);
+                    startDateString = $"{startDate:yyyy-MM-dd} 00:00:00";
+                    endDateString = $"{endDate:yyyy-MM-dd} 23:59:59";
+                    break;
+            }
+
             var erToAdmissionDateList = new List<TimeSpan>();
-            var startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-            var endDate = startDate.AddMonths(1).AddSeconds(-1);
-            var startDateString = $"{startDate:yyyy-MM-dd} 00:00:00";
-            var endDateString = $"{endDate:yyyy-MM-dd} 23:59:59";
 
             var sql = $"select * from ertoadmission where `DateEncoded` Between '{startDateString}' and '{endDateString}'";
             var settings = new MYSQLDBSettings();

@@ -1,18 +1,16 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using System.Data;
 using System.Data.SqlClient;
-using ThirdPartyAppV2.Common.DBConnections.Helper.Security;
 
 namespace ThirdPartyAppV2.Common.DBConnections.Helper
 {
-    [Log]
     public class HHMHBBHelper
     {
         private readonly LogSource logSource = LogSource.Get();
         public SqlConnection Con;
 
 
-        public HHMHBBHelper(string connectionString)
+        public HHMHBBHelper([NotLogged] string connectionString)
         {
             Con = new SqlConnection(connectionString);
         }

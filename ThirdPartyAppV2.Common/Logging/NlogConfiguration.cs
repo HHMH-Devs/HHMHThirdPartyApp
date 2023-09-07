@@ -8,7 +8,7 @@ using LogLevel = NLog.LogLevel;
 
 namespace ThirdPartyAppV2.Common.Logging
 {
-    public class NlogConfiguration
+    public class NlogConfiguration : IDisposable
     {
         public void ConfigureNlog()
         {
@@ -39,13 +39,20 @@ namespace ThirdPartyAppV2.Common.Logging
                 Layout = "${longdate} | ${level} | ${callsite} | ${message} | ${exception:format=ToString}",
                 OptimizeBufferReuse = true
             };
-            nlogConfig.AddTarget(consoleTarget);
-            nlogConfig.LoggingRules.Add(new LoggingRule("*", LogLevel.Trace, LogLevel.Fatal, consoleTarget));          
 
-            LoggingServices.DefaultBackend = new NLogLoggingBackend(new LogFactory(nlogConfig));
-            LoggingServices.DefaultBackend.Options.IncludeActivityExecutionTime = true;
+            nlogConfig.AddTarget(consoleTarget);
+            nlogConfig.LoggingRules.Add(new LoggingRule("*", LogLevel.Trace, LogLevel.Fatal, consoleTarget));    
+            
+            var backend = new NLogLoggingBackend(new LogFactory(nlogConfig));
+
+            LoggingServices.DefaultBackend = backend;
 
             LogManager.EnableLogging();
+        }
+
+        public void Dispose()
+        {
+            LoggingServices.DefaultBackend.Dispose();
         }
     }
 }

@@ -6,7 +6,6 @@ using ThirdPartyAppV2.Common.DBConnections.Helper;
 
 namespace ThirdPartyAppV2.Common.Modules.Main.Patch.Versions
 {
-    [Log]
     public static class PatchFunctions
     {
         private static readonly LogSource log = LogSource.Get();

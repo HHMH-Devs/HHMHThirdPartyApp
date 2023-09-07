@@ -171,6 +171,7 @@
       <DependentUpon>ThirdPartyAppDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="postsharp.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modules\Main\Models\" />

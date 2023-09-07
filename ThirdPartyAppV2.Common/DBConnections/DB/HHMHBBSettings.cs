@@ -7,7 +7,6 @@ using ConfigurationManager = System.Configuration.ConfigurationManager;
 
 namespace ThirdPartyAppV2.Common.DBConnections.DB
 {
-    [Log]
     public class HHMHBBSettings
     {
         private readonly Configuration _config;
@@ -21,7 +20,7 @@ namespace ThirdPartyAppV2.Common.DBConnections.DB
 
         public HHMHBB_DBAttribs MSSQLLoadConstrings(string key)
         {
-            var msSql = new SqlConnectionStringBuilder(_security.Decrypt(GetConfigurationString(key)));
+            var msSql = new SqlConnectionStringBuilder(GetConfigurationString(key));
             var HHMHBB_DBAttribs = new HHMHBB_DBAttribs
             {
                 Server = msSql.DataSource,
@@ -33,7 +32,7 @@ namespace ThirdPartyAppV2.Common.DBConnections.DB
             return HHMHBB_DBAttribs;
         }
 
-
+        [return: NotLogged]
         public string GetConfigurationString(string key)
         {
             var st = _config.ConnectionStrings.ConnectionStrings[key].ConnectionString;

@@ -3,7 +3,6 @@ using System;
 
 namespace ThirdPartyAppV2.Common.Modules.Main.Patch.Versions
 {
-    [Log]
     public static class Version1
     {
         readonly static string Db_AllowedVersion = "1.0.0.1";

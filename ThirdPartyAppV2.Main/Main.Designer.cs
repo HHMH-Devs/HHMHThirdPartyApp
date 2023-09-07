@@ -489,6 +489,7 @@
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             Name = "Main";
             Text = "Form1";
+            FormClosing += Main_FormClosing;
             Load += Main_Load;
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
