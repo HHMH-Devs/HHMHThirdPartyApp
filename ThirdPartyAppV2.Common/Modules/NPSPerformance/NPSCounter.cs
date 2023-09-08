@@ -600,13 +600,13 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
             ds.Tables["DischargeProcess"].Columns.Add("TotalDocumentationAvg");
             ds.Tables["DischargeProcess"].Columns.Add("TotalPatExitAvg");
 
-            ds.Tables["DischargeProcess"].Rows[0]["TotalMedDischargeAvg"] = ((medDisch.TotalSeconds / medDischCount) / 60);
-            ds.Tables["DischargeProcess"].Rows[0]["TotalIntegrityCheckAvg"] = ((integCheck.TotalSeconds / integCheckCount) / 60);
-            ds.Tables["DischargeProcess"].Rows[0]["TotalBillGenAvg"] = ((billGen.TotalSeconds / billGenCount) / 60);
-            ds.Tables["DischargeProcess"].Rows[0]["TotalBillPrintAvg"] = ((billPrint.TotalSeconds / billPrintCount) / 60);
-            ds.Tables["DischargeProcess"].Rows[0]["TotalBillPayAvg"] = ((billPay.TotalSeconds / billPayCount) / 60);
-            ds.Tables["DischargeProcess"].Rows[0]["TotalDocumentationAvg"] = ((docu.TotalSeconds / docuCount) / 60);
-            ds.Tables["DischargeProcess"].Rows[0]["TotalPatExitAvg"] = ((patExit.TotalSeconds / patExitCount) / 60);
+            ds.Tables["DischargeProcess"].Rows[0]["TotalMedDischargeAvg"] = (medDisch.TotalSeconds / medDischCount) / 60;
+            ds.Tables["DischargeProcess"].Rows[0]["TotalIntegrityCheckAvg"] = (integCheck.TotalSeconds / integCheckCount) / 60;
+            ds.Tables["DischargeProcess"].Rows[0]["TotalBillGenAvg"] = (billGen.TotalSeconds / billGenCount) / 60;
+            ds.Tables["DischargeProcess"].Rows[0]["TotalBillPrintAvg"] = (billPrint.TotalSeconds / billPrintCount) / 60;
+            ds.Tables["DischargeProcess"].Rows[0]["TotalBillPayAvg"] = (billPay.TotalSeconds / billPayCount) / 60;
+            ds.Tables["DischargeProcess"].Rows[0]["TotalDocumentationAvg"] = (docu.TotalSeconds / docuCount) / 60;
+            ds.Tables["DischargeProcess"].Rows[0]["TotalPatExitAvg"] = (patExit.TotalSeconds / patExitCount) / 60;
 
             return ds;
         }
@@ -759,14 +759,14 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
             ds.Tables["ErToAdmission"].Columns.Add("TotalReadyToTransferAvg");
             ds.Tables["ErToAdmission"].Columns.Add("TotalTransferToRoomAvg");
 
-            ds.Tables["ErToAdmission"].Rows[0]["TotalRegToDocOrderAvg"] = ((regToDoc.TotalSeconds / regToDocCount) / 60);
-            ds.Tables["ErToAdmission"].Rows[0]["TotalDocOrderCarryOutAvg"] = ((docOrder.TotalSeconds / docOrderCount) / 60);
-            ds.Tables["ErToAdmission"].Rows[0]["TotalPatientProfilingAvg"] = ((profiling.TotalSeconds / profilingCount) / 60);
-            ds.Tables["ErToAdmission"].Rows[0]["TotalPHICSubmissionAvg"] = ((phicSubmit.TotalSeconds / phicSubmitCount) / 60);
-            ds.Tables["ErToAdmission"].Rows[0]["TotalRoomPrepAvg"] = ((roomPrep.TotalSeconds / roomPrepCount) / 60);
-            ds.Tables["ErToAdmission"].Rows[0]["TotalNursesCarryOutAvg"] = ((nurseCarryOut.TotalSeconds / nurseCarryOutCount) / 60);
-            ds.Tables["ErToAdmission"].Rows[0]["TotalReadyToTransferAvg"] = ((readyToTrans.TotalSeconds / readyToTransCount) / 60);
-            ds.Tables["ErToAdmission"].Rows[0]["TotalTransferToRoomAvg"] = ((transToRoom.TotalSeconds / transToRoomCount) / 60);
+            ds.Tables["ErToAdmission"].Rows[0]["TotalRegToDocOrderAvg"] = (regToDoc.TotalSeconds / regToDocCount) / 60;
+            ds.Tables["ErToAdmission"].Rows[0]["TotalDocOrderCarryOutAvg"] = (docOrder.TotalSeconds / docOrderCount) / 60;
+            ds.Tables["ErToAdmission"].Rows[0]["TotalPatientProfilingAvg"] = (profiling.TotalSeconds / profilingCount) / 60;
+            ds.Tables["ErToAdmission"].Rows[0]["TotalPHICSubmissionAvg"] = (phicSubmit.TotalSeconds / phicSubmitCount) / 60;
+            ds.Tables["ErToAdmission"].Rows[0]["TotalRoomPrepAvg"] = (roomPrep.TotalSeconds / roomPrepCount) / 60;
+            ds.Tables["ErToAdmission"].Rows[0]["TotalNursesCarryOutAvg"] = (nurseCarryOut.TotalSeconds / nurseCarryOutCount) / 60;
+            ds.Tables["ErToAdmission"].Rows[0]["TotalReadyToTransferAvg"] = (readyToTrans.TotalSeconds / readyToTransCount) / 60;
+            ds.Tables["ErToAdmission"].Rows[0]["TotalTransferToRoomAvg"] = (transToRoom.TotalSeconds / transToRoomCount) / 60;
 
             return ds;
         }

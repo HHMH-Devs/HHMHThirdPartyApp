@@ -7,35 +7,21 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>4f674a67-ebc8-4c95-a356-57b008bb4ede</rd:DataSourceID>
+      <rd:DataSourceID>4f63d16a-d485-4f6f-9788-db85096c1a6a</rd:DataSourceID>
     </DataSource>
     <DataSource Name="ThirdPartyAppV2CommonModulesMainReportsDataset1">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>ea4857bf-6bca-44e5-8b7e-814dd49195c8</rd:DataSourceID>
+      <rd:DataSourceID>f54c7d20-7da0-43b1-aa49-3e7e716e899a</rd:DataSourceID>
     </DataSource>
     <DataSource Name="ThirdPartyAppV2CommonModulesMainReportsDataset2">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>d027459c-b2df-4e15-9b0b-a71a695d562a</rd:DataSourceID>
-    </DataSource>
-    <DataSource Name="ThirdPartyAppV2CommonModulesMainReportsDataset3">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>556bf1c0-fbba-4306-b747-0a9e61072b3a</rd:DataSourceID>
-    </DataSource>
-    <DataSource Name="ThirdPartyAppV2CommonModulesMainReportsDataset4">
-      <ConnectionProperties>
-        <DataProvider>System.Data.DataSet</DataProvider>
-        <ConnectString>/* Local Connection */</ConnectString>
-      </ConnectionProperties>
-      <rd:DataSourceID>17b8b6d4-fa8d-41a9-9a75-fcdc50e47812</rd:DataSourceID>
+      <rd:DataSourceID>45a56cbb-3372-4eaa-9998-d9e3ec6bde4a</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -598,7 +584,7 @@
     </DataSet>
     <DataSet Name="DischargeProc">
       <Query>
-        <DataSourceName>ThirdPartyAppV2CommonModulesMainReportsDataset3</DataSourceName>
+        <DataSourceName>ThirdPartyAppV2CommonModulesMainReportsDataset1</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -647,7 +633,7 @@
     </DataSet>
     <DataSet Name="ErToAdmission">
       <Query>
-        <DataSourceName>ThirdPartyAppV2CommonModulesMainReportsDataset4</DataSourceName>
+        <DataSourceName>ThirdPartyAppV2CommonModulesMainReportsDataset2</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1432,7 +1418,7 @@
             <DataSetName>DischargeProc</DataSetName>
             <Top>0.36111in</Top>
             <Left>0.49875in</Left>
-            <Height>1.29861in</Height>
+            <Height>1.29864in</Height>
             <Width>7.48958in</Width>
             <Style>
               <Border>
@@ -2296,7 +2282,7 @@
             <DataSetName>ErToAdmission</DataSetName>
             <Top>3.0625in</Top>
             <Left>0.49875in</Left>
-            <Height>1.29861in</Height>
+            <Height>1.29864in</Height>
             <Width>7.48958in</Width>
             <ZIndex>2</ZIndex>
             <Style>
@@ -2576,7 +2562,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CDbl(Parameters!DPMedDischarge.Value)</Value>
+                    <Value>=IIF(Parameters!DPMedDischarge.Value = "NaN", 0.00, CDbl(Parameters!DPMedDischarge.Value))</Value>
                     <Style>
                       <FontFamily>Tahoma</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -2612,7 +2598,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CDbl(Parameters!DPIntegrityCheck.Value)</Value>
+                    <Value>=IIF(Parameters!DPIntegrityCheck.Value = "NaN", 0.00, CDbl(Parameters!DPIntegrityCheck.Value))</Value>
                     <Style>
                       <FontFamily>Tahoma</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -2648,7 +2634,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CDbl(Parameters!DPBillGen.Value)</Value>
+                    <Value>=IIF(Parameters!DPBillGen.Value = "NaN", 0.00, CDbl(Parameters!DPBillGen.Value))</Value>
                     <Style>
                       <FontFamily>Tahoma</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -2684,7 +2670,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CDbl(Parameters!DPBillPrint.Value)</Value>
+                    <Value>=IIF(Parameters!DPBillPrint.Value = "NaN", 0.00, CDbl(Parameters!DPBillPrint.Value))</Value>
                     <Style>
                       <FontFamily>Tahoma</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -2720,7 +2706,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CDbl(Parameters!DPBillPay.Value)</Value>
+                    <Value>=IIF(Parameters!DPBillPay.Value = "NaN", 0.00, CDbl(Parameters!DPBillPay.Value))</Value>
                     <Style>
                       <FontFamily>Tahoma</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -2756,7 +2742,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CDbl(Parameters!DPDocumentation.Value)</Value>
+                    <Value>=IIF(Parameters!DPDocumentation.Value = "NaN", 0.00, CDbl(Parameters!DPDocumentation.Value))</Value>
                     <Style>
                       <FontFamily>Tahoma</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -2792,7 +2778,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CDbl(Parameters!DPPatExit.Value)</Value>
+                    <Value>=IIF(Parameters!DPPatExit.Value = "NaN", 0.00, CDbl(Parameters!DPPatExit.Value))</Value>
                     <Style>
                       <FontFamily>Tahoma</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -3059,7 +3045,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CDbl(Parameters!ERRegToDoc.Value)</Value>
+                    <Value>=IIF(Parameters!ERRegToDoc.Value = "NaN", 0.00, CDbl(Parameters!ERRegToDoc.Value))</Value>
                     <Style>
                       <FontFamily>Tahoma</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -3095,7 +3081,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CDbl(Parameters!ERDocCarryOut.Value)</Value>
+                    <Value>=IIF(Parameters!ERDocCarryOut.Value = "NaN", 0.00, CDbl(Parameters!ERDocCarryOut.Value))</Value>
                     <Style>
                       <FontFamily>Tahoma</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -3131,7 +3117,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CDbl(Parameters!ERPatProfiling.Value)</Value>
+                    <Value>=IIF(Parameters!ERPatProfiling.Value = "NaN", 0.00, CDbl(Parameters!ERPatProfiling.Value))</Value>
                     <Style>
                       <FontFamily>Tahoma</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -3167,7 +3153,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CDbl(Parameters!ERPhicSubmission.Value)</Value>
+                    <Value>=IIF(Parameters!ERPhicSubmission.Value = "NaN", 0.00, CDbl(Parameters!ERPhicSubmission.Value))</Value>
                     <Style>
                       <FontFamily>Tahoma</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -3203,7 +3189,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CDbl(Parameters!ERRoomPrep.Value)</Value>
+                    <Value>=IIF(Parameters!ERRoomPrep.Value = "NaN", 0.00, CDbl(Parameters!ERRoomPrep.Value))</Value>
                     <Style>
                       <FontFamily>Tahoma</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -3239,7 +3225,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CDbl(Parameters!ERNursesCarryOut.Value)</Value>
+                    <Value>=IIF(Parameters!ERNursesCarryOut.Value = "NaN", 0.00, CDbl(Parameters!ERNursesCarryOut.Value))</Value>
                     <Style>
                       <FontFamily>Tahoma</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -3275,7 +3261,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CDbl(Parameters!ERReadyToTransfer.Value)</Value>
+                    <Value>=IIF(Parameters!ERReadyToTransfer.Value = "NaN", 0.00, CDbl(Parameters!ERReadyToTransfer.Value))</Value>
                     <Style>
                       <FontFamily>Tahoma</FontFamily>
                       <FontWeight>Bold</FontWeight>
@@ -3344,7 +3330,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=CDbl(Parameters!ERTransferToRoom.Value)</Value>
+                    <Value>=IIF(Parameters!ERTransferToRoom.Value = "NaN", 0.00, CDbl(Parameters!ERTransferToRoom.Value))</Value>
                     <Style>
                       <FontFamily>Tahoma</FontFamily>
                       <FontWeight>Bold</FontWeight>
