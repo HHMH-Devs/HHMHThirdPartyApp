@@ -41,7 +41,6 @@ namespace ThirdPartyAppV2.Common.DBConnections.DB
 
         public void SaveConnectionString(string key, string value)
         {
-
             _config.ConnectionStrings.ConnectionStrings[key].ConnectionString = _security.Encrypt(value);
             _config.ConnectionStrings.ConnectionStrings[key].ProviderName = "MySql.Data.MySqlClient";
             _config.Save(ConfigurationSaveMode.Modified);

@@ -68,106 +68,112 @@ namespace ThirdPartyAppV2.Main
 
         private void LoadAverageTurnArroundTime()
         {
-            var dischargeProcDateList = new List<TimeSpan>();
-
-            var startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-            var endDate = startDate.AddMonths(1).AddSeconds(-1);
-            var startDateString = $"{startDate:yyyy-MM-dd} 00:00:00";
-            var endDateString = $"{endDate:yyyy-MM-dd} 23:59:59";
-            var DPDS = data.LoadNPSAverageDischarge(startDateString, endDateString);
-
-            if (DPDS != null)
+            try
             {
-                foreach (DataRow d in DPDS.Tables[0].Rows)
+                var dischargeProcDateList = new List<TimeSpan>();
+
+                var startDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                var endDate = startDate.AddMonths(1).AddSeconds(-1);
+                var startDateString = $"{startDate:yyyy-MM-dd} 00:00:00";
+                var endDateString = $"{endDate:yyyy-MM-dd} 23:59:59";
+                var DPDS = data.LoadNPSAverageDischarge(startDateString, endDateString);
+
+                if (DPDS != null)
                 {
-                    if (!DBNull.Value.Equals(d["MDStartDateTime"]) && !DBNull.Value.Equals(d["MDEndDateTime"]))
+                    foreach (DataRow d in DPDS.Tables[0].Rows)
                     {
-                        dischargeProcDateList.Add(Convert.ToDateTime(d["MDEndDateTime"]).Subtract(Convert.ToDateTime(d["MDStartDateTime"])));
+                        if (!DBNull.Value.Equals(d["MDStartDateTime"]) && !DBNull.Value.Equals(d["MDEndDateTime"]))
+                        {
+                            dischargeProcDateList.Add(Convert.ToDateTime(d["MDEndDateTime"]).Subtract(Convert.ToDateTime(d["MDStartDateTime"])));
+                        }
+                        if (!DBNull.Value.Equals(d["IEStartDateTime"]) && !DBNull.Value.Equals(d["MDEndDateTime"]))
+                        {
+                            dischargeProcDateList.Add(Convert.ToDateTime(d["MDEndDateTime"]).Subtract(Convert.ToDateTime(d["IEStartDateTime"])));
+                        }
+                        if (!DBNull.Value.Equals(d["BGStartDateTime"]) && !DBNull.Value.Equals(d["BGEndDateTime"]))
+                        {
+                            dischargeProcDateList.Add(Convert.ToDateTime(d["BGEndDateTime"]).Subtract(Convert.ToDateTime(d["BGStartDateTime"])));
+                        }
+                        if (!DBNull.Value.Equals(d["BP1StartDateTime"]) && !DBNull.Value.Equals(d["BP1EndDateTime"]))
+                        {
+                            dischargeProcDateList.Add(Convert.ToDateTime(d["BP1EndDateTime"]).Subtract(Convert.ToDateTime(d["BP1StartDateTime"])));
+                        }
+                        if (!DBNull.Value.Equals(d["BP2StartDateTime"]) && !DBNull.Value.Equals(d["BP2EndDateTime"]))
+                        {
+                            dischargeProcDateList.Add(Convert.ToDateTime(d["BP2EndDateTime"]).Subtract(Convert.ToDateTime(d["BP2StartDateTime"])));
+                        }
+                        if (!DBNull.Value.Equals(d["DIDStartDateTime"]) && !DBNull.Value.Equals(d["DIDEndDateTime"]))
+                        {
+                            dischargeProcDateList.Add(Convert.ToDateTime(d["DIDEndDateTime"]).Subtract(Convert.ToDateTime(d["DIDStartDateTime"])));
+                        }
+                        if (!DBNull.Value.Equals(d["PatExitStartDateTime"]) && !DBNull.Value.Equals(d["PatExitEndDateTime"]))
+                        {
+                            dischargeProcDateList.Add(Convert.ToDateTime(d["PatExitEndDateTime"]).Subtract(Convert.ToDateTime(d["PatExitStartDateTime"])));
+                        }
                     }
-                    if (!DBNull.Value.Equals(d["IEStartDateTime"]) && !DBNull.Value.Equals(d["MDEndDateTime"]))
+
+                    if (dischargeProcDateList.Count > 0)
                     {
-                        dischargeProcDateList.Add(Convert.ToDateTime(d["MDEndDateTime"]).Subtract(Convert.ToDateTime(d["IEStartDateTime"])));
+                        var dischProcAverage = dischargeProcDateList.Average(timeSpan => timeSpan.TotalSeconds);
+                        DPATAT_Label.Text = TimeSpan.FromSeconds(dischProcAverage).ToString("hh':'mm':'ss");
                     }
-                    if (!DBNull.Value.Equals(d["BGStartDateTime"]) && !DBNull.Value.Equals(d["BGEndDateTime"]))
-                    {
-                        dischargeProcDateList.Add(Convert.ToDateTime(d["BGEndDateTime"]).Subtract(Convert.ToDateTime(d["BGStartDateTime"])));
-                    }
-                    if (!DBNull.Value.Equals(d["BP1StartDateTime"]) && !DBNull.Value.Equals(d["BP1EndDateTime"]))
-                    {
-                        dischargeProcDateList.Add(Convert.ToDateTime(d["BP1EndDateTime"]).Subtract(Convert.ToDateTime(d["BP1StartDateTime"])));
-                    }
-                    if (!DBNull.Value.Equals(d["BP2StartDateTime"]) && !DBNull.Value.Equals(d["BP2EndDateTime"]))
-                    {
-                        dischargeProcDateList.Add(Convert.ToDateTime(d["BP2EndDateTime"]).Subtract(Convert.ToDateTime(d["BP2StartDateTime"])));
-                    }
-                    if (!DBNull.Value.Equals(d["DIDStartDateTime"]) && !DBNull.Value.Equals(d["DIDEndDateTime"]))
-                    {
-                        dischargeProcDateList.Add(Convert.ToDateTime(d["DIDEndDateTime"]).Subtract(Convert.ToDateTime(d["DIDStartDateTime"])));
-                    }
-                    if (!DBNull.Value.Equals(d["PatExitStartDateTime"]) && !DBNull.Value.Equals(d["PatExitEndDateTime"]))
-                    {
-                        dischargeProcDateList.Add(Convert.ToDateTime(d["PatExitEndDateTime"]).Subtract(Convert.ToDateTime(d["PatExitStartDateTime"])));
-                    }
+
                 }
 
-                if (dischargeProcDateList.Count > 0)
-                {
-                    var dischProcAverage = dischargeProcDateList.Average(timeSpan => timeSpan.TotalSeconds);
-                    DPATAT_Label.Text = TimeSpan.FromSeconds(dischProcAverage).ToString("hh':'mm':'ss");
-                }
+                var ErToAdmissionDateList = new List<TimeSpan>();
 
+                var ATA = data.LoadNPSAverageErToAdmission(startDateString, endDateString);
+
+                if (ATA != null)
+                {
+                    foreach (DataRow d in ATA.Tables[0].Rows)
+                    {
+                        if (!DBNull.Value.Equals(d["RegToDocStartDateTime"]) && !DBNull.Value.Equals(d["RegToDocEndDateTime"]))
+                        {
+                            ErToAdmissionDateList.Add(Convert.ToDateTime(d["RegToDocEndDateTime"]).Subtract(Convert.ToDateTime(d["RegToDocStartDateTime"])));
+                        }
+                        if (!DBNull.Value.Equals(d["DocOrderStartDateTime"]) && !DBNull.Value.Equals(d["DocOrderEndDateTime"]))
+                        {
+                            ErToAdmissionDateList.Add(Convert.ToDateTime(d["DocOrderEndDateTime"]).Subtract(Convert.ToDateTime(d["DocOrderStartDateTime"])));
+                        }
+                        if (!DBNull.Value.Equals(d["APPStartDateTime"]) && !DBNull.Value.Equals(d["APPEndDateTime"]))
+                        {
+                            ErToAdmissionDateList.Add(Convert.ToDateTime(d["APPEndDateTime"]).Subtract(Convert.ToDateTime(d["APPStartDateTime"])));
+                        }
+                        if (!DBNull.Value.Equals(d["PHICStartDateTime"]) && !DBNull.Value.Equals(d["PHICEndDateTime"]))
+                        {
+                            ErToAdmissionDateList.Add(Convert.ToDateTime(d["PHICEndDateTime"]).Subtract(Convert.ToDateTime(d["PHICStartDateTime"])));
+                        }
+                        if (!DBNull.Value.Equals(d["RPStartDateTime"]) && !DBNull.Value.Equals(d["RPEndDateTime"]))
+                        {
+                            ErToAdmissionDateList.Add(Convert.ToDateTime(d["RPEndDateTime"]).Subtract(Convert.ToDateTime(d["RPStartDateTime"])));
+                        }
+                        if (!DBNull.Value.Equals(d["NCOStartDateTime"]) && !DBNull.Value.Equals(d["NCOEndDateTime"]))
+                        {
+                            ErToAdmissionDateList.Add(Convert.ToDateTime(d["NCOEndDateTime"]).Subtract(Convert.ToDateTime(d["NCOStartDateTime"])));
+                        }
+                        if (!DBNull.Value.Equals(d["ReadyToTransStartDateTime"]) && !DBNull.Value.Equals(d["ReadyToTransEndDateTime"]))
+                        {
+                            ErToAdmissionDateList.Add(Convert.ToDateTime(d["ReadyToTransEndDateTime"]).Subtract(Convert.ToDateTime(d["ReadyToTransStartDateTime"])));
+                        }
+                        if (!DBNull.Value.Equals(d["TransToRoomStartDateTime"]) && !DBNull.Value.Equals(d["TransToRoomEndDateTime"]))
+                        {
+                            ErToAdmissionDateList.Add(Convert.ToDateTime(d["TransToRoomEndDateTime"]).Subtract(Convert.ToDateTime(d["TransToRoomStartDateTime"])));
+                        }
+                    }
+
+                    if (ErToAdmissionDateList.Count > 0)
+                    {
+                        var ERAdmissionAverage = ErToAdmissionDateList.Average(timeSpan => timeSpan.TotalSeconds);
+                        ETAATAT_Label.Text = TimeSpan.FromSeconds(ERAdmissionAverage).ToString("hh':'mm':'ss");
+                    }
+                    AsForTheMonth_Label.Text = DateTime.Now.ToString("'As for the month of 'MMMM");
+                }
             }
-
-            var ErToAdmissionDateList = new List<TimeSpan>();
-
-            var ATA = data.LoadNPSAverageErToAdmission(startDateString, endDateString);
-
-            if (ATA != null)
+            catch (Exception ex)
             {
-                foreach (DataRow d in ATA.Tables[0].Rows)
-                {
-                    if (!DBNull.Value.Equals(d["RegToDocStartDateTime"]) && !DBNull.Value.Equals(d["RegToDocEndDateTime"]))
-                    {
-                        ErToAdmissionDateList.Add(Convert.ToDateTime(d["RegToDocEndDateTime"]).Subtract(Convert.ToDateTime(d["RegToDocStartDateTime"])));
-                    }
-                    if (!DBNull.Value.Equals(d["DocOrderStartDateTime"]) && !DBNull.Value.Equals(d["DocOrderEndDateTime"]))
-                    {
-                        ErToAdmissionDateList.Add(Convert.ToDateTime(d["DocOrderEndDateTime"]).Subtract(Convert.ToDateTime(d["DocOrderStartDateTime"])));
-                    }
-                    if (!DBNull.Value.Equals(d["APPStartDateTime"]) && !DBNull.Value.Equals(d["APPEndDateTime"]))
-                    {
-                        ErToAdmissionDateList.Add(Convert.ToDateTime(d["APPEndDateTime"]).Subtract(Convert.ToDateTime(d["APPStartDateTime"])));
-                    }
-                    if (!DBNull.Value.Equals(d["PHICStartDateTime"]) && !DBNull.Value.Equals(d["PHICEndDateTime"]))
-                    {
-                        ErToAdmissionDateList.Add(Convert.ToDateTime(d["PHICEndDateTime"]).Subtract(Convert.ToDateTime(d["PHICStartDateTime"])));
-                    }
-                    if (!DBNull.Value.Equals(d["RPStartDateTime"]) && !DBNull.Value.Equals(d["RPEndDateTime"]))
-                    {
-                        ErToAdmissionDateList.Add(Convert.ToDateTime(d["RPEndDateTime"]).Subtract(Convert.ToDateTime(d["RPStartDateTime"])));
-                    }
-                    if (!DBNull.Value.Equals(d["NCOStartDateTime"]) && !DBNull.Value.Equals(d["NCOEndDateTime"]))
-                    {
-                        ErToAdmissionDateList.Add(Convert.ToDateTime(d["NCOEndDateTime"]).Subtract(Convert.ToDateTime(d["NCOStartDateTime"])));
-                    }
-                    if (!DBNull.Value.Equals(d["ReadyToTransStartDateTime"]) && !DBNull.Value.Equals(d["ReadyToTransEndDateTime"]))
-                    {
-                        ErToAdmissionDateList.Add(Convert.ToDateTime(d["ReadyToTransEndDateTime"]).Subtract(Convert.ToDateTime(d["ReadyToTransStartDateTime"])));
-                    }
-                    if (!DBNull.Value.Equals(d["TransToRoomStartDateTime"]) && !DBNull.Value.Equals(d["TransToRoomEndDateTime"]))
-                    {
-                        ErToAdmissionDateList.Add(Convert.ToDateTime(d["TransToRoomEndDateTime"]).Subtract(Convert.ToDateTime(d["TransToRoomStartDateTime"])));
-                    }
-                }
-
-                if (ErToAdmissionDateList.Count > 0)
-                {
-                    var ERAdmissionAverage = ErToAdmissionDateList.Average(timeSpan => timeSpan.TotalSeconds);
-                    ETAATAT_Label.Text = TimeSpan.FromSeconds(ERAdmissionAverage).ToString("hh':'mm':'ss");
-                }
+                MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            AsForTheMonth_Label.Text = DateTime.Now.ToString("'As for the month of 'MMMM");
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -335,7 +341,7 @@ namespace ThirdPartyAppV2.Main
                 }
 
             }
-        } 
+        }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)
         {

@@ -3,6 +3,7 @@ using PostSharp.Patterns.Diagnostics;
 using System;
 using System.Data;
 using System.Data.Common;
+using ThirdPartyAppV2.Common.Modules.Main.Patch.Versions;
 
 namespace ThirdPartyAppV2.Common.DBConnections.Helper
 {
@@ -14,10 +15,21 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper
         public MYSQLDBHelper([NotLogged] string connectionString)
         {
             Con = new MySqlConnection(connectionString);
+            Con.StateChange += Con_StateChange;
+        }
+
+        private void Con_StateChange(object sender, StateChangeEventArgs e)
+        {
+            logSource.Info.Write(FormattedMessageBuilder.Formatted("Connection state: {OriginalState} -> {CurrentState}", e.OriginalState, e.CurrentState));
         }
 
         public bool IsConnected()
         {
+            if (!PatchFunctions.IsDatabaseExists(Con.Database))
+            {
+                var sql = $"CREATE DATABASE `{Con.Database}` CHARACTER SET 'utf8mb4' COLLATE 'utf8mb4_general_ci';";
+                PatchFunctions.RunCommand(sql);
+            }
             try
             {
                 if (string.IsNullOrEmpty(Con.ConnectionString))
@@ -38,11 +50,18 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper
 
         public void Db_ConnOpen()
         {
-            if (Con.State == ConnectionState.Open)
+            try
             {
-                Con.Close();
+                if (Con.State == ConnectionState.Open)
+                {
+                    Con.Close();
+                }
+                Con.Open();
             }
-            Con.Open();
+            catch (Exception ex)
+            {
+                logSource.Error.Write(FormattedMessageBuilder.Formatted("An error occured. {Message}", ex.Message));
+            }
         }
 
         public void Db_ConnClose()
@@ -81,11 +100,17 @@ namespace ThirdPartyAppV2.Common.DBConnections.Helper
         {
             var ds = new DataSet();
 
-            using (var da = new MySqlDataAdapter(query, Con))
+            try
             {
-                da.Fill(ds, srcTbl);
+                using (var da = new MySqlDataAdapter(query, Con))
+                {
+                    da.Fill(ds, srcTbl);
+                }
             }
-
+            catch (Exception ex)
+            {
+                logSource.Error.Write(FormattedMessageBuilder.Formatted("An error occured. {Message}", ex.Message));
+            }
             return ds;
         }
 

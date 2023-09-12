@@ -16,7 +16,7 @@ namespace ThirdPartyAppV2.Main
         /// </summary>
         [STAThread]
         static void Main()
-        {            
+        {
             if (!Directory.Exists("C:\\Users\\hadmin\\Documents\\Thirdpartyapp\\Settings"))
             {
                 Directory.CreateDirectory("C:\\Users\\hadmin\\Documents\\Thirdpartyapp\\Settings");
@@ -25,8 +25,9 @@ namespace ThirdPartyAppV2.Main
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             PortableSettingsProvider.SettingsFileName = "ThirdPartyApp.setting";
-            PortableSettingsProviderBase.SettingsDirectory = "C:\\Users\\hadmin\\Documents\\Thirdpartyapp\\Settings";          
+            PortableSettingsProviderBase.SettingsDirectory = "C:\\Users\\hadmin\\Documents\\Thirdpartyapp\\Settings";
             PortableSettingsProvider.ApplyProvider(Properties.Settings.Default);
+            SystemPatch.CreateTable();
             SystemPatch.PatchSystem();
             Application.Run(new Main());
         }

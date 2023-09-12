@@ -126,22 +126,8 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
             }
         }
 
-        public bool SaveDataDischargeProcess(int id,
-                             string patName,
-                             DateTime MDStart,
-                             DateTime MDEnd,
-                             DateTime IEStart,
-                             DateTime IEEnd,
-                             DateTime BGStart,
-                             DateTime BGEnd,
-                             DateTime BP1Start,
-                             DateTime BP1End,
-                             DateTime BP2Start,
-                             DateTime BP2End,
-                             DateTime DIDStart,
-                             DateTime DIDEnd,
-                             DateTime PEStart,
-                             DateTime PEEnd)
+        public bool SaveDataDischargeProcess(int id, string patName, DateTime MDStart, DateTime MDEnd, DateTime IEStart, DateTime IEEnd, DateTime BGStart, DateTime BGEnd, DateTime BP1Start, DateTime BP1End,
+                             DateTime BP2Start, DateTime BP2End, DateTime DIDStart, DateTime DIDEnd, DateTime PEStart, DateTime PEEnd)
         {
             var sql = string.Empty;
             var st = false;
@@ -209,24 +195,8 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
             }
         }
 
-        public bool SaveDataErToAdmission(int id,
-                             string patName,
-                             DateTime regToDocStart,
-                             DateTime regToDocEnd,
-                             DateTime docOrderStart,
-                             DateTime docOrderEnd,
-                             DateTime APPStart,
-                             DateTime APPEnd,
-                             DateTime PhicStart,
-                             DateTime PhicEnd,
-                             DateTime RPStart,
-                             DateTime RPEnd,
-                             DateTime NCOStart,
-                             DateTime NCOEnd,
-                             DateTime readyToTransStart,
-                             DateTime readyToTransEnd,
-                             DateTime transToRoomStart,
-                             DateTime transToRoomEnd)
+        public bool SaveDataErToAdmission(int id, string patName, DateTime regToDocStart, DateTime regToDocEnd, DateTime docOrderStart, DateTime docOrderEnd, DateTime APPStart, DateTime APPEnd, DateTime PhicStart,
+                             DateTime PhicEnd, DateTime RPStart, DateTime RPEnd, DateTime NCOStart, DateTime NCOEnd, DateTime readyToTransStart, DateTime readyToTransEnd, DateTime transToRoomStart, DateTime transToRoomEnd)
         {
             var sql = string.Empty;
             var st = false;
@@ -587,6 +557,7 @@ namespace ThirdPartyAppV2.Common.Modules.NPSPerformance
             newRow["BillPayment"] = billPay;
             newRow["Documentation"] = docu;
             newRow["PatientExit"] = patExit;
+
             ds = new DataSet();
             dt.Rows.Add(newRow);
             dt.TableName = "DischargeProcess";

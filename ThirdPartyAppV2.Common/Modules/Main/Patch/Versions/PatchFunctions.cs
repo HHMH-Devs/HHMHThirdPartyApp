@@ -10,11 +10,62 @@ namespace ThirdPartyAppV2.Common.Modules.Main.Patch.Versions
     {
         private static readonly LogSource log = LogSource.Get();
 
+        static internal bool IsDatabaseExists(string dbName)
+        {
+            try
+            {
+                var sql = "SHOW DATABASES;";
+                var settings = new MYSQLDBSettings();
+                var helper = new MYSQLDBHelper(settings.GetConfigurationString("MySQLDB"));
+                helper.Db_ConnOpen();
+                var data = helper.LoadSQL(sql);
+                helper.Db_ConnClose();
+
+                foreach (DataRow row in data.Tables[0].Rows)
+                {
+                    if (row[0].ToString() == dbName)
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error.Write(FormattedMessageBuilder.Formatted("An error occured. {Message}", ex.Message));
+            }
+            return false;
+        }
+        static internal bool IsTableExists(string tableName)
+        {
+            try
+            {
+                var sql = "SHOW TABLES;";
+                var settings = new MYSQLDBSettings();
+                var helper = new MYSQLDBHelper(settings.GetConfigurationString("MySQLDB"));
+                helper.Db_ConnOpen();
+                var data = helper.LoadSQL(sql);
+                helper.Db_ConnClose();
+
+                foreach (DataRow row in data.Tables[0].Rows)
+                {
+                    if (row[0].ToString() == tableName)
+                    {
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                log.Error.Write(FormattedMessageBuilder.Formatted("An error occured. {Message}", ex.Message));
+            }
+            return false;
+        }
+
         static internal bool IsPatchable(string allowedVersion)
         {
             try
             {
-                string sql = $"select * from settings where `Key` = 'DbVersion'";
+                string sql = $"select * from appsettings where `Key` = 'DbVersion'";
                 var settings = new MYSQLDBSettings();
                 var helper = new MYSQLDBHelper(settings.GetConfigurationString("MySQLDB"));
                 helper.Db_ConnOpen();
@@ -59,11 +110,11 @@ namespace ThirdPartyAppV2.Common.Modules.Main.Patch.Versions
         {
             try
             {
-                var sql = "select * from settings where `Key` = 'DbVersion'";
+                var sql = "select * from appsettings where `Key` = 'DbVersion'";
                 var settings = new MYSQLDBSettings();
                 var helper = new MYSQLDBHelper(settings.GetConfigurationString("MySQLDB"));
                 helper.Db_ConnOpen();
-                var data = helper.LoadSQL(sql, "settings");               
+                var data = helper.LoadSQL(sql, "settings");
                 foreach (DataRow item in data.Tables[0].Rows)
                 {
                     item["Values"] = latestVersion;

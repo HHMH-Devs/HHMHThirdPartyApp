@@ -12,10 +12,10 @@ namespace ThirdPartyAppV2.Main.Forms.DBConnectionConfig
 {
     public partial class AppDBSettings : Form
     {
-        private readonly MYSQLDBSettings mYSQLDBSettings = new MYSQLDBSettings();
-        private readonly HHMHBBSettings hHMHBBSettingsSettings = new HHMHBBSettings();
+        private readonly MYSQLDBSettings mYSQLDBSettings = new();
+        private readonly HHMHBBSettings hHMHBBSettingsSettings = new();
         private readonly LogSource logSource = LogSource.Get();
-        private readonly EncryptConnString security = new EncryptConnString();
+        private readonly EncryptConnString security = new();
 
         public AppDBSettings()
         {
@@ -114,7 +114,7 @@ namespace ThirdPartyAppV2.Main.Forms.DBConnectionConfig
                 var mysqlsetting = new MYSQLDBSettings();
                 mysqlsetting.SaveConnectionString("MySQLDB", mysqlBuilder.ConnectionString);
                 Properties.Settings.Default.MySQLDbConstring = security.Encrypt(mysqlBuilder.ConnectionString);
-                logSource.Info.Write(FormattedMessageBuilder.Formatted("Connected to {Server}", mysqlBuilder.Server)); 
+                logSource.Info.Write(FormattedMessageBuilder.Formatted("Connected to {Server}", mysqlBuilder.Server));
                 MessageBox.Show("Connection string for MySQL DB successfully saved.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
