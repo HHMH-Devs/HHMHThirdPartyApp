@@ -1,4 +1,5 @@
-﻿using ThirdPartyAppV2.Common.Modules.Main.Patch.Versions;
+﻿using System.Collections.Generic;
+using ThirdPartyAppV2.Common.Modules.Main.Patch.Versions;
 
 namespace ThirdPartyAppV2.Common.Modules.Main.Patch
 {
@@ -79,39 +80,47 @@ namespace ThirdPartyAppV2.Common.Modules.Main.Patch
                 PatchFunctions.RunCommand(sql);
             }
 
-            sql = "CREATE TABLE `thirdpartyappdb`.`Untitled`  ( " +
-                "`ID` int NOT NULL, " +
-                "`HypertensionMeds` varchar(255) NULL, " +
-                "`DiabetesMeds` varchar(255) NULL, " +
-                "`AsthmaMeds` varchar(255) NULL, " +
-                "`Otherppmh` varchar(255) NULL, " +
-                "`OtherppmhMeds` varchar(255) NULL, " +
-                "`Smoking` varchar(255) NULL, " +
-                "`Alchohol` varchar(255) NULL, " +
-                "`Psh_Others` varchar(255) NULL, " +
-                "`IsPedia` tinyint(1) NOT NULL DEFAULT 0, " +
-                "`Feeding` varchar(255) NULL, " +
-                "`Pedia_Others` varchar(255) NULL, " +
-                "`BCG` tinyint(1) NOT NULL DEFAULT 0, " +
-                "`DtPolio` tinyint(1) NOT NULL DEFAULT 0, " +
-                "`Hepa` tinyint(1) NOT NULL DEFAULT 0, " +
-                "`Measles` tinyint(1) NOT NULL DEFAULT 0, " +
-                "`Ih_Others` varchar(255) NULL, " +
-                "`Food` varchar(255) NULL, " +
-                "`Drugs` varchar(255) NULL, " +
-                "`Allergies_Others` varchar(255) NULL, " +
-                "`EssentiallyNormal` tinyint(1) NOT NULL DEFAULT 0, " +
-                "`EnlargePostale` tinyint(1) NOT NULL DEFAULT 0, " +
-                "`Mass` tinyint(1) NOT NULL DEFAULT 0, " +
-                "`Hemoriods` tinyint(1) NOT NULL DEFAULT 0, " +
-                "`Plus` tinyint(1) NOT NULL DEFAULT 0, " +
-                "`Digi_Others` varchar(255) NULL, " +
-                "PRIMARY KEY (`ID`) " +
-                ");";
+            sql = "CREATE TABLE `historysheet` ( " +
+                "`ID` INT NOT NULL, " +
+                "`HypertensionMeds` VARCHAR ( 255 ) DEFAULT NULL, " +
+                "`DiabetesMeds` VARCHAR ( 255 ) DEFAULT NULL, " +
+                "`AsthmaMeds` VARCHAR ( 255 ) DEFAULT NULL, " +
+                "`Otherppmh` VARCHAR ( 255 ) DEFAULT NULL, " +
+                "`OtherppmhMeds` VARCHAR ( 255 ) DEFAULT NULL, " +
+                "`Smoking` VARCHAR ( 255 ) DEFAULT NULL, " +
+                "`Alchohol` VARCHAR ( 255 ) DEFAULT NULL, " +
+                "`Psh_Others` VARCHAR ( 255 ) DEFAULT NULL, " +
+                "`IsPedia` TINYINT ( 1 ) NOT NULL DEFAULT '0', " +
+                "`Feeding` VARCHAR ( 255 ) DEFAULT NULL, " +
+                "`Pedia_Others` VARCHAR ( 255 ) DEFAULT NULL, " +
+                "`BCG` TINYINT ( 1 ) NOT NULL DEFAULT '0', " +
+                "`DtPolio` TINYINT ( 1 ) NOT NULL DEFAULT '0', " +
+                "`Hepa` TINYINT ( 1 ) NOT NULL DEFAULT '0', " +
+                "`Measles` TINYINT ( 1 ) NOT NULL DEFAULT '0', " +
+                "`Ih_Others` VARCHAR ( 255 ) DEFAULT NULL, " +
+                "`Food` VARCHAR ( 255 ) DEFAULT NULL, " +
+                "`Drugs` VARCHAR ( 255 ) DEFAULT NULL, " +
+                "`Allergies_Others` VARCHAR ( 255 ) DEFAULT NULL, " +
+                "`EssentiallyNormal` TINYINT ( 1 ) NOT NULL DEFAULT '0', " +
+                "`EnlargePostale` TINYINT ( 1 ) NOT NULL DEFAULT '0', " +
+                "`Mass` TINYINT ( 1 ) NOT NULL DEFAULT '0', " +
+                "`Hemoriods` TINYINT ( 1 ) NOT NULL DEFAULT '0', " +
+                "`Plus` TINYINT ( 1 ) NOT NULL DEFAULT '0', " +
+                "`Digi_Others` VARCHAR ( 255 ) DEFAULT NULL, " +
+                "PRIMARY KEY ( `ID` ) " +
+                ") ENGINE = INNODB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;";
 
-            if (!PatchFunctions.IsTableExists("appsettings"))
+            if (!PatchFunctions.IsTableExists("historysheet"))
             {
                 PatchFunctions.RunCommand(sql);
+            }
+        }
+
+        public static void AddSettingsVariables(Dictionary<string, object> keyValues)
+        {
+            if (PatchFunctions.CountSettingsData() <= 0)
+            {
+                PatchFunctions.AddSettingsData("appsettings", keyValues);
             }
         }
     }

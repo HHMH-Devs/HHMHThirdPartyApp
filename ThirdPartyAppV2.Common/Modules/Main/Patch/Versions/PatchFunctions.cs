@@ -1,5 +1,6 @@
 ﻿using PostSharp.Patterns.Diagnostics;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using ThirdPartyAppV2.Common.DBConnections.DB;
 using ThirdPartyAppV2.Common.DBConnections.Helper;
@@ -104,6 +105,55 @@ namespace ThirdPartyAppV2.Common.Modules.Main.Patch.Versions
                 log.Error.Write(FormattedMessageBuilder.Formatted("An error occured. {Message}", ex.Message));
                 return i;
             }
+        }
+
+        static internal void AddSettingsData(string tableName, Dictionary<string, object> keyValuePairs)
+        {
+            if (keyValuePairs.Count <= 0)
+            {
+                return;
+            }
+            try
+            {
+                var sql = $"select * from `{tableName}`";
+                var settings = new MYSQLDBSettings();
+                var helper = new MYSQLDBHelper(settings.GetConfigurationString("MySQLDB"));
+                helper.Db_ConnOpen();
+                var ds = helper.LoadSQL(sql, tableName);
+                if (keyValuePairs.Count > 0)
+                {
+                    var newRow = ds.Tables[0].NewRow();
+                    foreach (var pair in keyValuePairs)
+                    {
+                        newRow["Key"] = pair.Key;
+                        newRow["Value"] = pair.Value;
+                        if (pair.Key == "Comment")
+                        {
+                            newRow["Comment"] = pair.Value;
+                        }
+                        ds.Tables[0].Rows.Add(newRow);
+                    }
+
+                    helper.SaveEntry(ds);
+                }
+                helper.Db_ConnClose();
+            }
+            catch (Exception ex)
+            {
+                log.Error.Write(FormattedMessageBuilder.Formatted("An error occured. {Message}", ex.Message));
+            }
+        }
+
+        static internal int CountSettingsData()
+        {
+            var sql = "select * from `appsettings`";
+            var settings = new MYSQLDBSettings();
+            var helper = new MYSQLDBHelper(settings.GetConfigurationString("MySQLDB"));
+            helper.Db_ConnOpen();
+            var ds = helper.LoadSQL(sql);
+            helper.Db_ConnClose();
+
+            return ds.Tables[0].Rows.Count;
         }
 
         static internal void UpdateDbVesion(string latestVersion)

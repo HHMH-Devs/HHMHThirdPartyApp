@@ -28,803 +28,804 @@
         /// </summary>
         private void InitializeComponent()
         {
-            groupBox1 = new System.Windows.Forms.GroupBox();
-            pictureBox11 = new System.Windows.Forms.PictureBox();
-            pictureBox10 = new System.Windows.Forms.PictureBox();
-            pictureBox7 = new System.Windows.Forms.PictureBox();
-            pictureBox9 = new System.Windows.Forms.PictureBox();
-            pictureBox8 = new System.Windows.Forms.PictureBox();
-            pictureBox13 = new System.Windows.Forms.PictureBox();
-            pictureBox6 = new System.Windows.Forms.PictureBox();
-            pictureBox12 = new System.Windows.Forms.PictureBox();
-            AverageTime_Label = new System.Windows.Forms.Label();
-            label1 = new System.Windows.Forms.Label();
-            DischargeProcOverAllET_Lbl = new System.Windows.Forms.Label();
-            label37 = new System.Windows.Forms.Label();
-            PELabel_Lbl = new System.Windows.Forms.Label();
-            DIDLabel_Lbl = new System.Windows.Forms.Label();
-            BP1Label_Lbl = new System.Windows.Forms.Label();
-            BP2Label_Lbl = new System.Windows.Forms.Label();
-            BGEndDate_Btn = new System.Windows.Forms.Button();
-            BGEndDate_Text = new System.Windows.Forms.TextBox();
-            label8 = new System.Windows.Forms.Label();
-            BGStartDate_Btn = new System.Windows.Forms.Button();
-            BGStartDate_Text = new System.Windows.Forms.TextBox();
-            label9 = new System.Windows.Forms.Label();
-            BGLabel_Lbl = new System.Windows.Forms.Label();
-            IEEndDateTime_Btn = new System.Windows.Forms.Button();
-            IEEndDateTime_Text = new System.Windows.Forms.TextBox();
-            label12 = new System.Windows.Forms.Label();
-            IEStartDateTime_Btn = new System.Windows.Forms.Button();
-            IEStartDateTime_Text = new System.Windows.Forms.TextBox();
-            PEEndDate_Btn = new System.Windows.Forms.Button();
-            label7 = new System.Windows.Forms.Label();
-            DIDEndDate_Btn = new System.Windows.Forms.Button();
-            IELabel_Lbl = new System.Windows.Forms.Label();
-            BP1EndDateTime_Btn = new System.Windows.Forms.Button();
-            PEEndDate_Text = new System.Windows.Forms.TextBox();
-            BP2EndDate_Btn = new System.Windows.Forms.Button();
-            DIDEndDate_Text = new System.Windows.Forms.TextBox();
-            MDSetEndDate_Btn = new System.Windows.Forms.Button();
-            BP1EndDateTime_Text = new System.Windows.Forms.TextBox();
-            label17 = new System.Windows.Forms.Label();
-            BP2EndDate_Text = new System.Windows.Forms.TextBox();
-            label14 = new System.Windows.Forms.Label();
-            MDEndDate_Text = new System.Windows.Forms.TextBox();
-            label5 = new System.Windows.Forms.Label();
-            PEStartDate_Btn = new System.Windows.Forms.Button();
-            label11 = new System.Windows.Forms.Label();
-            DIDStartDate_Btn = new System.Windows.Forms.Button();
-            label3 = new System.Windows.Forms.Label();
-            BP1StartDateTime_Btn = new System.Windows.Forms.Button();
-            PEStartDate_Text = new System.Windows.Forms.TextBox();
-            BP2StartDate_Btn = new System.Windows.Forms.Button();
-            DIDStartDate_Text = new System.Windows.Forms.TextBox();
-            MDSetStartDate_Btn = new System.Windows.Forms.Button();
-            BP1StartDateTime_Text = new System.Windows.Forms.TextBox();
-            label16 = new System.Windows.Forms.Label();
-            BP2StartDate_Text = new System.Windows.Forms.TextBox();
-            label13 = new System.Windows.Forms.Label();
-            label4 = new System.Windows.Forms.Label();
-            MDStartDate_Text = new System.Windows.Forms.TextBox();
-            label10 = new System.Windows.Forms.Label();
-            label2 = new System.Windows.Forms.Label();
-            MDLabel_Label = new System.Windows.Forms.Label();
-            Cancel_Btn = new System.Windows.Forms.Button();
-            Done_Btn = new System.Windows.Forms.Button();
-            label41 = new System.Windows.Forms.Label();
-            PatientName_Lbl = new System.Windows.Forms.Label();
-            groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox12).BeginInit();
-            SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DischargeCounter));
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.AverageTime_Label = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.DischargeProcOverAllET_Lbl = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.PELabel_Lbl = new System.Windows.Forms.Label();
+            this.DIDLabel_Lbl = new System.Windows.Forms.Label();
+            this.BP1Label_Lbl = new System.Windows.Forms.Label();
+            this.BP2Label_Lbl = new System.Windows.Forms.Label();
+            this.BGEndDate_Btn = new System.Windows.Forms.Button();
+            this.BGEndDate_Text = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.BGStartDate_Btn = new System.Windows.Forms.Button();
+            this.BGStartDate_Text = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.BGLabel_Lbl = new System.Windows.Forms.Label();
+            this.IEEndDateTime_Btn = new System.Windows.Forms.Button();
+            this.IEEndDateTime_Text = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.IEStartDateTime_Btn = new System.Windows.Forms.Button();
+            this.IEStartDateTime_Text = new System.Windows.Forms.TextBox();
+            this.PEEndDate_Btn = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.DIDEndDate_Btn = new System.Windows.Forms.Button();
+            this.IELabel_Lbl = new System.Windows.Forms.Label();
+            this.BP1EndDateTime_Btn = new System.Windows.Forms.Button();
+            this.PEEndDate_Text = new System.Windows.Forms.TextBox();
+            this.BP2EndDate_Btn = new System.Windows.Forms.Button();
+            this.DIDEndDate_Text = new System.Windows.Forms.TextBox();
+            this.MDSetEndDate_Btn = new System.Windows.Forms.Button();
+            this.BP1EndDateTime_Text = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.BP2EndDate_Text = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.MDEndDate_Text = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.PEStartDate_Btn = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.DIDStartDate_Btn = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BP1StartDateTime_Btn = new System.Windows.Forms.Button();
+            this.PEStartDate_Text = new System.Windows.Forms.TextBox();
+            this.BP2StartDate_Btn = new System.Windows.Forms.Button();
+            this.DIDStartDate_Text = new System.Windows.Forms.TextBox();
+            this.MDSetStartDate_Btn = new System.Windows.Forms.Button();
+            this.BP1StartDateTime_Text = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.BP2StartDate_Text = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.MDStartDate_Text = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.MDLabel_Label = new System.Windows.Forms.Label();
+            this.Cancel_Btn = new System.Windows.Forms.Button();
+            this.Done_Btn = new System.Windows.Forms.Button();
+            this.label41 = new System.Windows.Forms.Label();
+            this.PatientName_Lbl = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.ProcessDetails_Text = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.SuspendLayout();
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(pictureBox11);
-            groupBox1.Controls.Add(pictureBox10);
-            groupBox1.Controls.Add(pictureBox7);
-            groupBox1.Controls.Add(pictureBox9);
-            groupBox1.Controls.Add(pictureBox8);
-            groupBox1.Controls.Add(pictureBox13);
-            groupBox1.Controls.Add(pictureBox6);
-            groupBox1.Controls.Add(pictureBox12);
-            groupBox1.Controls.Add(AverageTime_Label);
-            groupBox1.Controls.Add(label1);
-            groupBox1.Controls.Add(DischargeProcOverAllET_Lbl);
-            groupBox1.Controls.Add(label37);
-            groupBox1.Controls.Add(PELabel_Lbl);
-            groupBox1.Controls.Add(DIDLabel_Lbl);
-            groupBox1.Controls.Add(BP1Label_Lbl);
-            groupBox1.Controls.Add(BP2Label_Lbl);
-            groupBox1.Controls.Add(BGEndDate_Btn);
-            groupBox1.Controls.Add(BGEndDate_Text);
-            groupBox1.Controls.Add(label8);
-            groupBox1.Controls.Add(BGStartDate_Btn);
-            groupBox1.Controls.Add(BGStartDate_Text);
-            groupBox1.Controls.Add(label9);
-            groupBox1.Controls.Add(BGLabel_Lbl);
-            groupBox1.Controls.Add(IEEndDateTime_Btn);
-            groupBox1.Controls.Add(IEEndDateTime_Text);
-            groupBox1.Controls.Add(label12);
-            groupBox1.Controls.Add(IEStartDateTime_Btn);
-            groupBox1.Controls.Add(IEStartDateTime_Text);
-            groupBox1.Controls.Add(PEEndDate_Btn);
-            groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(DIDEndDate_Btn);
-            groupBox1.Controls.Add(IELabel_Lbl);
-            groupBox1.Controls.Add(BP1EndDateTime_Btn);
-            groupBox1.Controls.Add(PEEndDate_Text);
-            groupBox1.Controls.Add(BP2EndDate_Btn);
-            groupBox1.Controls.Add(DIDEndDate_Text);
-            groupBox1.Controls.Add(MDSetEndDate_Btn);
-            groupBox1.Controls.Add(BP1EndDateTime_Text);
-            groupBox1.Controls.Add(label17);
-            groupBox1.Controls.Add(BP2EndDate_Text);
-            groupBox1.Controls.Add(label14);
-            groupBox1.Controls.Add(MDEndDate_Text);
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(PEStartDate_Btn);
-            groupBox1.Controls.Add(label11);
-            groupBox1.Controls.Add(DIDStartDate_Btn);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(BP1StartDateTime_Btn);
-            groupBox1.Controls.Add(PEStartDate_Text);
-            groupBox1.Controls.Add(BP2StartDate_Btn);
-            groupBox1.Controls.Add(DIDStartDate_Text);
-            groupBox1.Controls.Add(MDSetStartDate_Btn);
-            groupBox1.Controls.Add(BP1StartDateTime_Text);
-            groupBox1.Controls.Add(label16);
-            groupBox1.Controls.Add(BP2StartDate_Text);
-            groupBox1.Controls.Add(label13);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(MDStartDate_Text);
-            groupBox1.Controls.Add(label10);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(MDLabel_Label);
-            groupBox1.Location = new System.Drawing.Point(9, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new System.Drawing.Size(690, 505);
-            groupBox1.TabIndex = 0;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Discharge Process";
+            this.groupBox1.Controls.Add(this.pictureBox11);
+            this.groupBox1.Controls.Add(this.pictureBox10);
+            this.groupBox1.Controls.Add(this.pictureBox7);
+            this.groupBox1.Controls.Add(this.pictureBox9);
+            this.groupBox1.Controls.Add(this.pictureBox8);
+            this.groupBox1.Controls.Add(this.pictureBox13);
+            this.groupBox1.Controls.Add(this.pictureBox6);
+            this.groupBox1.Controls.Add(this.pictureBox12);
+            this.groupBox1.Controls.Add(this.AverageTime_Label);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.DischargeProcOverAllET_Lbl);
+            this.groupBox1.Controls.Add(this.label37);
+            this.groupBox1.Controls.Add(this.PELabel_Lbl);
+            this.groupBox1.Controls.Add(this.DIDLabel_Lbl);
+            this.groupBox1.Controls.Add(this.BP1Label_Lbl);
+            this.groupBox1.Controls.Add(this.BP2Label_Lbl);
+            this.groupBox1.Controls.Add(this.BGEndDate_Btn);
+            this.groupBox1.Controls.Add(this.BGEndDate_Text);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.BGStartDate_Btn);
+            this.groupBox1.Controls.Add(this.BGStartDate_Text);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.BGLabel_Lbl);
+            this.groupBox1.Controls.Add(this.IEEndDateTime_Btn);
+            this.groupBox1.Controls.Add(this.IEEndDateTime_Text);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.IEStartDateTime_Btn);
+            this.groupBox1.Controls.Add(this.IEStartDateTime_Text);
+            this.groupBox1.Controls.Add(this.PEEndDate_Btn);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.DIDEndDate_Btn);
+            this.groupBox1.Controls.Add(this.IELabel_Lbl);
+            this.groupBox1.Controls.Add(this.BP1EndDateTime_Btn);
+            this.groupBox1.Controls.Add(this.PEEndDate_Text);
+            this.groupBox1.Controls.Add(this.BP2EndDate_Btn);
+            this.groupBox1.Controls.Add(this.DIDEndDate_Text);
+            this.groupBox1.Controls.Add(this.MDSetEndDate_Btn);
+            this.groupBox1.Controls.Add(this.BP1EndDateTime_Text);
+            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.BP2EndDate_Text);
+            this.groupBox1.Controls.Add(this.label14);
+            this.groupBox1.Controls.Add(this.MDEndDate_Text);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.PEStartDate_Btn);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.DIDStartDate_Btn);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.BP1StartDateTime_Btn);
+            this.groupBox1.Controls.Add(this.PEStartDate_Text);
+            this.groupBox1.Controls.Add(this.BP2StartDate_Btn);
+            this.groupBox1.Controls.Add(this.DIDStartDate_Text);
+            this.groupBox1.Controls.Add(this.MDSetStartDate_Btn);
+            this.groupBox1.Controls.Add(this.BP1StartDateTime_Text);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.BP2StartDate_Text);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.MDStartDate_Text);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.MDLabel_Label);
+            this.groupBox1.Location = new System.Drawing.Point(9, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(690, 505);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Discharge Process";
             // 
             // pictureBox11
             // 
-            pictureBox11.Image = Properties.Resources.Arrow;
-            pictureBox11.Location = new System.Drawing.Point(115, 414);
-            pictureBox11.Name = "pictureBox11";
-            pictureBox11.Size = new System.Drawing.Size(200, 13);
-            pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox11.TabIndex = 71;
-            pictureBox11.TabStop = false;
+            this.pictureBox11.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Arrow;
+            this.pictureBox11.Location = new System.Drawing.Point(115, 414);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(200, 13);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox11.TabIndex = 71;
+            this.pictureBox11.TabStop = false;
             // 
             // pictureBox10
             // 
-            pictureBox10.Image = Properties.Resources.Arrow;
-            pictureBox10.Location = new System.Drawing.Point(115, 351);
-            pictureBox10.Name = "pictureBox10";
-            pictureBox10.Size = new System.Drawing.Size(200, 13);
-            pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox10.TabIndex = 71;
-            pictureBox10.TabStop = false;
+            this.pictureBox10.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Arrow;
+            this.pictureBox10.Location = new System.Drawing.Point(115, 351);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(200, 13);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox10.TabIndex = 71;
+            this.pictureBox10.TabStop = false;
             // 
             // pictureBox7
             // 
-            pictureBox7.Image = Properties.Resources.Arrow;
-            pictureBox7.Location = new System.Drawing.Point(117, 227);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new System.Drawing.Size(200, 13);
-            pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox7.TabIndex = 71;
-            pictureBox7.TabStop = false;
+            this.pictureBox7.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Arrow;
+            this.pictureBox7.Location = new System.Drawing.Point(117, 227);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(200, 13);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox7.TabIndex = 71;
+            this.pictureBox7.TabStop = false;
             // 
             // pictureBox9
             // 
-            pictureBox9.Image = Properties.Resources.Arrow;
-            pictureBox9.Location = new System.Drawing.Point(115, 289);
-            pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new System.Drawing.Size(200, 13);
-            pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox9.TabIndex = 71;
-            pictureBox9.TabStop = false;
+            this.pictureBox9.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Arrow;
+            this.pictureBox9.Location = new System.Drawing.Point(115, 289);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(200, 13);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox9.TabIndex = 71;
+            this.pictureBox9.TabStop = false;
             // 
             // pictureBox8
             // 
-            pictureBox8.Image = Properties.Resources.Arrow;
-            pictureBox8.Location = new System.Drawing.Point(115, 165);
-            pictureBox8.Name = "pictureBox8";
-            pictureBox8.Size = new System.Drawing.Size(200, 13);
-            pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox8.TabIndex = 71;
-            pictureBox8.TabStop = false;
+            this.pictureBox8.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Arrow;
+            this.pictureBox8.Location = new System.Drawing.Point(115, 165);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(200, 13);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox8.TabIndex = 71;
+            this.pictureBox8.TabStop = false;
             // 
             // pictureBox13
             // 
-            pictureBox13.Image = Properties.Resources.Arrow;
-            pictureBox13.Location = new System.Drawing.Point(117, 102);
-            pictureBox13.Name = "pictureBox13";
-            pictureBox13.Size = new System.Drawing.Size(200, 13);
-            pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox13.TabIndex = 71;
-            pictureBox13.TabStop = false;
+            this.pictureBox13.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Arrow;
+            this.pictureBox13.Location = new System.Drawing.Point(117, 102);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(200, 13);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox13.TabIndex = 71;
+            this.pictureBox13.TabStop = false;
             // 
             // pictureBox6
             // 
-            pictureBox6.Image = Properties.Resources.Arrow;
-            pictureBox6.Location = new System.Drawing.Point(115, 40);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new System.Drawing.Size(200, 13);
-            pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox6.TabIndex = 71;
-            pictureBox6.TabStop = false;
+            this.pictureBox6.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Arrow;
+            this.pictureBox6.Location = new System.Drawing.Point(115, 40);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(200, 13);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 71;
+            this.pictureBox6.TabStop = false;
             // 
             // pictureBox12
             // 
-            pictureBox12.Image = Properties.Resources.Down;
-            pictureBox12.Location = new System.Drawing.Point(635, 56);
-            pictureBox12.Name = "pictureBox12";
-            pictureBox12.Size = new System.Drawing.Size(38, 394);
-            pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            pictureBox12.TabIndex = 70;
-            pictureBox12.TabStop = false;
+            this.pictureBox12.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Down;
+            this.pictureBox12.Location = new System.Drawing.Point(635, 56);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(38, 394);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox12.TabIndex = 70;
+            this.pictureBox12.TabStop = false;
             // 
             // AverageTime_Label
             // 
-            AverageTime_Label.AutoSize = true;
-            AverageTime_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 0);
-            AverageTime_Label.Location = new System.Drawing.Point(321, 484);
-            AverageTime_Label.Name = "AverageTime_Label";
-            AverageTime_Label.Size = new System.Drawing.Size(190, 13);
-            AverageTime_Label.TabIndex = 69;
-            AverageTime_Label.Text = "0 hr(s), 0 min(s) and 0 second(s)";
+            this.AverageTime_Label.AutoSize = true;
+            this.AverageTime_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AverageTime_Label.Location = new System.Drawing.Point(321, 484);
+            this.AverageTime_Label.Name = "AverageTime_Label";
+            this.AverageTime_Label.Size = new System.Drawing.Size(190, 13);
+            this.AverageTime_Label.TabIndex = 69;
+            this.AverageTime_Label.Text = "0 hr(s), 0 min(s) and 0 second(s)";
             // 
             // label1
             // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 0);
-            label1.Location = new System.Drawing.Point(321, 462);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(89, 13);
-            label1.TabIndex = 68;
-            label1.Text = "Average Time:";
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(321, 462);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.TabIndex = 68;
+            this.label1.Text = "Average Time:";
             // 
             // DischargeProcOverAllET_Lbl
             // 
-            DischargeProcOverAllET_Lbl.AutoSize = true;
-            DischargeProcOverAllET_Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, 0);
-            DischargeProcOverAllET_Lbl.Location = new System.Drawing.Point(7, 484);
-            DischargeProcOverAllET_Lbl.Name = "DischargeProcOverAllET_Lbl";
-            DischargeProcOverAllET_Lbl.Size = new System.Drawing.Size(190, 13);
-            DischargeProcOverAllET_Lbl.TabIndex = 23;
-            DischargeProcOverAllET_Lbl.Text = "0 hr(s), 0 min(s) and 0 second(s)";
+            this.DischargeProcOverAllET_Lbl.AutoSize = true;
+            this.DischargeProcOverAllET_Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DischargeProcOverAllET_Lbl.Location = new System.Drawing.Point(7, 484);
+            this.DischargeProcOverAllET_Lbl.Name = "DischargeProcOverAllET_Lbl";
+            this.DischargeProcOverAllET_Lbl.Size = new System.Drawing.Size(190, 13);
+            this.DischargeProcOverAllET_Lbl.TabIndex = 23;
+            this.DischargeProcOverAllET_Lbl.Text = "0 hr(s), 0 min(s) and 0 second(s)";
             // 
             // label37
             // 
-            label37.AutoSize = true;
-            label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 0);
-            label37.Location = new System.Drawing.Point(7, 462);
-            label37.Name = "label37";
-            label37.Size = new System.Drawing.Size(130, 13);
-            label37.TabIndex = 22;
-            label37.Text = "Total Estimated Time:";
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label37.Location = new System.Drawing.Point(7, 462);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(130, 13);
+            this.label37.TabIndex = 22;
+            this.label37.Text = "Total Estimated Time:";
             // 
             // PELabel_Lbl
             // 
-            PELabel_Lbl.AutoSize = true;
-            PELabel_Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            PELabel_Lbl.Location = new System.Drawing.Point(7, 390);
-            PELabel_Lbl.Name = "PELabel_Lbl";
-            PELabel_Lbl.Size = new System.Drawing.Size(80, 15);
-            PELabel_Lbl.TabIndex = 21;
-            PELabel_Lbl.Text = "Patient Exit";
+            this.PELabel_Lbl.AutoSize = true;
+            this.PELabel_Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PELabel_Lbl.Location = new System.Drawing.Point(7, 390);
+            this.PELabel_Lbl.Name = "PELabel_Lbl";
+            this.PELabel_Lbl.Size = new System.Drawing.Size(80, 15);
+            this.PELabel_Lbl.TabIndex = 21;
+            this.PELabel_Lbl.Text = "Patient Exit";
             // 
             // DIDLabel_Lbl
             // 
-            DIDLabel_Lbl.AutoSize = true;
-            DIDLabel_Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            DIDLabel_Lbl.Location = new System.Drawing.Point(7, 328);
-            DIDLabel_Lbl.Name = "DIDLabel_Lbl";
-            DIDLabel_Lbl.Size = new System.Drawing.Size(272, 15);
-            DIDLabel_Lbl.TabIndex = 21;
-            DIDLabel_Lbl.Text = "Discharge Instruction and Documentation";
+            this.DIDLabel_Lbl.AutoSize = true;
+            this.DIDLabel_Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DIDLabel_Lbl.Location = new System.Drawing.Point(7, 328);
+            this.DIDLabel_Lbl.Name = "DIDLabel_Lbl";
+            this.DIDLabel_Lbl.Size = new System.Drawing.Size(272, 15);
+            this.DIDLabel_Lbl.TabIndex = 21;
+            this.DIDLabel_Lbl.Text = "Discharge Instruction and Documentation";
             // 
             // BP1Label_Lbl
             // 
-            BP1Label_Lbl.AutoSize = true;
-            BP1Label_Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            BP1Label_Lbl.Location = new System.Drawing.Point(7, 204);
-            BP1Label_Lbl.Name = "BP1Label_Lbl";
-            BP1Label_Lbl.Size = new System.Drawing.Size(82, 15);
-            BP1Label_Lbl.TabIndex = 21;
-            BP1Label_Lbl.Text = "Bill Printing";
+            this.BP1Label_Lbl.AutoSize = true;
+            this.BP1Label_Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BP1Label_Lbl.Location = new System.Drawing.Point(7, 204);
+            this.BP1Label_Lbl.Name = "BP1Label_Lbl";
+            this.BP1Label_Lbl.Size = new System.Drawing.Size(82, 15);
+            this.BP1Label_Lbl.TabIndex = 21;
+            this.BP1Label_Lbl.Text = "Bill Printing";
             // 
             // BP2Label_Lbl
             // 
-            BP2Label_Lbl.AutoSize = true;
-            BP2Label_Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            BP2Label_Lbl.Location = new System.Drawing.Point(7, 266);
-            BP2Label_Lbl.Name = "BP2Label_Lbl";
-            BP2Label_Lbl.Size = new System.Drawing.Size(87, 15);
-            BP2Label_Lbl.TabIndex = 21;
-            BP2Label_Lbl.Text = "Bill Payment";
+            this.BP2Label_Lbl.AutoSize = true;
+            this.BP2Label_Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BP2Label_Lbl.Location = new System.Drawing.Point(7, 266);
+            this.BP2Label_Lbl.Name = "BP2Label_Lbl";
+            this.BP2Label_Lbl.Size = new System.Drawing.Size(87, 15);
+            this.BP2Label_Lbl.TabIndex = 21;
+            this.BP2Label_Lbl.Text = "Bill Payment";
             // 
             // BGEndDate_Btn
             // 
-            BGEndDate_Btn.Image = Properties.Resources.Clock_Checked;
-            BGEndDate_Btn.Location = new System.Drawing.Point(604, 179);
-            BGEndDate_Btn.Name = "BGEndDate_Btn";
-            BGEndDate_Btn.Size = new System.Drawing.Size(25, 25);
-            BGEndDate_Btn.TabIndex = 20;
-            BGEndDate_Btn.Tag = "BGEndDate_Text";
-            BGEndDate_Btn.UseVisualStyleBackColor = true;
-            BGEndDate_Btn.Click += BGEndDate_Btn_Click;
+            this.BGEndDate_Btn.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Clock_Checked;
+            this.BGEndDate_Btn.Location = new System.Drawing.Point(604, 179);
+            this.BGEndDate_Btn.Name = "BGEndDate_Btn";
+            this.BGEndDate_Btn.Size = new System.Drawing.Size(25, 25);
+            this.BGEndDate_Btn.TabIndex = 11;
+            this.BGEndDate_Btn.Tag = "BGEndDate_Text";
+            this.BGEndDate_Btn.UseVisualStyleBackColor = true;
             // 
             // BGEndDate_Text
             // 
-            BGEndDate_Text.Location = new System.Drawing.Point(321, 181);
-            BGEndDate_Text.Name = "BGEndDate_Text";
-            BGEndDate_Text.Size = new System.Drawing.Size(277, 20);
-            BGEndDate_Text.TabIndex = 19;
-            BGEndDate_Text.TextChanged += BGEndDate_Text_TextChanged;
+            this.BGEndDate_Text.Location = new System.Drawing.Point(321, 181);
+            this.BGEndDate_Text.Name = "BGEndDate_Text";
+            this.BGEndDate_Text.Size = new System.Drawing.Size(277, 20);
+            this.BGEndDate_Text.TabIndex = 10;
             // 
             // label8
             // 
-            label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(321, 165);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(99, 13);
-            label8.TabIndex = 18;
-            label8.Text = "End Date and Time";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(321, 165);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(99, 13);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "End Date and Time";
             // 
             // BGStartDate_Btn
             // 
-            BGStartDate_Btn.Image = Properties.Resources.Clock_Checked;
-            BGStartDate_Btn.Location = new System.Drawing.Point(292, 179);
-            BGStartDate_Btn.Name = "BGStartDate_Btn";
-            BGStartDate_Btn.Size = new System.Drawing.Size(25, 25);
-            BGStartDate_Btn.TabIndex = 17;
-            BGStartDate_Btn.Tag = "BGStartDate_Text";
-            BGStartDate_Btn.UseVisualStyleBackColor = true;
-            BGStartDate_Btn.Click += BGStartDate_Btn_Click;
+            this.BGStartDate_Btn.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Clock_Checked;
+            this.BGStartDate_Btn.Location = new System.Drawing.Point(292, 179);
+            this.BGStartDate_Btn.Name = "BGStartDate_Btn";
+            this.BGStartDate_Btn.Size = new System.Drawing.Size(25, 25);
+            this.BGStartDate_Btn.TabIndex = 9;
+            this.BGStartDate_Btn.Tag = "BGStartDate_Text";
+            this.BGStartDate_Btn.UseVisualStyleBackColor = true;
             // 
             // BGStartDate_Text
             // 
-            BGStartDate_Text.Location = new System.Drawing.Point(7, 181);
-            BGStartDate_Text.Name = "BGStartDate_Text";
-            BGStartDate_Text.Size = new System.Drawing.Size(279, 20);
-            BGStartDate_Text.TabIndex = 16;
-            BGStartDate_Text.TextChanged += BGStartDate_Text_TextChanged;
+            this.BGStartDate_Text.Location = new System.Drawing.Point(7, 181);
+            this.BGStartDate_Text.Name = "BGStartDate_Text";
+            this.BGStartDate_Text.Size = new System.Drawing.Size(279, 20);
+            this.BGStartDate_Text.TabIndex = 8;
             // 
             // label9
             // 
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(7, 165);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(102, 13);
-            label9.TabIndex = 15;
-            label9.Text = "Start Date and Time";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(7, 165);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(102, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Start Date and Time";
             // 
             // BGLabel_Lbl
             // 
-            BGLabel_Lbl.AutoSize = true;
-            BGLabel_Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            BGLabel_Lbl.Location = new System.Drawing.Point(7, 141);
-            BGLabel_Lbl.Name = "BGLabel_Lbl";
-            BGLabel_Lbl.Size = new System.Drawing.Size(103, 15);
-            BGLabel_Lbl.TabIndex = 14;
-            BGLabel_Lbl.Text = "Bill Generation";
+            this.BGLabel_Lbl.AutoSize = true;
+            this.BGLabel_Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BGLabel_Lbl.Location = new System.Drawing.Point(7, 141);
+            this.BGLabel_Lbl.Name = "BGLabel_Lbl";
+            this.BGLabel_Lbl.Size = new System.Drawing.Size(103, 15);
+            this.BGLabel_Lbl.TabIndex = 14;
+            this.BGLabel_Lbl.Text = "Bill Generation";
             // 
             // IEEndDateTime_Btn
             // 
-            IEEndDateTime_Btn.Image = Properties.Resources.Clock_Checked;
-            IEEndDateTime_Btn.Location = new System.Drawing.Point(606, 116);
-            IEEndDateTime_Btn.Name = "IEEndDateTime_Btn";
-            IEEndDateTime_Btn.Size = new System.Drawing.Size(25, 25);
-            IEEndDateTime_Btn.TabIndex = 13;
-            IEEndDateTime_Btn.Tag = "IEEndDateTime_Text";
-            IEEndDateTime_Btn.UseVisualStyleBackColor = true;
-            IEEndDateTime_Btn.Click += IEEndDateTime_Btn_Click;
+            this.IEEndDateTime_Btn.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Clock_Checked;
+            this.IEEndDateTime_Btn.Location = new System.Drawing.Point(606, 116);
+            this.IEEndDateTime_Btn.Name = "IEEndDateTime_Btn";
+            this.IEEndDateTime_Btn.Size = new System.Drawing.Size(25, 25);
+            this.IEEndDateTime_Btn.TabIndex = 7;
+            this.IEEndDateTime_Btn.Tag = "IEEndDateTime_Text";
+            this.IEEndDateTime_Btn.UseVisualStyleBackColor = true;
             // 
             // IEEndDateTime_Text
             // 
-            IEEndDateTime_Text.Location = new System.Drawing.Point(323, 118);
-            IEEndDateTime_Text.Name = "IEEndDateTime_Text";
-            IEEndDateTime_Text.Size = new System.Drawing.Size(277, 20);
-            IEEndDateTime_Text.TabIndex = 12;
-            IEEndDateTime_Text.TextChanged += IEEndDateTime_Text_TextChanged;
+            this.IEEndDateTime_Text.Location = new System.Drawing.Point(323, 118);
+            this.IEEndDateTime_Text.Name = "IEEndDateTime_Text";
+            this.IEEndDateTime_Text.Size = new System.Drawing.Size(277, 20);
+            this.IEEndDateTime_Text.TabIndex = 6;
             // 
             // label12
             // 
-            label12.AutoSize = true;
-            label12.Location = new System.Drawing.Point(323, 102);
-            label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(99, 13);
-            label12.TabIndex = 11;
-            label12.Text = "End Date and Time";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(323, 102);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(99, 13);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "End Date and Time";
             // 
             // IEStartDateTime_Btn
             // 
-            IEStartDateTime_Btn.Image = Properties.Resources.Clock_Checked;
-            IEStartDateTime_Btn.Location = new System.Drawing.Point(292, 116);
-            IEStartDateTime_Btn.Name = "IEStartDateTime_Btn";
-            IEStartDateTime_Btn.Size = new System.Drawing.Size(25, 25);
-            IEStartDateTime_Btn.TabIndex = 10;
-            IEStartDateTime_Btn.Tag = "IEStartDateTime_Text";
-            IEStartDateTime_Btn.UseVisualStyleBackColor = true;
-            IEStartDateTime_Btn.Click += IEStartDateTime_Btn_Click;
+            this.IEStartDateTime_Btn.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Clock_Checked;
+            this.IEStartDateTime_Btn.Location = new System.Drawing.Point(292, 116);
+            this.IEStartDateTime_Btn.Name = "IEStartDateTime_Btn";
+            this.IEStartDateTime_Btn.Size = new System.Drawing.Size(25, 25);
+            this.IEStartDateTime_Btn.TabIndex = 5;
+            this.IEStartDateTime_Btn.Tag = "IEStartDateTime_Text";
+            this.IEStartDateTime_Btn.UseVisualStyleBackColor = true;
             // 
             // IEStartDateTime_Text
             // 
-            IEStartDateTime_Text.Location = new System.Drawing.Point(7, 118);
-            IEStartDateTime_Text.Name = "IEStartDateTime_Text";
-            IEStartDateTime_Text.Size = new System.Drawing.Size(279, 20);
-            IEStartDateTime_Text.TabIndex = 9;
-            IEStartDateTime_Text.TextChanged += IEStartDateTime_Text_TextChanged;
+            this.IEStartDateTime_Text.Location = new System.Drawing.Point(7, 118);
+            this.IEStartDateTime_Text.Name = "IEStartDateTime_Text";
+            this.IEStartDateTime_Text.Size = new System.Drawing.Size(279, 20);
+            this.IEStartDateTime_Text.TabIndex = 4;
             // 
             // PEEndDate_Btn
             // 
-            PEEndDate_Btn.Image = Properties.Resources.Clock_Checked;
-            PEEndDate_Btn.Location = new System.Drawing.Point(604, 428);
-            PEEndDate_Btn.Name = "PEEndDate_Btn";
-            PEEndDate_Btn.Size = new System.Drawing.Size(25, 25);
-            PEEndDate_Btn.TabIndex = 6;
-            PEEndDate_Btn.Tag = "PEEndDate_Text";
-            PEEndDate_Btn.UseVisualStyleBackColor = true;
-            PEEndDate_Btn.Click += PEEndDate_Btn_Click;
+            this.PEEndDate_Btn.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Clock_Checked;
+            this.PEEndDate_Btn.Location = new System.Drawing.Point(604, 428);
+            this.PEEndDate_Btn.Name = "PEEndDate_Btn";
+            this.PEEndDate_Btn.Size = new System.Drawing.Size(25, 25);
+            this.PEEndDate_Btn.TabIndex = 31;
+            this.PEEndDate_Btn.Tag = "PEEndDate_Text";
+            this.PEEndDate_Btn.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
-            label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(7, 102);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(102, 13);
-            label7.TabIndex = 8;
-            label7.Text = "Start Date and Time";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(7, 102);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(102, 13);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Start Date and Time";
             // 
             // DIDEndDate_Btn
             // 
-            DIDEndDate_Btn.Image = Properties.Resources.Clock_Checked;
-            DIDEndDate_Btn.Location = new System.Drawing.Point(604, 365);
-            DIDEndDate_Btn.Name = "DIDEndDate_Btn";
-            DIDEndDate_Btn.Size = new System.Drawing.Size(25, 25);
-            DIDEndDate_Btn.TabIndex = 6;
-            DIDEndDate_Btn.Tag = "DIDEndDate_Text";
-            DIDEndDate_Btn.UseVisualStyleBackColor = true;
-            DIDEndDate_Btn.Click += DIDEndDate_Btn_Click;
+            this.DIDEndDate_Btn.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Clock_Checked;
+            this.DIDEndDate_Btn.Location = new System.Drawing.Point(604, 365);
+            this.DIDEndDate_Btn.Name = "DIDEndDate_Btn";
+            this.DIDEndDate_Btn.Size = new System.Drawing.Size(25, 25);
+            this.DIDEndDate_Btn.TabIndex = 27;
+            this.DIDEndDate_Btn.Tag = "DIDEndDate_Text";
+            this.DIDEndDate_Btn.UseVisualStyleBackColor = true;
             // 
             // IELabel_Lbl
             // 
-            IELabel_Lbl.AutoSize = true;
-            IELabel_Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            IELabel_Lbl.Location = new System.Drawing.Point(7, 79);
-            IELabel_Lbl.Name = "IELabel_Lbl";
-            IELabel_Lbl.Size = new System.Drawing.Size(102, 15);
-            IELabel_Lbl.TabIndex = 7;
-            IELabel_Lbl.Text = "Inregrity Check";
+            this.IELabel_Lbl.AutoSize = true;
+            this.IELabel_Lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IELabel_Lbl.Location = new System.Drawing.Point(7, 79);
+            this.IELabel_Lbl.Name = "IELabel_Lbl";
+            this.IELabel_Lbl.Size = new System.Drawing.Size(102, 15);
+            this.IELabel_Lbl.TabIndex = 7;
+            this.IELabel_Lbl.Text = "Inregrity Check";
             // 
             // BP1EndDateTime_Btn
             // 
-            BP1EndDateTime_Btn.Image = Properties.Resources.Clock_Checked;
-            BP1EndDateTime_Btn.Location = new System.Drawing.Point(606, 241);
-            BP1EndDateTime_Btn.Name = "BP1EndDateTime_Btn";
-            BP1EndDateTime_Btn.Size = new System.Drawing.Size(25, 25);
-            BP1EndDateTime_Btn.TabIndex = 6;
-            BP1EndDateTime_Btn.Tag = "BP1EndDateTime_Text";
-            BP1EndDateTime_Btn.UseVisualStyleBackColor = true;
-            BP1EndDateTime_Btn.Click += BP1EndDateTime_Btn_Click;
+            this.BP1EndDateTime_Btn.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Clock_Checked;
+            this.BP1EndDateTime_Btn.Location = new System.Drawing.Point(606, 241);
+            this.BP1EndDateTime_Btn.Name = "BP1EndDateTime_Btn";
+            this.BP1EndDateTime_Btn.Size = new System.Drawing.Size(25, 25);
+            this.BP1EndDateTime_Btn.TabIndex = 19;
+            this.BP1EndDateTime_Btn.Tag = "BP1EndDateTime_Text";
+            this.BP1EndDateTime_Btn.UseVisualStyleBackColor = true;
             // 
             // PEEndDate_Text
             // 
-            PEEndDate_Text.Location = new System.Drawing.Point(321, 430);
-            PEEndDate_Text.Name = "PEEndDate_Text";
-            PEEndDate_Text.Size = new System.Drawing.Size(277, 20);
-            PEEndDate_Text.TabIndex = 5;
-            PEEndDate_Text.TextChanged += PEEndDate_Text_TextChanged;
+            this.PEEndDate_Text.Location = new System.Drawing.Point(321, 430);
+            this.PEEndDate_Text.Name = "PEEndDate_Text";
+            this.PEEndDate_Text.Size = new System.Drawing.Size(277, 20);
+            this.PEEndDate_Text.TabIndex = 30;
             // 
             // BP2EndDate_Btn
             // 
-            BP2EndDate_Btn.Image = Properties.Resources.Clock_Checked;
-            BP2EndDate_Btn.Location = new System.Drawing.Point(604, 303);
-            BP2EndDate_Btn.Name = "BP2EndDate_Btn";
-            BP2EndDate_Btn.Size = new System.Drawing.Size(25, 25);
-            BP2EndDate_Btn.TabIndex = 6;
-            BP2EndDate_Btn.Tag = "BP2EndDate_Text";
-            BP2EndDate_Btn.UseVisualStyleBackColor = true;
-            BP2EndDate_Btn.Click += BPEndDate_Btn_Click;
+            this.BP2EndDate_Btn.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Clock_Checked;
+            this.BP2EndDate_Btn.Location = new System.Drawing.Point(604, 303);
+            this.BP2EndDate_Btn.Name = "BP2EndDate_Btn";
+            this.BP2EndDate_Btn.Size = new System.Drawing.Size(25, 25);
+            this.BP2EndDate_Btn.TabIndex = 23;
+            this.BP2EndDate_Btn.Tag = "BP2EndDate_Text";
+            this.BP2EndDate_Btn.UseVisualStyleBackColor = true;
             // 
             // DIDEndDate_Text
             // 
-            DIDEndDate_Text.Location = new System.Drawing.Point(321, 367);
-            DIDEndDate_Text.Name = "DIDEndDate_Text";
-            DIDEndDate_Text.Size = new System.Drawing.Size(277, 20);
-            DIDEndDate_Text.TabIndex = 5;
-            DIDEndDate_Text.TextChanged += DIDEndDate_Text_TextChanged;
+            this.DIDEndDate_Text.Location = new System.Drawing.Point(321, 367);
+            this.DIDEndDate_Text.Name = "DIDEndDate_Text";
+            this.DIDEndDate_Text.Size = new System.Drawing.Size(277, 20);
+            this.DIDEndDate_Text.TabIndex = 26;
             // 
             // MDSetEndDate_Btn
             // 
-            MDSetEndDate_Btn.Image = Properties.Resources.Clock_Checked;
-            MDSetEndDate_Btn.Location = new System.Drawing.Point(604, 54);
-            MDSetEndDate_Btn.Name = "MDSetEndDate_Btn";
-            MDSetEndDate_Btn.Size = new System.Drawing.Size(25, 25);
-            MDSetEndDate_Btn.TabIndex = 6;
-            MDSetEndDate_Btn.Tag = "MDEndDate_Text";
-            MDSetEndDate_Btn.UseVisualStyleBackColor = true;
-            MDSetEndDate_Btn.Click += MDSetEndDate_Btn_Click;
+            this.MDSetEndDate_Btn.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Clock_Checked;
+            this.MDSetEndDate_Btn.Location = new System.Drawing.Point(604, 54);
+            this.MDSetEndDate_Btn.Name = "MDSetEndDate_Btn";
+            this.MDSetEndDate_Btn.Size = new System.Drawing.Size(25, 25);
+            this.MDSetEndDate_Btn.TabIndex = 3;
+            this.MDSetEndDate_Btn.Tag = "MDEndDate_Text";
+            this.MDSetEndDate_Btn.UseVisualStyleBackColor = true;
             // 
             // BP1EndDateTime_Text
             // 
-            BP1EndDateTime_Text.Location = new System.Drawing.Point(323, 243);
-            BP1EndDateTime_Text.Name = "BP1EndDateTime_Text";
-            BP1EndDateTime_Text.Size = new System.Drawing.Size(277, 20);
-            BP1EndDateTime_Text.TabIndex = 5;
-            BP1EndDateTime_Text.TextChanged += BP1EndDateTime_Text_TextChanged;
+            this.BP1EndDateTime_Text.Location = new System.Drawing.Point(323, 243);
+            this.BP1EndDateTime_Text.Name = "BP1EndDateTime_Text";
+            this.BP1EndDateTime_Text.Size = new System.Drawing.Size(277, 20);
+            this.BP1EndDateTime_Text.TabIndex = 14;
             // 
             // label17
             // 
-            label17.AutoSize = true;
-            label17.Location = new System.Drawing.Point(321, 414);
-            label17.Name = "label17";
-            label17.Size = new System.Drawing.Size(99, 13);
-            label17.TabIndex = 4;
-            label17.Text = "End Date and Time";
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(321, 414);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(99, 13);
+            this.label17.TabIndex = 4;
+            this.label17.Text = "End Date and Time";
             // 
             // BP2EndDate_Text
             // 
-            BP2EndDate_Text.Location = new System.Drawing.Point(321, 305);
-            BP2EndDate_Text.Name = "BP2EndDate_Text";
-            BP2EndDate_Text.Size = new System.Drawing.Size(277, 20);
-            BP2EndDate_Text.TabIndex = 5;
-            BP2EndDate_Text.TextChanged += BPEndDate_Text_TextChanged;
+            this.BP2EndDate_Text.Location = new System.Drawing.Point(321, 305);
+            this.BP2EndDate_Text.Name = "BP2EndDate_Text";
+            this.BP2EndDate_Text.Size = new System.Drawing.Size(277, 20);
+            this.BP2EndDate_Text.TabIndex = 22;
             // 
             // label14
             // 
-            label14.AutoSize = true;
-            label14.Location = new System.Drawing.Point(321, 351);
-            label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(99, 13);
-            label14.TabIndex = 4;
-            label14.Text = "End Date and Time";
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(321, 351);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(99, 13);
+            this.label14.TabIndex = 4;
+            this.label14.Text = "End Date and Time";
             // 
             // MDEndDate_Text
             // 
-            MDEndDate_Text.Location = new System.Drawing.Point(321, 56);
-            MDEndDate_Text.Name = "MDEndDate_Text";
-            MDEndDate_Text.Size = new System.Drawing.Size(277, 20);
-            MDEndDate_Text.TabIndex = 5;
-            MDEndDate_Text.TextChanged += MDEndDate_Text_TextChanged;
+            this.MDEndDate_Text.Location = new System.Drawing.Point(321, 56);
+            this.MDEndDate_Text.Name = "MDEndDate_Text";
+            this.MDEndDate_Text.Size = new System.Drawing.Size(277, 20);
+            this.MDEndDate_Text.TabIndex = 2;
             // 
             // label5
             // 
-            label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(323, 227);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(99, 13);
-            label5.TabIndex = 4;
-            label5.Text = "End Date and Time";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(323, 227);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(99, 13);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "End Date and Time";
             // 
             // PEStartDate_Btn
             // 
-            PEStartDate_Btn.Image = Properties.Resources.Clock_Checked;
-            PEStartDate_Btn.Location = new System.Drawing.Point(290, 428);
-            PEStartDate_Btn.Name = "PEStartDate_Btn";
-            PEStartDate_Btn.Size = new System.Drawing.Size(25, 25);
-            PEStartDate_Btn.TabIndex = 3;
-            PEStartDate_Btn.Tag = "PEStartDate_Text";
-            PEStartDate_Btn.UseVisualStyleBackColor = true;
-            PEStartDate_Btn.Click += PEStartDate_Btn_Click;
+            this.PEStartDate_Btn.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Clock_Checked;
+            this.PEStartDate_Btn.Location = new System.Drawing.Point(290, 428);
+            this.PEStartDate_Btn.Name = "PEStartDate_Btn";
+            this.PEStartDate_Btn.Size = new System.Drawing.Size(25, 25);
+            this.PEStartDate_Btn.TabIndex = 29;
+            this.PEStartDate_Btn.Tag = "PEStartDate_Text";
+            this.PEStartDate_Btn.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
-            label11.AutoSize = true;
-            label11.Location = new System.Drawing.Point(321, 289);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(99, 13);
-            label11.TabIndex = 4;
-            label11.Text = "End Date and Time";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(321, 289);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(99, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "End Date and Time";
             // 
             // DIDStartDate_Btn
             // 
-            DIDStartDate_Btn.Image = Properties.Resources.Clock_Checked;
-            DIDStartDate_Btn.Location = new System.Drawing.Point(290, 365);
-            DIDStartDate_Btn.Name = "DIDStartDate_Btn";
-            DIDStartDate_Btn.Size = new System.Drawing.Size(25, 25);
-            DIDStartDate_Btn.TabIndex = 3;
-            DIDStartDate_Btn.Tag = "DIDStartDate_Text";
-            DIDStartDate_Btn.UseVisualStyleBackColor = true;
-            DIDStartDate_Btn.Click += DIDStartDate_Btn_Click;
+            this.DIDStartDate_Btn.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Clock_Checked;
+            this.DIDStartDate_Btn.Location = new System.Drawing.Point(290, 365);
+            this.DIDStartDate_Btn.Name = "DIDStartDate_Btn";
+            this.DIDStartDate_Btn.Size = new System.Drawing.Size(25, 25);
+            this.DIDStartDate_Btn.TabIndex = 25;
+            this.DIDStartDate_Btn.Tag = "DIDStartDate_Text";
+            this.DIDStartDate_Btn.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
-            label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(321, 40);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(99, 13);
-            label3.TabIndex = 4;
-            label3.Text = "End Date and Time";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(321, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "End Date and Time";
             // 
             // BP1StartDateTime_Btn
             // 
-            BP1StartDateTime_Btn.Image = Properties.Resources.Clock_Checked;
-            BP1StartDateTime_Btn.Location = new System.Drawing.Point(292, 241);
-            BP1StartDateTime_Btn.Name = "BP1StartDateTime_Btn";
-            BP1StartDateTime_Btn.Size = new System.Drawing.Size(25, 25);
-            BP1StartDateTime_Btn.TabIndex = 3;
-            BP1StartDateTime_Btn.Tag = "BP1StartDateTime_Text";
-            BP1StartDateTime_Btn.UseVisualStyleBackColor = true;
-            BP1StartDateTime_Btn.Click += BP1StartDateTime_Btn_Click;
+            this.BP1StartDateTime_Btn.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Clock_Checked;
+            this.BP1StartDateTime_Btn.Location = new System.Drawing.Point(292, 241);
+            this.BP1StartDateTime_Btn.Name = "BP1StartDateTime_Btn";
+            this.BP1StartDateTime_Btn.Size = new System.Drawing.Size(25, 25);
+            this.BP1StartDateTime_Btn.TabIndex = 13;
+            this.BP1StartDateTime_Btn.Tag = "BP1StartDateTime_Text";
+            this.BP1StartDateTime_Btn.UseVisualStyleBackColor = true;
             // 
             // PEStartDate_Text
             // 
-            PEStartDate_Text.Location = new System.Drawing.Point(7, 430);
-            PEStartDate_Text.Name = "PEStartDate_Text";
-            PEStartDate_Text.Size = new System.Drawing.Size(277, 20);
-            PEStartDate_Text.TabIndex = 2;
-            PEStartDate_Text.TextChanged += PEStartDate_Text_TextChanged;
+            this.PEStartDate_Text.Location = new System.Drawing.Point(7, 430);
+            this.PEStartDate_Text.Name = "PEStartDate_Text";
+            this.PEStartDate_Text.Size = new System.Drawing.Size(277, 20);
+            this.PEStartDate_Text.TabIndex = 28;
             // 
             // BP2StartDate_Btn
             // 
-            BP2StartDate_Btn.Image = Properties.Resources.Clock_Checked;
-            BP2StartDate_Btn.Location = new System.Drawing.Point(290, 303);
-            BP2StartDate_Btn.Name = "BP2StartDate_Btn";
-            BP2StartDate_Btn.Size = new System.Drawing.Size(25, 25);
-            BP2StartDate_Btn.TabIndex = 3;
-            BP2StartDate_Btn.Tag = "BP2StartDate_Text";
-            BP2StartDate_Btn.UseVisualStyleBackColor = true;
-            BP2StartDate_Btn.Click += BPStartDate_Btn_Click;
+            this.BP2StartDate_Btn.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Clock_Checked;
+            this.BP2StartDate_Btn.Location = new System.Drawing.Point(290, 303);
+            this.BP2StartDate_Btn.Name = "BP2StartDate_Btn";
+            this.BP2StartDate_Btn.Size = new System.Drawing.Size(25, 25);
+            this.BP2StartDate_Btn.TabIndex = 21;
+            this.BP2StartDate_Btn.Tag = "BP2StartDate_Text";
+            this.BP2StartDate_Btn.UseVisualStyleBackColor = true;
             // 
             // DIDStartDate_Text
             // 
-            DIDStartDate_Text.Location = new System.Drawing.Point(7, 367);
-            DIDStartDate_Text.Name = "DIDStartDate_Text";
-            DIDStartDate_Text.Size = new System.Drawing.Size(277, 20);
-            DIDStartDate_Text.TabIndex = 2;
-            DIDStartDate_Text.TextChanged += DIDStartDate_Text_TextChanged;
+            this.DIDStartDate_Text.Location = new System.Drawing.Point(7, 367);
+            this.DIDStartDate_Text.Name = "DIDStartDate_Text";
+            this.DIDStartDate_Text.Size = new System.Drawing.Size(277, 20);
+            this.DIDStartDate_Text.TabIndex = 24;
             // 
             // MDSetStartDate_Btn
             // 
-            MDSetStartDate_Btn.Image = Properties.Resources.Clock_Checked;
-            MDSetStartDate_Btn.Location = new System.Drawing.Point(290, 54);
-            MDSetStartDate_Btn.Name = "MDSetStartDate_Btn";
-            MDSetStartDate_Btn.Size = new System.Drawing.Size(25, 25);
-            MDSetStartDate_Btn.TabIndex = 3;
-            MDSetStartDate_Btn.Tag = "MDStartDate_Text";
-            MDSetStartDate_Btn.UseVisualStyleBackColor = true;
-            MDSetStartDate_Btn.Click += MDSetStartDate_Btn_Click;
+            this.MDSetStartDate_Btn.Image = global::ThirdPartyAppV2.Main.Properties.Resources.Clock_Checked;
+            this.MDSetStartDate_Btn.Location = new System.Drawing.Point(290, 54);
+            this.MDSetStartDate_Btn.Name = "MDSetStartDate_Btn";
+            this.MDSetStartDate_Btn.Size = new System.Drawing.Size(25, 25);
+            this.MDSetStartDate_Btn.TabIndex = 1;
+            this.MDSetStartDate_Btn.Tag = "MDStartDate_Text";
+            this.MDSetStartDate_Btn.UseVisualStyleBackColor = true;
             // 
             // BP1StartDateTime_Text
             // 
-            BP1StartDateTime_Text.Location = new System.Drawing.Point(7, 243);
-            BP1StartDateTime_Text.Name = "BP1StartDateTime_Text";
-            BP1StartDateTime_Text.Size = new System.Drawing.Size(279, 20);
-            BP1StartDateTime_Text.TabIndex = 2;
-            BP1StartDateTime_Text.TextChanged += BP1StartDateTime_Text_TextChanged;
+            this.BP1StartDateTime_Text.Location = new System.Drawing.Point(7, 243);
+            this.BP1StartDateTime_Text.Name = "BP1StartDateTime_Text";
+            this.BP1StartDateTime_Text.Size = new System.Drawing.Size(279, 20);
+            this.BP1StartDateTime_Text.TabIndex = 12;
             // 
             // label16
             // 
-            label16.AutoSize = true;
-            label16.Location = new System.Drawing.Point(7, 414);
-            label16.Name = "label16";
-            label16.Size = new System.Drawing.Size(102, 13);
-            label16.TabIndex = 1;
-            label16.Text = "Start Date and Time";
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(7, 414);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(102, 13);
+            this.label16.TabIndex = 1;
+            this.label16.Text = "Start Date and Time";
             // 
             // BP2StartDate_Text
             // 
-            BP2StartDate_Text.Location = new System.Drawing.Point(7, 305);
-            BP2StartDate_Text.Name = "BP2StartDate_Text";
-            BP2StartDate_Text.Size = new System.Drawing.Size(277, 20);
-            BP2StartDate_Text.TabIndex = 2;
-            BP2StartDate_Text.TextChanged += BPStartDate_Text_TextChanged;
+            this.BP2StartDate_Text.Location = new System.Drawing.Point(7, 305);
+            this.BP2StartDate_Text.Name = "BP2StartDate_Text";
+            this.BP2StartDate_Text.Size = new System.Drawing.Size(277, 20);
+            this.BP2StartDate_Text.TabIndex = 20;
             // 
             // label13
             // 
-            label13.AutoSize = true;
-            label13.Location = new System.Drawing.Point(7, 351);
-            label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(102, 13);
-            label13.TabIndex = 1;
-            label13.Text = "Start Date and Time";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(7, 351);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 13);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Start Date and Time";
             // 
             // label4
             // 
-            label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(7, 227);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(102, 13);
-            label4.TabIndex = 1;
-            label4.Text = "Start Date and Time";
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(7, 227);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(102, 13);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Start Date and Time";
             // 
             // MDStartDate_Text
             // 
-            MDStartDate_Text.Location = new System.Drawing.Point(7, 56);
-            MDStartDate_Text.Name = "MDStartDate_Text";
-            MDStartDate_Text.Size = new System.Drawing.Size(279, 20);
-            MDStartDate_Text.TabIndex = 2;
-            MDStartDate_Text.TextChanged += MDStartDate_Text_TextChanged;
+            this.MDStartDate_Text.Location = new System.Drawing.Point(7, 56);
+            this.MDStartDate_Text.Name = "MDStartDate_Text";
+            this.MDStartDate_Text.Size = new System.Drawing.Size(279, 20);
+            this.MDStartDate_Text.TabIndex = 0;
             // 
             // label10
             // 
-            label10.AutoSize = true;
-            label10.Location = new System.Drawing.Point(7, 289);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(102, 13);
-            label10.TabIndex = 1;
-            label10.Text = "Start Date and Time";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 289);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(102, 13);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Start Date and Time";
             // 
             // label2
             // 
-            label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(7, 40);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(102, 13);
-            label2.TabIndex = 1;
-            label2.Text = "Start Date and Time";
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Start Date and Time";
             // 
             // MDLabel_Label
             // 
-            MDLabel_Label.AutoSize = true;
-            MDLabel_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            MDLabel_Label.Location = new System.Drawing.Point(7, 17);
-            MDLabel_Label.Name = "MDLabel_Label";
-            MDLabel_Label.Size = new System.Drawing.Size(127, 15);
-            MDLabel_Label.TabIndex = 0;
-            MDLabel_Label.Text = "Medical Discharge";
+            this.MDLabel_Label.AutoSize = true;
+            this.MDLabel_Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MDLabel_Label.Location = new System.Drawing.Point(7, 17);
+            this.MDLabel_Label.Name = "MDLabel_Label";
+            this.MDLabel_Label.Size = new System.Drawing.Size(127, 15);
+            this.MDLabel_Label.TabIndex = 0;
+            this.MDLabel_Label.Text = "Medical Discharge";
             // 
             // Cancel_Btn
             // 
-            Cancel_Btn.Location = new System.Drawing.Point(624, 523);
-            Cancel_Btn.Name = "Cancel_Btn";
-            Cancel_Btn.Size = new System.Drawing.Size(75, 31);
-            Cancel_Btn.TabIndex = 2;
-            Cancel_Btn.Text = "&Cancel";
-            Cancel_Btn.UseVisualStyleBackColor = true;
+            this.Cancel_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Cancel_Btn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Cancel_Btn.Location = new System.Drawing.Point(624, 619);
+            this.Cancel_Btn.Name = "Cancel_Btn";
+            this.Cancel_Btn.Size = new System.Drawing.Size(75, 31);
+            this.Cancel_Btn.TabIndex = 33;
+            this.Cancel_Btn.Text = "&Cancel";
+            this.Cancel_Btn.UseVisualStyleBackColor = true;
             // 
             // Done_Btn
             // 
-            Done_Btn.Location = new System.Drawing.Point(543, 523);
-            Done_Btn.Name = "Done_Btn";
-            Done_Btn.Size = new System.Drawing.Size(75, 31);
-            Done_Btn.TabIndex = 3;
-            Done_Btn.Text = "&Done";
-            Done_Btn.UseVisualStyleBackColor = true;
-            Done_Btn.Click += Done_Btn_Click;
+            this.Done_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.Done_Btn.Location = new System.Drawing.Point(543, 619);
+            this.Done_Btn.Name = "Done_Btn";
+            this.Done_Btn.Size = new System.Drawing.Size(75, 31);
+            this.Done_Btn.TabIndex = 32;
+            this.Done_Btn.Text = "&Done";
+            this.Done_Btn.UseVisualStyleBackColor = true;
             // 
             // label41
             // 
-            label41.AutoSize = true;
-            label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label41.Location = new System.Drawing.Point(23, 532);
-            label41.Name = "label41";
-            label41.Size = new System.Drawing.Size(96, 13);
-            label41.TabIndex = 4;
-            label41.Text = "Patient's Name:";
+            this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(23, 628);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(96, 13);
+            this.label41.TabIndex = 4;
+            this.label41.Text = "Patient\'s Name:";
             // 
             // PatientName_Lbl
             // 
-            PatientName_Lbl.AutoSize = true;
-            PatientName_Lbl.Location = new System.Drawing.Point(125, 532);
-            PatientName_Lbl.Name = "PatientName_Lbl";
-            PatientName_Lbl.Size = new System.Drawing.Size(136, 13);
-            PatientName_Lbl.TabIndex = 5;
-            PatientName_Lbl.Text = "Dela Cruz, Juan Morales Jr.";
+            this.PatientName_Lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.PatientName_Lbl.AutoSize = true;
+            this.PatientName_Lbl.Location = new System.Drawing.Point(125, 628);
+            this.PatientName_Lbl.Name = "PatientName_Lbl";
+            this.PatientName_Lbl.Size = new System.Drawing.Size(136, 13);
+            this.PatientName_Lbl.TabIndex = 5;
+            this.PatientName_Lbl.Text = "Dela Cruz, Juan Morales Jr.";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.ProcessDetails_Text);
+            this.groupBox2.Location = new System.Drawing.Point(9, 523);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(687, 90);
+            this.groupBox2.TabIndex = 6;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Process Details";
+            // 
+            // ProcessDetails_Text
+            // 
+            this.ProcessDetails_Text.Location = new System.Drawing.Point(6, 16);
+            this.ProcessDetails_Text.Name = "ProcessDetails_Text";
+            this.ProcessDetails_Text.Size = new System.Drawing.Size(674, 65);
+            this.ProcessDetails_Text.TabIndex = 0;
+            this.ProcessDetails_Text.Text = resources.GetString("ProcessDetails_Text.Text");
             // 
             // DischargeCounter
             // 
-            AcceptButton = Done_Btn;
-            AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            CancelButton = Cancel_Btn;
-            ClientSize = new System.Drawing.Size(708, 560);
-            Controls.Add(PatientName_Lbl);
-            Controls.Add(label41);
-            Controls.Add(Done_Btn);
-            Controls.Add(Cancel_Btn);
-            Controls.Add(groupBox1);
-            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            MaximizeBox = false;
-            Name = "DischargeCounter";
-            StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            Text = "Discharge Process Performance Counter";
-            Load += PerformanceCounter_Load;
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox12).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AcceptButton = this.Done_Btn;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.Cancel_Btn;
+            this.ClientSize = new System.Drawing.Size(708, 656);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.PatientName_Lbl);
+            this.Controls.Add(this.label41);
+            this.Controls.Add(this.Done_Btn);
+            this.Controls.Add(this.Cancel_Btn);
+            this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.Name = "DischargeCounter";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "Discharge Process Performance Counter";
+            this.Load += new System.EventHandler(this.DischargeCounter_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
@@ -895,5 +896,7 @@
         private System.Windows.Forms.Button BP1StartDateTime_Btn;
         private System.Windows.Forms.TextBox BP1StartDateTime_Text;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label ProcessDetails_Text;
     }
 }

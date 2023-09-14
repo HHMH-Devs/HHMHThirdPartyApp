@@ -342,10 +342,5 @@ namespace ThirdPartyAppV2.Main
 
             }
         }
-
-        private void Main_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-        }
     }
 }

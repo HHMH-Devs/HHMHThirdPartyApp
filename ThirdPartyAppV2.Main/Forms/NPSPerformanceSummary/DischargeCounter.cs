@@ -63,13 +63,6 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             return "00:00:00";
         }
 
-        private void PerformanceCounter_Load(object sender, EventArgs e)
-        {
-            LoadDatesAndTime();
-            PatientName_Lbl.Text = PatientName;
-            DataLoaded();
-        }
-
         private void DataLoaded()
         {
             var txt = groupBox1.Controls.OfType<TextBox>().ToList();
@@ -290,7 +283,7 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
 
         private void MDSetStartDate_Btn_Click(object sender, EventArgs e)
         {
-            MDStartDate_Text.Text = DateTime.Now.ToString();          
+            MDStartDate_Text.Text = DateTime.Now.ToString();
         }
 
         private void MDSetEndDate_Btn_Click(object sender, EventArgs e)
@@ -507,6 +500,13 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
         private void BP1EndDateTime_Btn_Click(object sender, EventArgs e)
         {
             BP1EndDateTime_Text.Text = DateTime.Now.ToString();
+        }
+
+        private void DischargeCounter_Load(object sender, EventArgs e)
+        {
+            LoadDatesAndTime();
+            PatientName_Lbl.Text = PatientName;
+            DataLoaded();
         }
     }
 }
