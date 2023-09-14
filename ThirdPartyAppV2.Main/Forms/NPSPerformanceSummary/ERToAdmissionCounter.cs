@@ -432,10 +432,7 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
 
         private void APPStartDate_Text_TextChanged(object sender, EventArgs e)
         {
-            if (DateTime.TryParse(APPStartDate_Text.Text, out DateTime parsedDateTime1) && DateTime.TryParse(APPEndDate_Text.Text, out DateTime parsedDateTime2))
-            {
-                APPLabel_Lbl.Text = $"Admitting/Patient Profiling - {GetMDTimeDiff("Admitting/Patient Profiling", parsedDateTime1.ToString(), parsedDateTime2.ToString())}";
-            }
+
         }
 
         private void PhicSubStartDate_Text_TextChanged(object sender, EventArgs e)

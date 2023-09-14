@@ -405,6 +405,7 @@
             this.RegToDctrsOderEndDate_Btn.TabIndex = 60;
             this.RegToDctrsOderEndDate_Btn.Tag = "RegToDctrsOderEndDate_Text";
             this.RegToDctrsOderEndDate_Btn.UseVisualStyleBackColor = true;
+            this.RegToDctrsOderEndDate_Btn.Click += new System.EventHandler(this.RegToDctrsOderEndDate_Btn_Click);
             // 
             // RegToDctrsOderEndDate_Text
             // 
@@ -412,6 +413,7 @@
             this.RegToDctrsOderEndDate_Text.Name = "RegToDctrsOderEndDate_Text";
             this.RegToDctrsOderEndDate_Text.Size = new System.Drawing.Size(277, 20);
             this.RegToDctrsOderEndDate_Text.TabIndex = 59;
+            this.RegToDctrsOderEndDate_Text.TextChanged += new System.EventHandler(this.RegToDctrsOderEndDate_Text_TextChanged);
             // 
             // label22
             // 
@@ -431,6 +433,7 @@
             this.RegToDctrsOderStartDate_Btn.TabIndex = 57;
             this.RegToDctrsOderStartDate_Btn.Tag = "RegToDctrsOderStartDate_Text";
             this.RegToDctrsOderStartDate_Btn.UseVisualStyleBackColor = true;
+            this.RegToDctrsOderStartDate_Btn.Click += new System.EventHandler(this.RegToDctrsOderStartDate_Btn_Click);
             // 
             // RegToDctrsOderStartDate_Text
             // 
@@ -438,6 +441,7 @@
             this.RegToDctrsOderStartDate_Text.Name = "RegToDctrsOderStartDate_Text";
             this.RegToDctrsOderStartDate_Text.Size = new System.Drawing.Size(277, 20);
             this.RegToDctrsOderStartDate_Text.TabIndex = 56;
+            this.RegToDctrsOderStartDate_Text.TextChanged += new System.EventHandler(this.RegToDctrsOderStartDate_Text_TextChanged);
             // 
             // label23
             // 
@@ -457,6 +461,7 @@
             this.NCOEndDate_Btn.TabIndex = 46;
             this.NCOEndDate_Btn.Tag = "NCOEndDate_Text";
             this.NCOEndDate_Btn.UseVisualStyleBackColor = true;
+            this.NCOEndDate_Btn.Click += new System.EventHandler(this.NCOEndDate_Btn_Click);
             // 
             // RToDOLabel_Lbl
             // 
@@ -477,6 +482,7 @@
             this.RPEndDate_Btn.TabIndex = 46;
             this.RPEndDate_Btn.Tag = "RPEndDate_Text";
             this.RPEndDate_Btn.UseVisualStyleBackColor = true;
+            this.RPEndDate_Btn.Click += new System.EventHandler(this.RPEndDate_Btn_Click);
             // 
             // TransferToRoomEndDate_Btn
             // 
@@ -487,6 +493,7 @@
             this.TransferToRoomEndDate_Btn.TabIndex = 45;
             this.TransferToRoomEndDate_Btn.Tag = "TransferToRoomEndDate_Text";
             this.TransferToRoomEndDate_Btn.UseVisualStyleBackColor = true;
+            this.TransferToRoomEndDate_Btn.Click += new System.EventHandler(this.TransferToRoomEndDate_Btn_Click);
             // 
             // PhicSubEndDate_Btn
             // 
@@ -497,6 +504,7 @@
             this.PhicSubEndDate_Btn.TabIndex = 46;
             this.PhicSubEndDate_Btn.Tag = "PhicSubEndDate_Text";
             this.PhicSubEndDate_Btn.UseVisualStyleBackColor = true;
+            this.PhicSubEndDate_Btn.Click += new System.EventHandler(this.PhicSubEndDate_Btn_Click);
             // 
             // ReadyToTransferEndDate_Btn
             // 
@@ -507,6 +515,7 @@
             this.ReadyToTransferEndDate_Btn.TabIndex = 44;
             this.ReadyToTransferEndDate_Btn.Tag = "ReadyToTransferEndDate_Text";
             this.ReadyToTransferEndDate_Btn.UseVisualStyleBackColor = true;
+            this.ReadyToTransferEndDate_Btn.Click += new System.EventHandler(this.ReadyToTransferEndDate_Btn_Click);
             // 
             // APPEndDate_Btn
             // 
@@ -517,6 +526,7 @@
             this.APPEndDate_Btn.TabIndex = 46;
             this.APPEndDate_Btn.Tag = "APPEndDate_Text";
             this.APPEndDate_Btn.UseVisualStyleBackColor = true;
+            this.APPEndDate_Btn.Click += new System.EventHandler(this.APPEndDate_Btn_Click);
             // 
             // NCOEndDate_Text
             // 
@@ -548,6 +558,7 @@
             this.DctrsOrderCarryOutEndDate_Btn.TabIndex = 46;
             this.DctrsOrderCarryOutEndDate_Btn.Tag = "DctrsOrderCarryOutEndDate_Text";
             this.DctrsOrderCarryOutEndDate_Btn.UseVisualStyleBackColor = true;
+            this.DctrsOrderCarryOutEndDate_Btn.Click += new System.EventHandler(this.DctrsOrderCarryOutEndDate_Btn_Click);
             // 
             // PhicSubEndDate_Text
             // 
@@ -640,6 +651,7 @@
             this.NCOStartDate_Btn.TabIndex = 34;
             this.NCOStartDate_Btn.Tag = "NCOStartDate_Text";
             this.NCOStartDate_Btn.UseVisualStyleBackColor = true;
+            this.NCOStartDate_Btn.Click += new System.EventHandler(this.NCOStartDate_Btn_Click);
             // 
             // TransferToRoomStartDate_Btn
             // 
@@ -650,6 +662,7 @@
             this.TransferToRoomStartDate_Btn.TabIndex = 31;
             this.TransferToRoomStartDate_Btn.Tag = "TransferToRoomStartDate_Text";
             this.TransferToRoomStartDate_Btn.UseVisualStyleBackColor = true;
+            this.TransferToRoomStartDate_Btn.Click += new System.EventHandler(this.TransferToRoomStartDate_Btn_Click);
             // 
             // RPStartDate_Btn
             // 
@@ -660,6 +673,7 @@
             this.RPStartDate_Btn.TabIndex = 34;
             this.RPStartDate_Btn.Tag = "RPStartDate_Text";
             this.RPStartDate_Btn.UseVisualStyleBackColor = true;
+            this.RPStartDate_Btn.Click += new System.EventHandler(this.RPStartDate_Btn_Click);
             // 
             // label30
             // 
@@ -679,6 +693,7 @@
             this.PhicSubStartDate_Btn.TabIndex = 34;
             this.PhicSubStartDate_Btn.Tag = "PhicSubStartDate_Text";
             this.PhicSubStartDate_Btn.UseVisualStyleBackColor = true;
+            this.PhicSubStartDate_Btn.Click += new System.EventHandler(this.PhicSubStartDate_Btn_Click);
             // 
             // ReadyToTransferStartDate_Btn
             // 
@@ -689,6 +704,7 @@
             this.ReadyToTransferStartDate_Btn.TabIndex = 32;
             this.ReadyToTransferStartDate_Btn.Tag = "ReadyToTransferStartDate_Text";
             this.ReadyToTransferStartDate_Btn.UseVisualStyleBackColor = true;
+            this.ReadyToTransferStartDate_Btn.Click += new System.EventHandler(this.ReadyToTransferStartDate_Btn_Click);
             // 
             // APPStartDate_Btn
             // 
@@ -699,6 +715,7 @@
             this.APPStartDate_Btn.TabIndex = 34;
             this.APPStartDate_Btn.Tag = "APPStartDate_Text";
             this.APPStartDate_Btn.UseVisualStyleBackColor = true;
+            this.APPStartDate_Btn.Click += new System.EventHandler(this.APPStartDate_Btn_Click);
             // 
             // NCOStartDate_Text
             // 
@@ -730,6 +747,7 @@
             this.DctrsOrderCarryOutStartDate_Btn.TabIndex = 34;
             this.DctrsOrderCarryOutStartDate_Btn.Tag = "DctrsOrderCarryOutStartDate_Text";
             this.DctrsOrderCarryOutStartDate_Btn.UseVisualStyleBackColor = true;
+            this.DctrsOrderCarryOutStartDate_Btn.Click += new System.EventHandler(this.DctrsOrderCarryOutStartDate_Btn_Click);
             // 
             // PhicSubStartDate_Text
             // 
@@ -852,6 +870,7 @@
             this.Done_Btn.TabIndex = 7;
             this.Done_Btn.Text = "&Done";
             this.Done_Btn.UseVisualStyleBackColor = true;
+            this.Done_Btn.Click += new System.EventHandler(this.Done_Btn_Click);
             // 
             // Cancel_Btn
             // 
@@ -863,6 +882,7 @@
             this.Cancel_Btn.TabIndex = 6;
             this.Cancel_Btn.Text = "&Cancel";
             this.Cancel_Btn.UseVisualStyleBackColor = true;
+            this.Cancel_Btn.Click += new System.EventHandler(this.Cancel_Btn_Click);
             // 
             // groupBox1
             // 
