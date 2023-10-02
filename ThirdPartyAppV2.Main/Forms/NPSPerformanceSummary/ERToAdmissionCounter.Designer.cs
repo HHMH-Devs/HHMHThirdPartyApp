@@ -441,6 +441,7 @@
             this.RegToDctrsOderStartDate_Text.Name = "RegToDctrsOderStartDate_Text";
             this.RegToDctrsOderStartDate_Text.Size = new System.Drawing.Size(277, 20);
             this.RegToDctrsOderStartDate_Text.TabIndex = 56;
+            this.RegToDctrsOderStartDate_Text.MouseClick += new System.Windows.Forms.MouseEventHandler(this.RegToDctrsOderStartDate_Text_MouseClick);
             this.RegToDctrsOderStartDate_Text.TextChanged += new System.EventHandler(this.RegToDctrsOderStartDate_Text_TextChanged);
             // 
             // label23
@@ -534,6 +535,7 @@
             this.NCOEndDate_Text.Name = "NCOEndDate_Text";
             this.NCOEndDate_Text.Size = new System.Drawing.Size(277, 20);
             this.NCOEndDate_Text.TabIndex = 41;
+            this.NCOEndDate_Text.TextChanged += new System.EventHandler(this.NCOEndDate_Text_TextChanged);
             // 
             // TransferToRoomEndDate_Text
             // 
@@ -541,6 +543,7 @@
             this.TransferToRoomEndDate_Text.Name = "TransferToRoomEndDate_Text";
             this.TransferToRoomEndDate_Text.Size = new System.Drawing.Size(277, 20);
             this.TransferToRoomEndDate_Text.TabIndex = 39;
+            this.TransferToRoomEndDate_Text.TextChanged += new System.EventHandler(this.TransferToRoomEndDate_Text_TextChanged);
             // 
             // RPEndDate_Text
             // 
@@ -548,6 +551,7 @@
             this.RPEndDate_Text.Name = "RPEndDate_Text";
             this.RPEndDate_Text.Size = new System.Drawing.Size(277, 20);
             this.RPEndDate_Text.TabIndex = 41;
+            this.RPEndDate_Text.TextChanged += new System.EventHandler(this.RPEndDate_Text_TextChanged);
             // 
             // DctrsOrderCarryOutEndDate_Btn
             // 
@@ -566,6 +570,7 @@
             this.PhicSubEndDate_Text.Name = "PhicSubEndDate_Text";
             this.PhicSubEndDate_Text.Size = new System.Drawing.Size(277, 20);
             this.PhicSubEndDate_Text.TabIndex = 41;
+            this.PhicSubEndDate_Text.TextChanged += new System.EventHandler(this.PhicSubEndDate_Text_TextChanged);
             // 
             // ReadyToTransferEndDate_Text
             // 
@@ -573,6 +578,7 @@
             this.ReadyToTransferEndDate_Text.Name = "ReadyToTransferEndDate_Text";
             this.ReadyToTransferEndDate_Text.Size = new System.Drawing.Size(277, 20);
             this.ReadyToTransferEndDate_Text.TabIndex = 40;
+            this.ReadyToTransferEndDate_Text.TextChanged += new System.EventHandler(this.ReadyToTransferEndDate_Text_TextChanged);
             // 
             // APPEndDate_Text
             // 
@@ -580,6 +586,7 @@
             this.APPEndDate_Text.Name = "APPEndDate_Text";
             this.APPEndDate_Text.Size = new System.Drawing.Size(277, 20);
             this.APPEndDate_Text.TabIndex = 41;
+            this.APPEndDate_Text.TextChanged += new System.EventHandler(this.APPEndDate_Text_TextChanged);
             // 
             // label12
             // 
@@ -614,6 +621,7 @@
             this.DctrsOrderCarryOutEndDate_Text.Name = "DctrsOrderCarryOutEndDate_Text";
             this.DctrsOrderCarryOutEndDate_Text.Size = new System.Drawing.Size(277, 20);
             this.DctrsOrderCarryOutEndDate_Text.TabIndex = 41;
+            this.DctrsOrderCarryOutEndDate_Text.TextChanged += new System.EventHandler(this.DctrsOrderCarryOutEndDate_Text_TextChanged);
             // 
             // label6
             // 
@@ -723,6 +731,7 @@
             this.NCOStartDate_Text.Name = "NCOStartDate_Text";
             this.NCOStartDate_Text.Size = new System.Drawing.Size(277, 20);
             this.NCOStartDate_Text.TabIndex = 30;
+            this.NCOStartDate_Text.TextChanged += new System.EventHandler(this.NCOStartDate_Text_TextChanged);
             // 
             // TransferToRoomStartDate_Text
             // 
@@ -730,6 +739,7 @@
             this.TransferToRoomStartDate_Text.Name = "TransferToRoomStartDate_Text";
             this.TransferToRoomStartDate_Text.Size = new System.Drawing.Size(277, 20);
             this.TransferToRoomStartDate_Text.TabIndex = 27;
+            this.TransferToRoomStartDate_Text.TextChanged += new System.EventHandler(this.TransferToRoomStartDate_Btn_Click);
             // 
             // RPStartDate_Text
             // 
@@ -737,6 +747,7 @@
             this.RPStartDate_Text.Name = "RPStartDate_Text";
             this.RPStartDate_Text.Size = new System.Drawing.Size(277, 20);
             this.RPStartDate_Text.TabIndex = 30;
+            this.RPStartDate_Text.TextChanged += new System.EventHandler(this.RPStartDate_Text_TextChanged);
             // 
             // DctrsOrderCarryOutStartDate_Btn
             // 
@@ -755,6 +766,7 @@
             this.PhicSubStartDate_Text.Name = "PhicSubStartDate_Text";
             this.PhicSubStartDate_Text.Size = new System.Drawing.Size(277, 20);
             this.PhicSubStartDate_Text.TabIndex = 30;
+            this.PhicSubStartDate_Text.TextChanged += new System.EventHandler(this.PhicSubStartDate_Text_TextChanged);
             // 
             // ReadyToTransferStartDate_Text
             // 
@@ -762,6 +774,7 @@
             this.ReadyToTransferStartDate_Text.Name = "ReadyToTransferStartDate_Text";
             this.ReadyToTransferStartDate_Text.Size = new System.Drawing.Size(277, 20);
             this.ReadyToTransferStartDate_Text.TabIndex = 28;
+            this.ReadyToTransferStartDate_Text.TextChanged += new System.EventHandler(this.ReadyToTransferStartDate_Text_TextChanged);
             // 
             // label11
             // 
@@ -778,6 +791,7 @@
             this.APPStartDate_Text.Name = "APPStartDate_Text";
             this.APPStartDate_Text.Size = new System.Drawing.Size(277, 20);
             this.APPStartDate_Text.TabIndex = 30;
+            this.APPStartDate_Text.TextChanged += new System.EventHandler(this.APPStartDate_Text_TextChanged);
             // 
             // label8
             // 
@@ -812,6 +826,7 @@
             this.DctrsOrderCarryOutStartDate_Text.Name = "DctrsOrderCarryOutStartDate_Text";
             this.DctrsOrderCarryOutStartDate_Text.Size = new System.Drawing.Size(277, 20);
             this.DctrsOrderCarryOutStartDate_Text.TabIndex = 30;
+            this.DctrsOrderCarryOutStartDate_Text.TextChanged += new System.EventHandler(this.DctrsOrderCarryOutStartDate_Text_TextChanged);
             // 
             // label2
             // 
@@ -887,6 +902,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ProcessDetails_Text);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(9, 561);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(687, 90);
@@ -896,6 +912,7 @@
             // 
             // ProcessDetails_Text
             // 
+            this.ProcessDetails_Text.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProcessDetails_Text.Location = new System.Drawing.Point(6, 16);
             this.ProcessDetails_Text.Name = "ProcessDetails_Text";
             this.ProcessDetails_Text.Size = new System.Drawing.Size(674, 65);
@@ -919,6 +936,7 @@
             this.Name = "ERToAdmissionCounter";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ER To Admission Performance Counter";
+            this.Load += new System.EventHandler(this.ERToAdmissionCounter_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();

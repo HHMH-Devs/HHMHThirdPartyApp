@@ -18,6 +18,7 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
         public DischargeCounter()
         {
             InitializeComponent();
+            ProcessDetails_Text.Text = string.Empty;
         }
 
         private string GetMDTimeDiff(string process, string startDate, string EndDate)
@@ -508,5 +509,11 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
             PatientName_Lbl.Text = PatientName;
             DataLoaded();
         }
+
+        private void Cancel_Btn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
     }
 }

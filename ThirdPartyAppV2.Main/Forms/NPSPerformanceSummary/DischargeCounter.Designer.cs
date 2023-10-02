@@ -172,7 +172,7 @@
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.MDLabel_Label);
-            this.groupBox1.Location = new System.Drawing.Point(9, 12);
+            this.groupBox1.Location = new System.Drawing.Point(7, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(690, 505);
             this.groupBox1.TabIndex = 0;
@@ -348,6 +348,7 @@
             this.BGEndDate_Btn.TabIndex = 11;
             this.BGEndDate_Btn.Tag = "BGEndDate_Text";
             this.BGEndDate_Btn.UseVisualStyleBackColor = true;
+            this.BGEndDate_Btn.Click += new System.EventHandler(this.BGEndDate_Btn_Click);
             // 
             // BGEndDate_Text
             // 
@@ -355,6 +356,7 @@
             this.BGEndDate_Text.Name = "BGEndDate_Text";
             this.BGEndDate_Text.Size = new System.Drawing.Size(277, 20);
             this.BGEndDate_Text.TabIndex = 10;
+            this.BGEndDate_Text.TextChanged += new System.EventHandler(this.BGEndDate_Text_TextChanged);
             // 
             // label8
             // 
@@ -374,6 +376,7 @@
             this.BGStartDate_Btn.TabIndex = 9;
             this.BGStartDate_Btn.Tag = "BGStartDate_Text";
             this.BGStartDate_Btn.UseVisualStyleBackColor = true;
+            this.BGStartDate_Btn.Click += new System.EventHandler(this.BGStartDate_Btn_Click);
             // 
             // BGStartDate_Text
             // 
@@ -381,6 +384,7 @@
             this.BGStartDate_Text.Name = "BGStartDate_Text";
             this.BGStartDate_Text.Size = new System.Drawing.Size(279, 20);
             this.BGStartDate_Text.TabIndex = 8;
+            this.BGStartDate_Text.TextChanged += new System.EventHandler(this.BGStartDate_Text_TextChanged);
             // 
             // label9
             // 
@@ -410,6 +414,7 @@
             this.IEEndDateTime_Btn.TabIndex = 7;
             this.IEEndDateTime_Btn.Tag = "IEEndDateTime_Text";
             this.IEEndDateTime_Btn.UseVisualStyleBackColor = true;
+            this.IEEndDateTime_Btn.Click += new System.EventHandler(this.IEEndDateTime_Btn_Click);
             // 
             // IEEndDateTime_Text
             // 
@@ -417,6 +422,7 @@
             this.IEEndDateTime_Text.Name = "IEEndDateTime_Text";
             this.IEEndDateTime_Text.Size = new System.Drawing.Size(277, 20);
             this.IEEndDateTime_Text.TabIndex = 6;
+            this.IEEndDateTime_Text.TextChanged += new System.EventHandler(this.IEEndDateTime_Text_TextChanged);
             // 
             // label12
             // 
@@ -436,6 +442,7 @@
             this.IEStartDateTime_Btn.TabIndex = 5;
             this.IEStartDateTime_Btn.Tag = "IEStartDateTime_Text";
             this.IEStartDateTime_Btn.UseVisualStyleBackColor = true;
+            this.IEStartDateTime_Btn.Click += new System.EventHandler(this.IEStartDateTime_Btn_Click);
             // 
             // IEStartDateTime_Text
             // 
@@ -443,6 +450,7 @@
             this.IEStartDateTime_Text.Name = "IEStartDateTime_Text";
             this.IEStartDateTime_Text.Size = new System.Drawing.Size(279, 20);
             this.IEStartDateTime_Text.TabIndex = 4;
+            this.IEStartDateTime_Text.TextChanged += new System.EventHandler(this.IEStartDateTime_Text_TextChanged);
             // 
             // PEEndDate_Btn
             // 
@@ -453,6 +461,7 @@
             this.PEEndDate_Btn.TabIndex = 31;
             this.PEEndDate_Btn.Tag = "PEEndDate_Text";
             this.PEEndDate_Btn.UseVisualStyleBackColor = true;
+            this.PEEndDate_Btn.Click += new System.EventHandler(this.PEEndDate_Btn_Click);
             // 
             // label7
             // 
@@ -472,6 +481,7 @@
             this.DIDEndDate_Btn.TabIndex = 27;
             this.DIDEndDate_Btn.Tag = "DIDEndDate_Text";
             this.DIDEndDate_Btn.UseVisualStyleBackColor = true;
+            this.DIDEndDate_Btn.Click += new System.EventHandler(this.DIDEndDate_Btn_Click);
             // 
             // IELabel_Lbl
             // 
@@ -492,6 +502,7 @@
             this.BP1EndDateTime_Btn.TabIndex = 19;
             this.BP1EndDateTime_Btn.Tag = "BP1EndDateTime_Text";
             this.BP1EndDateTime_Btn.UseVisualStyleBackColor = true;
+            this.BP1EndDateTime_Btn.Click += new System.EventHandler(this.BP1EndDateTime_Btn_Click);
             // 
             // PEEndDate_Text
             // 
@@ -499,6 +510,7 @@
             this.PEEndDate_Text.Name = "PEEndDate_Text";
             this.PEEndDate_Text.Size = new System.Drawing.Size(277, 20);
             this.PEEndDate_Text.TabIndex = 30;
+            this.PEEndDate_Text.TextChanged += new System.EventHandler(this.PEEndDate_Text_TextChanged);
             // 
             // BP2EndDate_Btn
             // 
@@ -509,6 +521,7 @@
             this.BP2EndDate_Btn.TabIndex = 23;
             this.BP2EndDate_Btn.Tag = "BP2EndDate_Text";
             this.BP2EndDate_Btn.UseVisualStyleBackColor = true;
+            this.BP2EndDate_Btn.Click += new System.EventHandler(this.BPEndDate_Btn_Click);
             // 
             // DIDEndDate_Text
             // 
@@ -516,6 +529,7 @@
             this.DIDEndDate_Text.Name = "DIDEndDate_Text";
             this.DIDEndDate_Text.Size = new System.Drawing.Size(277, 20);
             this.DIDEndDate_Text.TabIndex = 26;
+            this.DIDEndDate_Text.TextChanged += new System.EventHandler(this.DIDEndDate_Text_TextChanged);
             // 
             // MDSetEndDate_Btn
             // 
@@ -526,6 +540,7 @@
             this.MDSetEndDate_Btn.TabIndex = 3;
             this.MDSetEndDate_Btn.Tag = "MDEndDate_Text";
             this.MDSetEndDate_Btn.UseVisualStyleBackColor = true;
+            this.MDSetEndDate_Btn.Click += new System.EventHandler(this.MDSetEndDate_Btn_Click);
             // 
             // BP1EndDateTime_Text
             // 
@@ -533,6 +548,7 @@
             this.BP1EndDateTime_Text.Name = "BP1EndDateTime_Text";
             this.BP1EndDateTime_Text.Size = new System.Drawing.Size(277, 20);
             this.BP1EndDateTime_Text.TabIndex = 14;
+            this.BP1EndDateTime_Text.TextChanged += new System.EventHandler(this.BP1EndDateTime_Text_TextChanged);
             // 
             // label17
             // 
@@ -549,6 +565,7 @@
             this.BP2EndDate_Text.Name = "BP2EndDate_Text";
             this.BP2EndDate_Text.Size = new System.Drawing.Size(277, 20);
             this.BP2EndDate_Text.TabIndex = 22;
+            this.BP2EndDate_Text.TextChanged += new System.EventHandler(this.BPEndDate_Text_TextChanged);
             // 
             // label14
             // 
@@ -565,6 +582,7 @@
             this.MDEndDate_Text.Name = "MDEndDate_Text";
             this.MDEndDate_Text.Size = new System.Drawing.Size(277, 20);
             this.MDEndDate_Text.TabIndex = 2;
+            this.MDEndDate_Text.TextChanged += new System.EventHandler(this.MDEndDate_Text_TextChanged);
             // 
             // label5
             // 
@@ -584,6 +602,7 @@
             this.PEStartDate_Btn.TabIndex = 29;
             this.PEStartDate_Btn.Tag = "PEStartDate_Text";
             this.PEStartDate_Btn.UseVisualStyleBackColor = true;
+            this.PEStartDate_Btn.Click += new System.EventHandler(this.PEStartDate_Btn_Click);
             // 
             // label11
             // 
@@ -603,6 +622,7 @@
             this.DIDStartDate_Btn.TabIndex = 25;
             this.DIDStartDate_Btn.Tag = "DIDStartDate_Text";
             this.DIDStartDate_Btn.UseVisualStyleBackColor = true;
+            this.DIDStartDate_Btn.Click += new System.EventHandler(this.DIDStartDate_Btn_Click);
             // 
             // label3
             // 
@@ -622,6 +642,7 @@
             this.BP1StartDateTime_Btn.TabIndex = 13;
             this.BP1StartDateTime_Btn.Tag = "BP1StartDateTime_Text";
             this.BP1StartDateTime_Btn.UseVisualStyleBackColor = true;
+            this.BP1StartDateTime_Btn.Click += new System.EventHandler(this.BP1StartDateTime_Btn_Click);
             // 
             // PEStartDate_Text
             // 
@@ -629,6 +650,7 @@
             this.PEStartDate_Text.Name = "PEStartDate_Text";
             this.PEStartDate_Text.Size = new System.Drawing.Size(277, 20);
             this.PEStartDate_Text.TabIndex = 28;
+            this.PEStartDate_Text.TextChanged += new System.EventHandler(this.PEStartDate_Btn_Click);
             // 
             // BP2StartDate_Btn
             // 
@@ -639,6 +661,7 @@
             this.BP2StartDate_Btn.TabIndex = 21;
             this.BP2StartDate_Btn.Tag = "BP2StartDate_Text";
             this.BP2StartDate_Btn.UseVisualStyleBackColor = true;
+            this.BP2StartDate_Btn.Click += new System.EventHandler(this.BPStartDate_Btn_Click);
             // 
             // DIDStartDate_Text
             // 
@@ -646,6 +669,7 @@
             this.DIDStartDate_Text.Name = "DIDStartDate_Text";
             this.DIDStartDate_Text.Size = new System.Drawing.Size(277, 20);
             this.DIDStartDate_Text.TabIndex = 24;
+            this.DIDStartDate_Text.TextChanged += new System.EventHandler(this.DIDStartDate_Text_TextChanged);
             // 
             // MDSetStartDate_Btn
             // 
@@ -656,6 +680,7 @@
             this.MDSetStartDate_Btn.TabIndex = 1;
             this.MDSetStartDate_Btn.Tag = "MDStartDate_Text";
             this.MDSetStartDate_Btn.UseVisualStyleBackColor = true;
+            this.MDSetStartDate_Btn.Click += new System.EventHandler(this.MDSetStartDate_Btn_Click);
             // 
             // BP1StartDateTime_Text
             // 
@@ -663,6 +688,7 @@
             this.BP1StartDateTime_Text.Name = "BP1StartDateTime_Text";
             this.BP1StartDateTime_Text.Size = new System.Drawing.Size(279, 20);
             this.BP1StartDateTime_Text.TabIndex = 12;
+            this.BP1StartDateTime_Text.TextChanged += new System.EventHandler(this.BP1StartDateTime_Text_TextChanged);
             // 
             // label16
             // 
@@ -679,6 +705,7 @@
             this.BP2StartDate_Text.Name = "BP2StartDate_Text";
             this.BP2StartDate_Text.Size = new System.Drawing.Size(277, 20);
             this.BP2StartDate_Text.TabIndex = 20;
+            this.BP2StartDate_Text.TextChanged += new System.EventHandler(this.BPStartDate_Text_TextChanged);
             // 
             // label13
             // 
@@ -704,6 +731,7 @@
             this.MDStartDate_Text.Name = "MDStartDate_Text";
             this.MDStartDate_Text.Size = new System.Drawing.Size(279, 20);
             this.MDStartDate_Text.TabIndex = 0;
+            this.MDStartDate_Text.TextChanged += new System.EventHandler(this.MDStartDate_Text_TextChanged);
             // 
             // label10
             // 
@@ -737,29 +765,31 @@
             // 
             this.Cancel_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.Cancel_Btn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancel_Btn.Location = new System.Drawing.Point(624, 619);
+            this.Cancel_Btn.Location = new System.Drawing.Point(619, 619);
             this.Cancel_Btn.Name = "Cancel_Btn";
             this.Cancel_Btn.Size = new System.Drawing.Size(75, 31);
             this.Cancel_Btn.TabIndex = 33;
             this.Cancel_Btn.Text = "&Cancel";
             this.Cancel_Btn.UseVisualStyleBackColor = true;
+            this.Cancel_Btn.Click += new System.EventHandler(this.Cancel_Btn_Click);
             // 
             // Done_Btn
             // 
             this.Done_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Done_Btn.Location = new System.Drawing.Point(543, 619);
+            this.Done_Btn.Location = new System.Drawing.Point(538, 619);
             this.Done_Btn.Name = "Done_Btn";
             this.Done_Btn.Size = new System.Drawing.Size(75, 31);
             this.Done_Btn.TabIndex = 32;
             this.Done_Btn.Text = "&Done";
             this.Done_Btn.UseVisualStyleBackColor = true;
+            this.Done_Btn.Click += new System.EventHandler(this.Done_Btn_Click);
             // 
             // label41
             // 
             this.label41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label41.Location = new System.Drawing.Point(23, 628);
+            this.label41.Location = new System.Drawing.Point(21, 628);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(96, 13);
             this.label41.TabIndex = 4;
@@ -769,7 +799,7 @@
             // 
             this.PatientName_Lbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.PatientName_Lbl.AutoSize = true;
-            this.PatientName_Lbl.Location = new System.Drawing.Point(125, 628);
+            this.PatientName_Lbl.Location = new System.Drawing.Point(123, 628);
             this.PatientName_Lbl.Name = "PatientName_Lbl";
             this.PatientName_Lbl.Size = new System.Drawing.Size(136, 13);
             this.PatientName_Lbl.TabIndex = 5;
@@ -778,9 +808,9 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.ProcessDetails_Text);
-            this.groupBox2.Location = new System.Drawing.Point(9, 523);
+            this.groupBox2.Location = new System.Drawing.Point(7, 523);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(687, 90);
+            this.groupBox2.Size = new System.Drawing.Size(690, 90);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Process Details";
@@ -799,7 +829,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Cancel_Btn;
-            this.ClientSize = new System.Drawing.Size(708, 656);
+            this.ClientSize = new System.Drawing.Size(705, 656);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.PatientName_Lbl);
             this.Controls.Add(this.label41);

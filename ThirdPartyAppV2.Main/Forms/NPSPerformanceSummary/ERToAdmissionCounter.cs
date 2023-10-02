@@ -17,6 +17,7 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
         public ERToAdmissionCounter()
         {
             InitializeComponent();
+            ProcessDetails_Text.Text = string.Empty;
         }
 
         private void ERToAdmissionCounter_Load(object sender, EventArgs e)
@@ -539,6 +540,11 @@ namespace ThirdPartyAppV2.Main.Forms.NPSPerformanceSummary
         private void NCOEndDate_Btn_Click(object sender, EventArgs e)
         {
             NCOEndDate_Text.Text = DateTime.Now.ToString();
+        }
+
+        private void RegToDctrsOderStartDate_Text_MouseClick(object sender, MouseEventArgs e)
+        {
+            ProcessDetails_Text.Text = "";
         }
     }
 }

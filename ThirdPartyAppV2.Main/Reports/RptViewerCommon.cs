@@ -25,7 +25,6 @@ namespace ThirdPartyAppV2.Main.Reports
         {
             reportViewer.LocalReport.DataSources.Clear();
             reportViewer.LocalReport.ReportEmbeddedResource = "ThirdPartyAppV2.Main.Reports.rptNpsPerformanceSummary.rdlc";
-            //ToDo...
             var hospInfo = counter.LoadHospinfo();
             var dischProc = counter.LoadDischargeProc(rptMode, dateNow);
             var erToAdmission = counter.LoadErToAdmission(rptMode, dateNow);
